@@ -1,0 +1,27 @@
+$space-tokens: (
+    xxs: 0.25rem,
+    xs: 0.5rem,
+    s: 0.75rem,
+    m: 1rem,
+    l: 1.5rem,
+    lg: var(--space-l),
+    xl: 2rem,
+    xxl: 3rem,
+    king: 5rem
+);
+
+$layout-tokens: (
+    frame-max: 1440px,
+    content-max: 72rem,
+    frame-gutter: clamp(1rem, 4vw, 2rem),
+    section-space: clamp(3rem, 6vw, 5rem),
+    grid-gap: clamp(1rem, 2vw, 2rem),
+    padding-xxl: var(--section-space),
+    rhythm-tight: 0.75rem,
+    rhythm-base: 1rem,
+    rhythm-loose: 1.5rem
+);
+
+$space-legacy-aliases: (
+    king-space: var(--space-king)
+);

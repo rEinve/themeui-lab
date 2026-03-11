@@ -1,0 +1,29 @@
+@use '../tools' as tools;
+@use './colors';
+@use './spacing';
+@use './typography';
+@use './radius';
+@use './shadows';
+@use './motion';
+
+:root {
+    color-scheme: light;
+
+    @include tools.export-css-vars(colors.$color-tokens, 'color');
+    @include tools.export-css-vars(spacing.$space-tokens, 'space');
+    @include tools.export-css-vars(spacing.$layout-tokens);
+    @include tools.export-css-vars(typography.$typography-tokens);
+    @include tools.export-css-vars(radius.$radius-tokens, 'radius');
+    @include tools.export-css-vars(shadows.$shadow-tokens, 'shadow');
+    @include tools.export-css-vars(motion.$motion-tokens, 'motion');
+
+    @include tools.export-css-vars(colors.$color-legacy-aliases);
+    @include tools.export-css-vars(spacing.$space-legacy-aliases);
+    @include tools.export-css-vars(shadows.$shadow-legacy-aliases);
+    @include tools.export-css-vars(motion.$motion-legacy-aliases);
+}
+
+[data-theme='dark'] {
+    color-scheme: dark;
+    @include tools.export-css-vars(colors.$color-dark-overrides, 'color');
+}

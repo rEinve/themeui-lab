@@ -1,0 +1,59 @@
+//==========================================================================
+// FOUNDATION MIXINS
+//==========================================================================
+
+$bp-compact: 600px;
+$bp-medium: 840px;
+$bp-expanded: 1200px;
+$bp-large: 1440px;
+
+@mixin breakpoint($size) {
+    @if $size == medium {
+        @media (min-width: #{$bp-compact}) {
+            @content;
+        }
+    } @else if $size == expanded {
+        @media (min-width: #{$bp-medium}) {
+            @content;
+        }
+    } @else if $size == large {
+        @media (min-width: #{$bp-expanded}) {
+            @content;
+        }
+    } @else if $size == max {
+        @media (min-width: #{$bp-large}) {
+            @content;
+        }
+    } @else {
+        @media (min-width: #{$size}) {
+            @content;
+        }
+    }
+}
+
+@mixin grid-container($columns: 12, $gap: var(--grid-gap)) {
+    display: grid;
+    grid-template-columns: repeat($columns, minmax(0, 1fr));
+    gap: $gap;
+}
+
+@mixin col-span($span) {
+    grid-column: span #{$span} / span #{$span};
+}
+
+@mixin glass-vanilla($alpha: 0.76) {
+    background-color: oklch(from var(--surface-100) l c h / #{$alpha});
+    backdrop-filter: blur(20px) saturate(1.18);
+    border: 1px solid var(--outline-variant);
+    box-shadow: var(--elevation-2);
+}
+
+@mixin export-css-vars($map, $prefix: null) {
+    @each $key, $value in $map {
+        @if $prefix == null or $prefix == '' {
+            --#{$key}: #{$value};
+        } @else {
+            --#{$prefix}-#{$key}: #{$value};
+        }
+    }
+}

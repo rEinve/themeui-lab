@@ -1,0 +1,10 @@
+.container,
+.frame,
+.section-shell,
+.grid-12,
+.page-grid {
+    width: min(100%, var(--frame-max));
+    margin-inline: auto;
+    padding-inline: var(--frame-gutter);
+    box-sizing: border-box;
+}

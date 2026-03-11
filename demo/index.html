@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>themeui-lab Demo</title>
+    <script type="module">
+      import "/src/scss/themeui-lab.scss";
+    </script>
+    <style>
+      body {
+        margin: 0;
+        color: var(--color-text-primary);
+        font-family: var(--font-body);
+      }
+
+      .demo-main {
+        padding-block: var(--section-space);
+      }
+
+      .demo-section {
+        border: 1px solid var(--color-outline-variant);
+        border-radius: var(--radius-container-md);
+        background: var(--color-surface-100);
+        padding: var(--space-l);
+      }
+
+      .demo-swatch {
+        min-height: 4rem;
+        border-radius: var(--radius-control-md);
+        border: 1px solid var(--color-outline-variant);
+        padding: var(--space-s);
+        display: flex;
+        align-items: end;
+        color: var(--color-text-primary);
+        font-size: var(--text-sm);
+      }
+
+      .demo-space-item {
+        display: flex;
+        align-items: center;
+        gap: var(--space-s);
+      }
+
+      .demo-space-bar {
+        height: 0.5rem;
+        width: var(--space-value);
+        border-radius: var(--radius-pill);
+        background: var(--color-accent);
+      }
+
+      .demo-primitive-box {
+        border: 1px dashed var(--color-outline-variant);
+        border-radius: var(--radius-control-md);
+        background: var(--color-surface-95);
+        padding: var(--space-s);
+      }
+    </style>
+  </head>
+  <body>
+    <main class="demo-main container stack-loose">
+      <header class="stack-tight">
+        <h1>themeui-lab playground</h1>
+        <p>Minimal inspection page for tokens, primitives, and core components.</p>
+      </header>
+
+      <section class="demo-section stack">
+        <div class="section-heading">
+          <h2>Typography</h2>
+        </div>
+        <div class="stack-tight">
+          <h1>Heading 1 sample</h1>
+          <h2>Heading 2 sample</h2>
+          <h3>Heading 3 sample</h3>
+          <p>Body text sample for readability and rhythm.</p>
+          <p style="color: var(--color-text-secondary)">Muted text sample using secondary text token.</p>
+        </div>
+      </section>
+
+      <section class="demo-section stack">
+        <div class="section-heading">
+          <h2>Color Tokens</h2>
+        </div>
+        <div class="grid-12">
+          <div class="md-col-6 lg-col-4">
+            <div class="demo-swatch" style="background: var(--color-surface-95)">background: --color-surface-95</div>
+          </div>
+          <div class="md-col-6 lg-col-4">
+            <div class="demo-swatch" style="background: var(--color-surface-100)">surface: --color-surface-100</div>
+          </div>
+          <div class="md-col-6 lg-col-4">
+            <div class="demo-swatch" style="background: var(--color-accent); color: var(--color-surface-100)">accent: --color-accent</div>
+          </div>
+          <div class="md-col-6 lg-col-4">
+            <div class="demo-swatch" style="background: var(--color-surface-100); border-color: var(--color-outline-variant)">border: --color-outline-variant</div>
+          </div>
+          <div class="md-col-6 lg-col-4">
+            <div class="demo-swatch" style="background: var(--color-surface-100); color: var(--color-text-primary)">text: --color-text-primary</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="demo-section stack">
+        <div class="section-heading">
+          <h2>Spacing Tokens</h2>
+        </div>
+        <div class="stack-tight">
+          <div class="demo-space-item">
+            <span>--space-xxs</span>
+            <span class="demo-space-bar" style="--space-value: var(--space-xxs)"></span>
+          </div>
+          <div class="demo-space-item">
+            <span>--space-xs</span>
+            <span class="demo-space-bar" style="--space-value: var(--space-xs)"></span>
+          </div>
+          <div class="demo-space-item">
+            <span>--space-s</span>
+            <span class="demo-space-bar" style="--space-value: var(--space-s)"></span>
+          </div>
+          <div class="demo-space-item">
+            <span>--space-m</span>
+            <span class="demo-space-bar" style="--space-value: var(--space-m)"></span>
+          </div>
+          <div class="demo-space-item">
+            <span>--space-l</span>
+            <span class="demo-space-bar" style="--space-value: var(--space-l)"></span>
+          </div>
+          <div class="demo-space-item">
+            <span>--space-xl</span>
+            <span class="demo-space-bar" style="--space-value: var(--space-xl)"></span>
+          </div>
+          <div class="demo-space-item">
+            <span>--space-xxl</span>
+            <span class="demo-space-bar" style="--space-value: var(--space-xxl)"></span>
+          </div>
+        </div>
+      </section>
+
+      <section class="demo-section stack">
+        <div class="section-heading">
+          <h2>Primitives</h2>
+        </div>
+        <div class="stack">
+          <div class="demo-primitive-box container">container</div>
+
+          <div class="stack demo-primitive-box">
+            <span>stack</span>
+            <span>item 2</span>
+            <span>item 3</span>
+          </div>
+
+          <div class="row demo-primitive-box">
+            <span>row item A</span>
+            <span>row item B</span>
+            <span>row item C</span>
+          </div>
+
+          <div class="cluster demo-primitive-box">
+            <span class="tag">cluster</span>
+            <span class="tag">wraps</span>
+            <span class="tag">items</span>
+          </div>
+
+          <div class="grid-12 demo-primitive-box">
+            <div class="md-col-6 lg-col-4 card">grid col 1</div>
+            <div class="md-col-6 lg-col-4 card">grid col 2</div>
+            <div class="md-col-12 lg-col-4 card">grid col 3</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="demo-section stack">
+        <div class="section-heading">
+          <h2>Components</h2>
+        </div>
+        <div class="stack">
+          <div class="cluster">
+            <button class="button" type="button">Button</button>
+            <span class="tag">Tag</span>
+          </div>
+
+          <div class="card stack-tight">
+            <h3 class="card__title">Card Title</h3>
+            <p class="card__text">Simple card surface with title and body copy.</p>
+          </div>
+
+          <label class="stack-tight">
+            <span>Input</span>
+            <input class="input" type="text" placeholder="Type here..." />
+          </label>
+
+          <label class="stack-tight">
+            <span>Textarea</span>
+            <textarea class="textarea" placeholder="Write a longer message..."></textarea>
+          </label>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,18 @@
+.stack,
+.stack-tight,
+.stack-loose {
+    display: flex;
+    flex-direction: column;
+}
+
+.stack {
+    gap: var(--space-m);
+}
+
+.stack-tight {
+    gap: var(--space-s);
+}
+
+.stack-loose {
+    gap: var(--space-l);
+}

@@ -1,0 +1,26 @@
+$motion-tokens: (
+    ease-standard: cubic-bezier(0.2, 0, 0, 1),
+    ease-emphasized: cubic-bezier(0.3, 1, 0.3, 1),
+    ease-decelerate: cubic-bezier(0, 0, 0, 1),
+    ease-accelerate: cubic-bezier(0.3, 0, 1, 1),
+
+    fast: 120ms,
+    standard: 200ms,
+    slow: 420ms,
+    emphasized: 400ms,
+    linger: 600ms,
+
+    expand: var(--motion-standard),
+    collapse: var(--motion-standard),
+    page-enter: var(--motion-emphasized),
+    modal-enter: var(--motion-emphasized)
+);
+
+$motion-legacy-aliases: (
+    ease-standard: var(--motion-ease-standard),
+    ease-emphasized: var(--motion-ease-emphasized),
+    ease-decelerate: var(--motion-ease-decelerate),
+    ease-accelerate: var(--motion-ease-accelerate),
+    duration-short: var(--motion-fast),
+    duration-medium: var(--motion-standard)
+);

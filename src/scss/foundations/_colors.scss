@@ -1,3 +1,4 @@
+/* Canonical color token map. Exported as --color-*. */
 $color-tokens: (
     brand-hue: 150,
     neutral-hue: 95,
@@ -68,6 +69,7 @@ $color-tokens: (
     primary: var(--color-accent)
 );
 
+/* Dark-theme override map for color tokens. */
 $color-dark-overrides: (
     surface: oklch(0.22 0.01 var(--color-neutral-hue)),
     surface-default: oklch(0.22 0.01 var(--color-neutral-hue)),
@@ -88,6 +90,10 @@ $color-dark-overrides: (
     outline-variant: oklch(from var(--color-text-80) l c h / 0.28)
 );
 
+/* Legacy alias map.
+ * Kept for compatibility with pre-normalization selectors/variables.
+ * Prefer canonical --color-* tokens in new code.
+ */
 $color-legacy-aliases: (
     brand-hue: var(--color-brand-hue),
     neutral-hue: var(--color-neutral-hue),
@@ -166,8 +172,5 @@ $color-legacy-aliases: (
     text-primary-90: var(--color-text-90),
 
     text-muted: var(--color-text-secondary),
-    text-soft: var(--color-text-tertiary),
-    color-text-primary: var(--color-text-primary),
-    color-text-muted: var(--color-text-secondary),
-    color-accent: var(--color-accent)
+    text-soft: var(--color-text-tertiary)
 );

@@ -1,3 +1,4 @@
+/* Canonical shadow token map. Exported as --shadow-*. */
 $shadow-tokens: (
     dna: 0.22 0.012 var(--color-neutral-hue),
     elevation-0: none,
@@ -7,6 +8,7 @@ $shadow-tokens: (
     elevation-4: 0 20px 48px oklch(from var(--color-surface-0) l c h / 0.14)
 );
 
+/* Legacy alias map kept for compatibility only. */
 $shadow-legacy-aliases: (
     shadow-dna: var(--shadow-dna),
     elevation-0: var(--shadow-elevation-0),

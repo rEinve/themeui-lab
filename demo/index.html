@@ -7,6 +7,7 @@
     <script type="module">
       import "/src/scss/themeui-lab.scss";
     </script>
+    <link rel="stylesheet" href="/demo/demo-shell.css" />
     <style>
       body {
         margin: 0;
@@ -17,7 +18,6 @@
       .demo-main {
         padding-block: var(--section-space);
       }
-
       .demo-section {
         border: 1px solid var(--color-outline-variant);
         border-radius: var(--radius-container-md);
@@ -58,17 +58,32 @@
     </style>
   </head>
   <body>
-    <main class="demo-main container stack-loose">
-      <header class="stack-tight">
+    <div class="demo-shell-layout">
+      <nav class="demo-shell">
+        <div class="container">
+          <div class="demo-shell-links">
+            <a class="demo-shell-link" href="/demo/index.html#overview" aria-current="page">Overview</a>
+            <a class="demo-shell-link" href="/demo/index.html#tokens">Tokens</a>
+            <a class="demo-shell-link" href="/demo/index.html#primitives">Primitives</a>
+            <a class="demo-shell-link" href="/demo/index.html#components">Components</a>
+            <a class="demo-shell-link" href="/demo/settings.html">Settings Page</a>
+            <a class="demo-shell-link" href="/demo/dashboard.html">Dashboard Page</a>
+            <a class="demo-shell-link" href="/demo/article.html">Article Page</a>
+          </div>
+        </div>
+      </nav>
+      <main class="demo-shell-main demo-main container stack stack--xl">
+      <header id="overview" class="stack stack--xs">
         <h1>themeui-lab playground</h1>
         <p>Minimal inspection page for tokens, primitives, and core components.</p>
+        <p style="color: var(--color-text-secondary)">
+          Canonical classes shown below: .container, .stack, .row, .cluster, .grid-12, .section, .button, .card, .input, .textarea, .tag
+        </p>
       </header>
 
-      <section class="demo-section stack">
-        <div class="section-heading">
-          <h2>Typography</h2>
-        </div>
-        <div class="stack-tight">
+      <section id="tokens" class="section demo-section stack stack--lg">
+        <h2>Typography</h2>
+        <div class="stack stack--xs">
           <h1>Heading 1 sample</h1>
           <h2>Heading 2 sample</h2>
           <h3>Heading 3 sample</h3>
@@ -77,10 +92,8 @@
         </div>
       </section>
 
-      <section class="demo-section stack">
-        <div class="section-heading">
-          <h2>Color Tokens</h2>
-        </div>
+      <section id="primitives" class="section demo-section stack stack--lg">
+        <h2>Color Tokens</h2>
         <div class="grid-12">
           <div class="md-col-6 lg-col-4">
             <div class="demo-swatch" style="background: var(--color-surface-95)">background: --color-surface-95</div>
@@ -100,11 +113,9 @@
         </div>
       </section>
 
-      <section class="demo-section stack">
-        <div class="section-heading">
-          <h2>Spacing Tokens</h2>
-        </div>
-        <div class="stack-tight">
+      <section id="components" class="section demo-section stack stack--lg">
+        <h2>Spacing Tokens</h2>
+        <div class="stack stack--xs">
           <div class="demo-space-item">
             <span>--space-xxs</span>
             <span class="demo-space-bar" style="--space-value: var(--space-xxs)"></span>
@@ -136,10 +147,8 @@
         </div>
       </section>
 
-      <section class="demo-section stack">
-        <div class="section-heading">
-          <h2>Primitives</h2>
-        </div>
+      <section class="section demo-section stack stack--lg">
+        <h2>Primitives</h2>
         <div class="stack">
           <div class="demo-primitive-box container">container</div>
 
@@ -169,32 +178,105 @@
         </div>
       </section>
 
-      <section class="demo-section stack">
-        <div class="section-heading">
-          <h2>Components</h2>
-        </div>
+      <section class="section demo-section stack stack--lg">
+        <h2>Page Layout Example</h2>
+        <section class="section">
+          <div class="container">
+            <div class="grid-12">
+              <article class="card md-col-12 lg-col-8">
+                <h3 class="card__title">Main Content</h3>
+                <p class="card__text">Primary area placed with canonical grid spans.</p>
+              </article>
+              <aside class="card md-col-12 lg-col-4">
+                <h3 class="card__title">Sidebar</h3>
+                <p class="card__text">Secondary area aligned with the same grid system.</p>
+              </aside>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <section class="section demo-section stack stack--lg">
+        <h2>Stack Layout Example</h2>
+        <section class="section">
+          <div class="container">
+            <div class="stack">
+              <article class="card">
+                <h3 class="card__title">Overview</h3>
+                <p class="card__text">First block in canonical vertical flow.</p>
+              </article>
+              <article class="card">
+                <h3 class="card__title">Details</h3>
+                <p class="card__text">Second block stacked with consistent rhythm.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <section class="section demo-section stack stack--lg">
+        <h2>Row Layout Example</h2>
+        <section class="section">
+          <div class="container">
+            <div class="row">
+              <article class="card">
+                <h3 class="card__title">Summary</h3>
+                <p class="card__text">First item in horizontal row flow.</p>
+              </article>
+              <article class="card">
+                <h3 class="card__title">Metrics</h3>
+                <p class="card__text">Second item wraps naturally on smaller widths.</p>
+              </article>
+              <article class="card">
+                <h3 class="card__title">Actions</h3>
+                <p class="card__text">Third item in the same row composition.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <section class="section demo-section stack stack--lg">
+        <h2>Container Layout Example</h2>
+        <section class="section">
+          <div class="container">
+            <div class="stack">
+              <article class="card">
+                <h3 class="card__title">Framed Content</h3>
+                <p class="card__text">Container provides consistent page gutters and centered width.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <section class="section demo-section stack stack--lg">
+        <h2>Components</h2>
         <div class="stack">
           <div class="cluster">
             <button class="button" type="button">Button</button>
             <span class="tag">Tag</span>
           </div>
 
-          <div class="card stack-tight">
+          <div class="card stack stack--sm">
             <h3 class="card__title">Card Title</h3>
             <p class="card__text">Simple card surface with title and body copy.</p>
           </div>
 
-          <label class="stack-tight">
+          <label class="stack stack--xs">
             <span>Input</span>
             <input class="input" type="text" placeholder="Type here..." />
           </label>
 
-          <label class="stack-tight">
+          <label class="stack stack--xs">
             <span>Textarea</span>
             <textarea class="textarea" placeholder="Write a longer message..."></textarea>
           </label>
+
+          <hr class="divider" />
         </div>
       </section>
-    </main>
+      </main>
+    </div>
   </body>
 </html>

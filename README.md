@@ -16,7 +16,7 @@ Source of truth lives in `src/scss`.
 - `foundations/` - design tokens (color, spacing, typography, radius, shadows, motion)
 - `base/` - global element defaults
 - `primitives/` - low-level layout objects (container, grid, stack, row, section)
-- `components/` - reusable UI components (button, card, tabs)
+- `components/` - reusable core UI components (button, card, input, textarea, tag, divider)
 - `patterns/` - higher-level structural patterns (app shell/navigation)
 - `utilities/` - small helper classes
 
@@ -40,11 +40,29 @@ This file imports layers in order via `@use`:
 
 ## Conventions
 
+- Page shell controls structure.
+- Content flow controls rhythm.
+- Components control their own interior.
+- Do not let components own page layout or page rhythm.
 - Prefer tokens from `foundations` over hardcoded values.
 - Keep primitives generic and composable.
 - Keep components reusable and avoid page-specific coupling.
 - Put project-specific layout flows in `patterns`, not `components`.
 - Avoid adding new abstractions unless needed for reuse.
+- Prefer canonical classes/variables in new code; use legacy aliases only for migration compatibility.
+
+## Canonical vs Legacy Usage
+
+- Canonical primitives: `.container`, `.stack`, `.row`, `.cluster`, `.grid-12`, `.section`.
+- Canonical components: `.button`, `.card`, `.input`, `.textarea`, `.tag`, `.divider`.
+- Legacy aliases still exist in the CSS for backward compatibility and are marked inline in SCSS.
+
+## Primitive Docs
+
+- Container usage: `docs/primitives/container.md`
+- Grid usage: `docs/primitives/grid.md`
+- Stack usage: `docs/primitives/stack.md`
+- Row usage: `docs/primitives/row.md`
 
 ## Contributing SCSS Changes
 

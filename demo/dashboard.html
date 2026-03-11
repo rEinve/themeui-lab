@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>themeui-lab Demo - Dashboard</title>
+    <script type="module">
+      import "/src/scss/themeui-lab.scss";
+    </script>
+    <link rel="stylesheet" href="/demo/demo-shell.css" />
+  </head>
+  <body>
+    <div class="demo-shell-layout">
+      <nav class="demo-shell">
+        <div class="container">
+          <div class="demo-shell-links">
+            <a class="demo-shell-link" href="/demo/index.html#overview">Overview</a>
+            <a class="demo-shell-link" href="/demo/index.html#tokens">Tokens</a>
+            <a class="demo-shell-link" href="/demo/index.html#primitives">Primitives</a>
+            <a class="demo-shell-link" href="/demo/index.html#components">Components</a>
+            <a class="demo-shell-link" href="/demo/settings.html">Settings Page</a>
+            <a class="demo-shell-link" href="/demo/dashboard.html" aria-current="page">Dashboard Page</a>
+            <a class="demo-shell-link" href="/demo/article.html">Article Page</a>
+          </div>
+        </div>
+      </nav>
+      <main class="demo-shell-main section">
+      <section class="section">
+        <div class="container stack stack--lg">
+          <div class="row">
+            <h1>Dashboard</h1>
+            <button class="button" type="button">New Report</button>
+          </div>
+          <div class="cluster">
+            <span class="tag">Realtime</span>
+            <span class="tag">Ops</span>
+            <span class="tag">Q1</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="stack stack--lg">
+            <div class="stack stack--xs">
+              <h2>Snapshot</h2>
+              <p>High-level metrics for current period performance.</p>
+            </div>
+            <div class="grid-12">
+              <article class="card md-col-6 lg-col-4 stack stack--sm">
+                <h3 class="card__title">Revenue</h3>
+                <p class="card__text">$142,390</p>
+                <span class="tag">+8.2%</span>
+              </article>
+              <article class="card md-col-6 lg-col-4 stack stack--sm">
+                <h3 class="card__title">Orders</h3>
+                <p class="card__text">1,284</p>
+                <span class="tag">+4.1%</span>
+              </article>
+              <article class="card md-col-12 lg-col-4 stack stack--sm">
+                <h3 class="card__title">Satisfaction</h3>
+                <p class="card__text">94%</p>
+                <span class="tag">Stable</span>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="stack stack--lg">
+            <div class="stack stack--xs">
+              <h2>Operations</h2>
+              <p>Recent events and available actions in one region.</p>
+            </div>
+            <div class="grid-12">
+              <article class="card md-col-12 lg-col-8 stack stack--sm">
+                <h3 class="card__title">Recent Activity</h3>
+                <hr class="divider" />
+                <div class="stack stack--xs">
+                  <div class="row">
+                    <p class="card__text">Invoice INV-2920 paid</p>
+                    <span class="tag">2m ago</span>
+                  </div>
+                  <div class="row">
+                    <p class="card__text">New user signup: Acme Europe</p>
+                    <span class="tag">13m ago</span>
+                  </div>
+                  <div class="row">
+                    <p class="card__text">Weekly export generated</p>
+                    <span class="tag">1h ago</span>
+                  </div>
+                </div>
+              </article>
+              <aside class="card md-col-12 lg-col-4 stack stack--sm">
+                <h3 class="card__title">Quick Actions</h3>
+                <button class="button" type="button">Create Invoice</button>
+                <button class="button" type="button">Invite User</button>
+                <button class="button" type="button">Export CSV</button>
+              </aside>
+            </div>
+          </div>
+        </div>
+      </section>
+      </main>
+    </div>
+  </body>
+</html>

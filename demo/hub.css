@@ -1,0 +1,21 @@
+.hub-topbar {
+  border-bottom: 1px solid var(--color-outline-variant);
+  background: var(--color-surface-100);
+}
+
+.hub-topbar-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-s);
+}
+
+.hub-link {
+  color: var(--color-text-secondary);
+  text-decoration: none;
+}
+
+.hub-link:hover {
+  color: var(--color-text-primary);
+}

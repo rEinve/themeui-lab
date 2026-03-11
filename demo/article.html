@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>themeui-lab Demo - Article</title>
+    <script type="module">
+      import "/src/scss/themeui-lab.scss";
+    </script>
+    <link rel="stylesheet" href="/demo/demo-shell.css" />
+  </head>
+  <body>
+    <div class="demo-shell-layout">
+      <nav class="demo-shell">
+        <div class="container">
+          <div class="demo-shell-links">
+            <a class="demo-shell-link" href="/demo/index.html#overview">Overview</a>
+            <a class="demo-shell-link" href="/demo/index.html#tokens">Tokens</a>
+            <a class="demo-shell-link" href="/demo/index.html#primitives">Primitives</a>
+            <a class="demo-shell-link" href="/demo/index.html#components">Components</a>
+            <a class="demo-shell-link" href="/demo/settings.html">Settings Page</a>
+            <a class="demo-shell-link" href="/demo/dashboard.html">Dashboard Page</a>
+            <a class="demo-shell-link" href="/demo/article.html" aria-current="page">Article Page</a>
+          </div>
+        </div>
+      </nav>
+      <main class="demo-shell-main section">
+      <section class="section">
+        <div class="container stack stack--lg">
+          <h1>Knowledge Base</h1>
+          <div class="cluster">
+            <span class="tag">Guide</span>
+            <span class="tag">Updated</span>
+            <span class="tag">8 min read</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="stack stack--lg">
+            <div class="stack stack--xs">
+              <h2>Article Layout</h2>
+              <p>Main reading region with a supporting sidebar.</p>
+            </div>
+            <div class="grid-12">
+              <article class="card md-col-12 lg-col-8 stack stack--sm">
+                <h3 class="card__title">Design System Foundations</h3>
+                <p class="card__text">
+                  Foundations define the system’s visual language and provide shared tokens for color, spacing, typography, motion, and elevation.
+                </p>
+                <hr class="divider" />
+                <h3>Why Token-First Matters</h3>
+                <p>
+                  Token-driven styles keep UI behavior predictable and reduce duplication between screens, features, and teams.
+                </p>
+                <h3>When to Use Primitives</h3>
+                <p>
+                  Use primitives for layout composition. Keep visual treatment inside components and reserve patterns for page-level assembly.
+                </p>
+                <div class="row">
+                  <button class="button" type="button">Edit Article</button>
+                  <button class="button" type="button">Share</button>
+                </div>
+              </article>
+
+              <aside class="card md-col-12 lg-col-4 stack stack--sm">
+                <h3 class="card__title">On This Page</h3>
+                <div class="stack stack--xs">
+                  <p class="card__text">Foundations</p>
+                  <p class="card__text">Token-First</p>
+                  <p class="card__text">Primitives</p>
+                </div>
+                <h3 class="card__title">Related</h3>
+                <div class="stack stack--xs">
+                  <span class="tag">Grid Usage</span>
+                  <span class="tag">Stack Usage</span>
+                  <span class="tag">Row Usage</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      </main>
+    </div>
+  </body>
+</html>

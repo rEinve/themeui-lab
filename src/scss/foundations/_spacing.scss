@@ -1,3 +1,4 @@
+/* Canonical spacing token map. Exported as --space-*. */
 $space-tokens: (
     xxs: 0.25rem,
     xs: 0.5rem,
@@ -10,6 +11,7 @@ $space-tokens: (
     king: 5rem
 );
 
+/* Canonical layout token map. Exported without prefix for authored layout contracts. */
 $layout-tokens: (
     frame-max: 1440px,
     content-max: 72rem,
@@ -22,6 +24,7 @@ $layout-tokens: (
     rhythm-loose: 1.5rem
 );
 
+/* Legacy alias map kept for compatibility only. */
 $space-legacy-aliases: (
     king-space: var(--space-king)
 );

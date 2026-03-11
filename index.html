@@ -2,12 +2,59 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>themeui-lab</title>
+    <script type="module">
+      import "/src/scss/themeui-lab.scss";
+    </script>
+    <link rel="stylesheet" href="/demo/hub.css" />
   </head>
   <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
+    <header class="section hub-topbar">
+      <div class="container hub-topbar-inner">
+        <div class="cluster">
+          <a href="/" class="hub-link">Brand</a>
+          <a href="/demo/index.html" class="hub-link">Demo</a>
+          <a href="/demo/dashboard.html" class="hub-link">Examples</a>
+        </div>
+        <div class="cluster">
+          <a href="/README.md" class="hub-link">Resource</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="section">
+      <section class="section">
+        <div class="container stack stack--lg">
+          <div class="stack stack--xs">
+            <h1>themeui-lab</h1>
+            <p>
+              themeui-lab is a calm, token-driven in-house design system focused on composable primitives,
+              reusable core components, and predictable page composition.
+            </p>
+          </div>
+
+          <div class="grid-12">
+            <article class="card md-col-12 lg-col-4 stack stack--sm">
+              <h2 class="card__title">Demo</h2>
+              <p class="card__text">Inspect foundations, primitives, and component behavior in one playground.</p>
+              <a href="/demo/index.html" class="hub-link">Open Demo</a>
+            </article>
+
+            <article class="card md-col-12 lg-col-4 stack stack--sm">
+              <h2 class="card__title">Examples</h2>
+              <p class="card__text">Review realistic composition pages used to stress-test system usage.</p>
+              <a href="/demo/settings.html" class="hub-link">Open Examples</a>
+            </article>
+
+            <article class="card md-col-12 lg-col-4 stack stack--sm">
+              <h2 class="card__title">Resources</h2>
+              <p class="card__text">Read architecture notes and primitive usage guidance for contributors.</p>
+              <a href="/README.md" class="hub-link">Open Resources</a>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
   </body>
 </html>

@@ -1,4 +1,5 @@
 .stack,
+/* Legacy density aliases: keep temporarily for compatibility. Prefer `.stack`. */
 .stack-tight,
 .stack-loose {
     display: flex;
@@ -7,6 +8,22 @@
 
 .stack {
     gap: var(--space-m);
+}
+
+.stack--xs {
+    gap: var(--space-xs);
+}
+
+.stack--sm {
+    gap: var(--space-s);
+}
+
+.stack--lg {
+    gap: var(--space-l);
+}
+
+.stack--xl {
+    gap: var(--space-xl);
 }
 
 .stack-tight {

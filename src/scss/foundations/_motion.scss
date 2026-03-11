@@ -1,3 +1,4 @@
+/* Canonical motion token map. Exported as --motion-*. */
 $motion-tokens: (
     ease-standard: cubic-bezier(0.2, 0, 0, 1),
     ease-emphasized: cubic-bezier(0.3, 1, 0.3, 1),
@@ -16,6 +17,7 @@ $motion-tokens: (
     modal-enter: var(--motion-emphasized)
 );
 
+/* Legacy alias map kept for compatibility only. */
 $motion-legacy-aliases: (
     ease-standard: var(--motion-ease-standard),
     ease-emphasized: var(--motion-ease-emphasized),

@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>themeui-lab Demo - Settings</title>
+    <script type="module">
+      import "/src/scss/themeui-lab.scss";
+    </script>
+    <link rel="stylesheet" href="/demo/demo-shell.css" />
+  </head>
+  <body>
+    <div class="demo-shell-layout">
+      <nav class="demo-shell">
+        <div class="container">
+          <div class="demo-shell-links">
+            <a class="demo-shell-link" href="/demo/index.html#overview">Overview</a>
+            <a class="demo-shell-link" href="/demo/index.html#tokens">Tokens</a>
+            <a class="demo-shell-link" href="/demo/index.html#primitives">Primitives</a>
+            <a class="demo-shell-link" href="/demo/index.html#components">Components</a>
+            <a class="demo-shell-link" href="/demo/settings.html" aria-current="page">Settings Page</a>
+            <a class="demo-shell-link" href="/demo/dashboard.html">Dashboard Page</a>
+            <a class="demo-shell-link" href="/demo/article.html">Article Page</a>
+          </div>
+        </div>
+      </nav>
+      <main class="demo-shell-main section">
+      <section class="section">
+        <div class="container stack stack--lg">
+          <div class="row">
+            <h1>Settings</h1>
+            <button class="button" type="button">Save All</button>
+          </div>
+          <p>Manage account, workspace, and operational preferences.</p>
+          <div class="cluster">
+            <span class="tag">Account</span>
+            <span class="tag">Workspace</span>
+            <span class="tag">Security</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="stack stack--lg">
+            <div class="stack stack--xs">
+              <h2>Settings Regions</h2>
+              <p>Compose page shell with grid, then manage rhythm with stack and divider.</p>
+            </div>
+            <div class="grid-12">
+              <article class="card md-col-12 lg-col-8 stack stack--sm">
+                <h3 class="card__title">Profile</h3>
+                <p class="card__text">Update your public profile and contact settings.</p>
+                <hr class="divider" />
+                <label class="stack stack--xs">
+                  <span>Full Name</span>
+                  <input class="input" type="text" value="ThemeUI Lab Team" />
+                </label>
+                <label class="stack stack--xs">
+                  <span>Email</span>
+                  <input class="input" type="text" value="design-system@themeui-lab.dev" />
+                </label>
+                <label class="stack stack--xs">
+                  <span>Title</span>
+                  <input class="input" type="text" value="Design System Maintainer" />
+                </label>
+                <label class="stack stack--xs">
+                  <span>Bio</span>
+                  <textarea class="textarea">Building and maintaining a reusable in-house design system.</textarea>
+                </label>
+                <hr class="divider" />
+                <div class="row">
+                  <button class="button" type="button">Save Changes</button>
+                  <button class="button" type="button">Cancel</button>
+                </div>
+              </article>
+
+              <aside class="card md-col-12 lg-col-4 stack stack--sm">
+                <h3 class="card__title">Workspace</h3>
+                <p class="card__text">Current workspace operational settings.</p>
+                <hr class="divider" />
+                <label class="stack stack--xs">
+                  <span>Workspace Name</span>
+                  <input class="input" type="text" value="themeui-lab" />
+                </label>
+                <label class="stack stack--xs">
+                  <span>Default Region</span>
+                  <input class="input" type="text" value="US-East" />
+                </label>
+                <div class="stack stack--xs">
+                  <div class="row">
+                    <p class="card__text">Notifications</p>
+                    <span class="tag">Enabled</span>
+                  </div>
+                  <div class="row">
+                    <p class="card__text">Auto Save</p>
+                    <span class="tag">On</span>
+                  </div>
+                  <div class="row">
+                    <p class="card__text">Audit Logs</p>
+                    <span class="tag">Retained</span>
+                  </div>
+                </div>
+                <hr class="divider" />
+                <button class="button" type="button">Manage Team</button>
+              </aside>
+
+              <article class="card md-col-12 lg-col-8 stack stack--sm">
+                <h3 class="card__title">Preferences & Actions</h3>
+                <p class="card__text">Control defaults for editing, publishing, and automation flows.</p>
+                <hr class="divider" />
+                <label class="stack stack--xs">
+                  <span>Default Project</span>
+                  <input class="input" type="text" value="themeui-lab core" />
+                </label>
+                <label class="stack stack--xs">
+                  <span>Release Notes Template</span>
+                  <textarea class="textarea">## Summary
+- What changed
+- Why it changed
+- Validation notes</textarea>
+                </label>
+                <div class="cluster">
+                  <span class="tag">Autosave On</span>
+                  <span class="tag">Preview Enabled</span>
+                  <span class="tag">Verbose Logs Off</span>
+                </div>
+                <hr class="divider" />
+                <div class="row">
+                  <button class="button" type="button">Run Health Check</button>
+                  <button class="button" type="button">Export Settings</button>
+                  <button class="button" type="button">Reset Defaults</button>
+                </div>
+              </article>
+
+              <aside class="card md-col-12 lg-col-4 stack stack--sm">
+                <h3 class="card__title">Quick Actions</h3>
+                <p class="card__text">Frequent maintenance actions.</p>
+                <hr class="divider" />
+                <button class="button" type="button">Rotate API Keys</button>
+                <button class="button" type="button">Regenerate Tokens</button>
+                <button class="button" type="button">Download Audit Report</button>
+              </aside>
+
+              <article class="card md-col-12 stack stack--sm">
+                <h3 class="card__title">Danger Zone</h3>
+                <p class="card__text">These actions are destructive and should be reviewed carefully before execution.</p>
+                <hr class="divider" />
+                <label class="stack stack--xs">
+                  <span>Confirm Workspace Name</span>
+                  <input class="input" type="text" placeholder="Type themeui-lab to confirm" />
+                </label>
+                <label class="stack stack--xs">
+                  <span>Deletion Reason</span>
+                  <textarea class="textarea" placeholder="Provide a reason for deletion/export purge"></textarea>
+                </label>
+                <div class="cluster">
+                  <span class="tag">High Risk</span>
+                  <span class="tag">Irreversible</span>
+                </div>
+                <hr class="divider" />
+                <div class="row">
+                  <button class="button" type="button">Archive Workspace</button>
+                  <button class="button" type="button">Delete Workspace</button>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+      </main>
+    </div>
+  </body>
+</html>

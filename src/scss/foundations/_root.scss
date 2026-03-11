@@ -9,6 +9,7 @@
 :root {
     color-scheme: light;
 
+    /* Canonical token exports: keep this order stable for predictable output. */
     @include tools.export-css-vars(colors.$color-tokens, 'color');
     @include tools.export-css-vars(spacing.$space-tokens, 'space');
     @include tools.export-css-vars(spacing.$layout-tokens);
@@ -17,6 +18,7 @@
     @include tools.export-css-vars(shadows.$shadow-tokens, 'shadow');
     @include tools.export-css-vars(motion.$motion-tokens, 'motion');
 
+    /* Legacy aliases exported after canonical vars for backward compatibility only. */
     @include tools.export-css-vars(colors.$color-legacy-aliases);
     @include tools.export-css-vars(spacing.$space-legacy-aliases);
     @include tools.export-css-vars(shadows.$shadow-legacy-aliases);

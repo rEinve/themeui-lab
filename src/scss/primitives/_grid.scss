@@ -1,6 +1,7 @@
 @use '../tools' as *;
 
 .grid-12,
+/* Legacy aliases: keep temporarily for compatibility. Prefer `.grid-12`. */
 .page-grid,
 .content-grid {
     @include grid-container(12);

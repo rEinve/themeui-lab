@@ -1,5 +1,6 @@
 .textarea {
     width: 100%;
+    box-sizing: border-box;
     min-height: 7rem;
     padding: 0.75rem 0.875rem;
     border: 1px solid var(--color-outline-variant);
@@ -20,9 +21,14 @@
     color: var(--color-text-tertiary);
 }
 
-.textarea:focus {
+.textarea:focus-visible {
     outline: none;
     border-color: var(--color-accent);
     box-shadow: 0 0 0 3px var(--color-accent-95);
     background: var(--color-surface-100);
+}
+
+.textarea:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
 }

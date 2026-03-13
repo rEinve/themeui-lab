@@ -12,7 +12,7 @@ body {
 .demo-topbar-inner {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   gap: var(--space-s);
 }
@@ -39,8 +39,8 @@ body {
   padding-block: var(--section-space);
 }
 
-@media (max-width: 900px) {
+@media (min-width: 900px) {
   .demo-topbar-inner {
-    align-items: flex-start;
+    align-items: center;
   }
 }

@@ -31,7 +31,8 @@
           <div class="docs-note">
             <p>
               Canonical component classes are <code class="docs-inline-code">.button</code>, <code class="docs-inline-code">.card</code>,
-              <code class="docs-inline-code">.input</code>, <code class="docs-inline-code">.textarea</code>,
+              <code class="docs-inline-code">.input</code>, <code class="docs-inline-code">.select</code>, <code class="docs-inline-code">.textarea</code>,
+              <code class="docs-inline-code">.radio</code>, <code class="docs-inline-code">.checkbox</code>, <code class="docs-inline-code">.switch</code>,
               <code class="docs-inline-code">.tag</code>, and <code class="docs-inline-code">.divider</code>.
               The legacy <code class="docs-inline-code">.btn</code> alias remains temporarily for compatibility only.
             </p>
@@ -46,6 +47,23 @@
             <article class="card md-col-12 lg-col-4 stack stack--sm">
               <h2 class="card__title">Inputs</h2>
               <input class="input" type="text" placeholder="Input" />
+              <select class="select">
+                <option>Select option</option>
+                <option>First option</option>
+                <option>Second option</option>
+              </select>
+              <label class="radio">
+                <input class="radio__control" type="radio" name="component-preview" checked />
+                <span>Default radio</span>
+              </label>
+              <label class="checkbox">
+                <input class="checkbox__control" type="checkbox" checked />
+                <span>Default checkbox</span>
+              </label>
+              <label class="switch">
+                <input class="switch__control" type="checkbox" checked />
+                <span>Default switch</span>
+              </label>
               <textarea class="textarea" placeholder="Textarea"></textarea>
             </article>
             <article class="card md-col-12 lg-col-4 stack stack--sm">
@@ -72,18 +90,88 @@
             </article>
 
             <article class="example-block stack stack--sm">
-              <h2 class="example-title">Card with Form Controls</h2>
-              <p class="example-description">Cards provide a neutral surface. Inputs and textareas keep their own interior styling.</p>
+              <h2 class="example-title">Form Control Family</h2>
+              <p class="example-description">Input, select, textarea, radio, checkbox, and switch should feel related through shared color, focus, and interaction treatment.</p>
               <div class="example-preview">
                 <article class="card stack stack--sm">
                   <h3 class="card__title">Profile</h3>
                   <input class="input" type="text" placeholder="Display name" />
+                  <select class="select">
+                    <option>Choose team</option>
+                    <option>Design Systems</option>
+                    <option>Product Design</option>
+                  </select>
+                  <div class="stack stack--xs">
+                    <label class="radio">
+                      <input class="radio__control" type="radio" name="team-size" checked />
+                      <span>Small team</span>
+                    </label>
+                    <label class="radio">
+                      <input class="radio__control" type="radio" name="team-size" />
+                      <span>Large team</span>
+                    </label>
+                  </div>
+                  <div class="stack stack--xs">
+                    <label class="checkbox">
+                      <input class="checkbox__control" type="checkbox" checked />
+                      <span>Email updates</span>
+                    </label>
+                    <label class="checkbox">
+                      <input class="checkbox__control" type="checkbox" />
+                      <span>Product announcements</span>
+                    </label>
+                  </div>
+                  <div class="stack stack--xs">
+                    <label class="switch">
+                      <input class="switch__control" type="checkbox" checked />
+                      <span>Auto publish</span>
+                    </label>
+                    <label class="switch">
+                      <input class="switch__control" type="checkbox" />
+                      <span>Quiet mode</span>
+                    </label>
+                  </div>
                   <textarea class="textarea" placeholder="Short bio"></textarea>
                 </article>
               </div>
               <pre class="example-code"><code>&lt;article class="card stack stack--sm"&gt;
   &lt;h3 class="card__title"&gt;Profile&lt;/h3&gt;
   &lt;input class="input" type="text" placeholder="Display name" /&gt;
+  &lt;select class="select"&gt;
+    &lt;option&gt;Choose team&lt;/option&gt;
+    &lt;option&gt;Design Systems&lt;/option&gt;
+    &lt;option&gt;Product Design&lt;/option&gt;
+  &lt;/select&gt;
+  &lt;div class="stack stack--xs"&gt;
+    &lt;label class="radio"&gt;
+      &lt;input class="radio__control" type="radio" name="team-size" checked /&gt;
+      &lt;span&gt;Small team&lt;/span&gt;
+    &lt;/label&gt;
+    &lt;label class="radio"&gt;
+      &lt;input class="radio__control" type="radio" name="team-size" /&gt;
+      &lt;span&gt;Large team&lt;/span&gt;
+    &lt;/label&gt;
+  &lt;/div&gt;
+  &lt;div class="stack stack--xs"&gt;
+    &lt;label class="checkbox"&gt;
+      &lt;input class="checkbox__control" type="checkbox" checked /&gt;
+      &lt;span&gt;Email updates&lt;/span&gt;
+    &lt;/label&gt;
+    &lt;label class="checkbox"&gt;
+      &lt;input class="checkbox__control" type="checkbox" /&gt;
+      &lt;span&gt;Product announcements&lt;/span&gt;
+    &lt;/label&gt;
+  &lt;/div&gt;
+  &lt;div class="stack stack--xs"&gt;
+    &lt;label class="switch"&gt;
+      &lt;input class="switch__control" type="checkbox" checked /&gt;
+      &lt;span&gt;Auto publish&lt;/span&gt;
+    &lt;/label&gt;
+    &lt;label class="switch"&gt;
+      &lt;input class="switch__control" type="checkbox" /&gt;
+      &lt;span&gt;Quiet mode&lt;/span&gt;
+    &lt;/label&gt;
+  &lt;/div&gt;
   &lt;textarea class="textarea" placeholder="Short bio"&gt;&lt;/textarea&gt;
 &lt;/article&gt;</code></pre>
             </article>

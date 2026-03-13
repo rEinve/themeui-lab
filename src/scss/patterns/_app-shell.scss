@@ -1,3 +1,5 @@
+@use '../tools' as *;
+
 .header {
     position: sticky;
     top: 0;
@@ -10,7 +12,8 @@
 .nav-container {
     display: flex;
     align-items: center;
-    gap: var(--space-l);
+    justify-content: space-between;
+    gap: var(--space-s);
     min-height: 4.5rem;
     padding-block: var(--space-xs);
     overflow-x: clip;
@@ -35,7 +38,7 @@
 
 .nav-toggle,
 .nav-close {
-    display: none;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 0.35rem;
@@ -49,42 +52,78 @@
     box-shadow: var(--elevation-1);
 }
 
+.nav-toggle {
+    margin-left: auto;
+    padding-inline: 0.75rem;
+}
+
 .nav-toggle__label {
+    display: none;
     font-size: var(--text-sm);
     font-weight: var(--weight-semibold);
 }
 
 .nav-overlay {
-    display: none;
+    position: fixed;
+    inset: 0;
+    display: block;
+    background: oklch(from var(--surface-0) l c h / 0.38);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--motion-fast) var(--ease-standard);
 }
 
 .nav-drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1001;
     display: flex;
-    flex: 1;
-    min-width: 0;
+    flex-direction: column;
+    width: min(23rem, calc(100vw - 1rem));
+    max-width: calc(100vw - 1rem);
+    height: 100dvh;
+    padding: var(--space-m);
+    background: oklch(from var(--surface-100) l c h / 0.98);
+    border-left: 1px solid var(--outline-variant);
+    box-shadow: var(--elevation-3);
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateX(calc(100% + 2rem));
+    transition: transform var(--motion-standard) var(--ease-standard);
 }
 
 .nav-drawer__header {
-    display: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-s);
+    padding-bottom: var(--space-m);
+    border-bottom: 1px solid var(--outline-variant);
 }
 
 .nav-drawer__content {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
     gap: var(--space-l);
     width: 100%;
     min-width: 0;
+    padding-top: var(--space-l);
+    overflow-y: auto;
 }
 
 .nav-links {
     display: flex;
-    align-items: center;
-    gap: var(--space-l);
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-s);
     list-style: none;
     padding: 0;
     margin: 0;
     flex-wrap: wrap;
+    width: 100%;
 }
 
 .nav-links a {
@@ -93,21 +132,32 @@
     font-size: var(--step-0);
     font-weight: 600;
     transition: color 0.2s;
-    white-space: nowrap;
+    white-space: normal;
+    min-height: 3rem;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0.85rem 1rem;
+    border-radius: var(--radius-control-md);
+    background: var(--surface-container-low);
+    border: 1px solid transparent;
 }
 
 .nav-links a:hover,
 .nav-links a[aria-current="page"] {
     color: var(--text-primary);
+    background: var(--surface-container);
+    border-color: var(--outline-variant);
 }
 
 .nav-right {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: stretch;
     gap: var(--space-s);
     flex-wrap: wrap;
-    justify-content: flex-end;
-    margin-left: auto;
+    justify-content: flex-start;
+    margin-left: 0;
+    width: 100%;
 }
 
 .feed-link {
@@ -117,123 +167,143 @@
     transition: color 0.2s;
 }
 
+.nav-right a {
+    min-height: 3rem;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0.85rem 1rem;
+    border-radius: var(--radius-control-md);
+    background: var(--surface-container-low);
+    border: 1px solid transparent;
+    white-space: normal;
+}
+
 .feed-link:hover {
     color: var(--text-primary);
+}
+
+.nav-right a:hover {
+    background: var(--surface-container);
+    border-color: var(--outline-variant);
+}
+
+.nav-right .btn {
+    justify-content: center;
+    width: 100%;
 }
 
 body.nav-open {
     overflow: hidden;
 }
 
-@media (max-width: 840px) {
+.site-nav.is-open .nav-overlay {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.site-nav.is-open .nav-drawer {
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateX(0);
+}
+
+@include breakpoint(expanded) {
     .nav-container {
-        justify-content: space-between;
-        gap: var(--space-s);
+        gap: var(--space-l);
     }
 
     .nav-toggle,
     .nav-close {
-        display: inline-flex;
-    }
-
-    .nav-toggle {
-        margin-left: auto;
-        padding-inline: 0.75rem;
-    }
-
-    .nav-toggle__label {
         display: none;
     }
 
+    .nav-toggle {
+        margin-left: 0;
+        padding-inline: 0.9rem;
+    }
+
+    .nav-toggle__label {
+        display: inline;
+    }
+
     .nav-overlay {
-        position: fixed;
-        inset: 0;
-        display: block;
-        background: oklch(from var(--surface-0) l c h / 0.38);
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity var(--motion-fast) var(--ease-standard);
+        display: none;
     }
 
     .nav-drawer {
-        position: fixed;
-        top: 0;
-        right: 0;
-        z-index: 1001;
-        display: flex;
-        flex-direction: column;
-        width: min(23rem, calc(100vw - 1rem));
-        max-width: calc(100vw - 1rem);
-        height: 100dvh;
-        padding: var(--space-m);
-        background: oklch(from var(--surface-100) l c h / 0.98);
-        border-left: 1px solid var(--outline-variant);
-        box-shadow: var(--elevation-3);
-        visibility: hidden;
-        pointer-events: none;
-        transform: translateX(calc(100% + 2rem));
-        transition: transform var(--motion-standard) var(--ease-standard);
+        position: static;
+        flex: 1;
+        min-width: 0;
+        width: auto;
+        max-width: none;
+        height: auto;
+        padding: 0;
+        background: transparent;
+        border-left: 0;
+        box-shadow: none;
+        visibility: visible;
+        pointer-events: auto;
+        transform: none;
     }
 
     .nav-drawer__header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: var(--space-s);
-        padding-bottom: var(--space-m);
-        border-bottom: 1px solid var(--outline-variant);
+        display: none;
     }
 
     .nav-drawer__content {
-        flex-direction: column;
-        align-items: stretch;
-        justify-content: flex-start;
-        gap: var(--space-l);
-        padding-top: var(--space-l);
-        overflow-y: auto;
-    }
-
-    .nav-links,
-    .nav-right {
-        flex-direction: column;
-        align-items: stretch;
-        gap: var(--space-s);
-        width: 100%;
-        margin-left: 0;
-    }
-
-    .nav-links a,
-    .nav-right a {
-        min-height: 3rem;
+        flex-direction: row;
         align-items: center;
-        justify-content: flex-start;
-        padding: 0.85rem 1rem;
-        border-radius: var(--radius-control-md);
-        background: var(--surface-container-low);
-        border: 1px solid transparent;
-        white-space: normal;
+        justify-content: space-between;
+        gap: var(--space-l);
+        padding-top: 0;
+        overflow-y: visible;
+    }
+
+    .nav-links {
+        flex-direction: row;
+        align-items: center;
+        gap: var(--space-l);
+        width: auto;
+    }
+
+    .nav-links a {
+        min-height: auto;
+        padding: 0;
+        border-radius: 0;
+        background: transparent;
+        border: 0;
+        white-space: nowrap;
     }
 
     .nav-links a:hover,
-    .nav-links a[aria-current="page"],
+    .nav-links a[aria-current="page"] {
+        background: transparent;
+        border-color: transparent;
+    }
+
+    .nav-right {
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+        margin-left: auto;
+        width: auto;
+    }
+
+    .nav-right a {
+        min-height: auto;
+        padding: 0;
+        border-radius: 0;
+        background: transparent;
+        border: 0;
+        white-space: nowrap;
+    }
+
     .nav-right a:hover {
-        background: var(--surface-container);
-        border-color: var(--outline-variant);
+        background: transparent;
+        border-color: transparent;
     }
 
     .nav-right .btn {
-        justify-content: center;
-        width: 100%;
-    }
-
-    .site-nav.is-open .nav-overlay {
-        opacity: 1;
-        pointer-events: auto;
-    }
-
-    .site-nav.is-open .nav-drawer {
-        visibility: visible;
-        pointer-events: auto;
-        transform: translateX(0);
+        width: auto;
     }
 }

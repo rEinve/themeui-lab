@@ -75,7 +75,7 @@
         <h1>themeui-lab playground</h1>
         <p>Minimal inspection page for tokens, primitives, and core components.</p>
         <p style="color: var(--color-text-secondary)">
-          Canonical classes shown below: .container, .stack, .row, .cluster, .grid-12, .section, .button, .card, .input, .textarea, .tag
+          Canonical classes shown below: .container, .stack, .row, .cluster, .grid-12, .section, .button, .card, .input, .select, .textarea, .radio, .checkbox, .switch, .tag
         </p>
       </header>
 
@@ -270,6 +270,52 @@
             <span>Textarea</span>
             <textarea class="textarea" placeholder="Write a longer message..."></textarea>
           </label>
+
+          <label class="stack stack--xs">
+            <span>Select</span>
+            <select class="select">
+              <option>Choose a workspace</option>
+              <option>Core System</option>
+              <option>Documentation</option>
+              <option>Examples</option>
+            </select>
+          </label>
+
+          <div class="stack stack--xs">
+            <span>Radio</span>
+            <label class="radio">
+              <input class="radio__control" type="radio" name="demo-visibility" checked />
+              <span>Visible to workspace</span>
+            </label>
+            <label class="radio">
+              <input class="radio__control" type="radio" name="demo-visibility" />
+              <span>Visible to organization</span>
+            </label>
+          </div>
+
+          <div class="stack stack--xs">
+            <span>Checkbox</span>
+            <label class="checkbox">
+              <input class="checkbox__control" type="checkbox" checked />
+              <span>Enable notifications</span>
+            </label>
+            <label class="checkbox">
+              <input class="checkbox__control" type="checkbox" />
+              <span>Enable weekly digest</span>
+            </label>
+          </div>
+
+          <div class="stack stack--xs">
+            <span>Switch</span>
+            <label class="switch">
+              <input class="switch__control" type="checkbox" checked />
+              <span>Auto save</span>
+            </label>
+            <label class="switch">
+              <input class="switch__control" type="checkbox" />
+              <span>Publish instantly</span>
+            </label>
+          </div>
 
           <hr class="divider" />
         </div>

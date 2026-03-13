@@ -1,0 +1,68 @@
+.checkbox {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-s);
+    color: var(--color-text-primary);
+    font: inherit;
+    font-size: var(--step-0);
+    line-height: var(--lh-body);
+    cursor: pointer;
+}
+
+.checkbox__control {
+    flex: 0 0 auto;
+    width: 1.125rem;
+    height: 1.125rem;
+    margin: 0;
+    border: 1.5px solid var(--color-outline);
+    border-radius: var(--radius-control-sm);
+    background-color: var(--color-surface-100);
+    background-image:
+        linear-gradient(-45deg, transparent 52%, var(--color-surface-100) 52%, var(--color-surface-100) 68%, transparent 68%),
+        linear-gradient(45deg, transparent 58%, var(--color-surface-100) 58%, var(--color-surface-100) 74%, transparent 74%);
+    background-position:
+        0.22rem 0.42rem,
+        0.42rem 0.16rem;
+    background-repeat: no-repeat;
+    background-size: 0 0, 0 0;
+    box-sizing: border-box;
+    appearance: none;
+    transition:
+        border-color var(--motion-fast) var(--motion-ease-standard),
+        box-shadow var(--motion-fast) var(--motion-ease-standard),
+        background-color var(--motion-fast) var(--motion-ease-standard),
+        background-size var(--motion-fast) var(--motion-ease-standard);
+}
+
+.checkbox__control:checked {
+    border-color: var(--color-accent);
+    background-color: var(--color-accent);
+    background-size: 0.38rem 0.55rem, 0.72rem 0.55rem;
+    box-shadow: inset 0 0 0 1px var(--color-accent);
+}
+
+.checkbox__control:focus-visible {
+    outline: none;
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px var(--color-accent-95);
+}
+
+.checkbox__control:checked:focus-visible {
+    box-shadow:
+        0 0 0 3px var(--color-accent-95),
+        inset 0 0 0 1px var(--color-accent);
+}
+
+.checkbox__control:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.checkbox__control:disabled + * {
+    opacity: 0.6;
+}
+
+.checkbox__control:disabled,
+.checkbox__control:disabled + * {
+    cursor: not-allowed;
+}

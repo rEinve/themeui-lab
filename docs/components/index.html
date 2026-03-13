@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Components Docs - themeui-lab</title>
+    <script type="module">import "/src/scss/themeui-lab.scss";</script>
+    <link rel="stylesheet" href="/docs/docs-shell.css" />
+    <script src="/docs/example-copy.js" defer></script>
+  </head>
+  <body>
+    <header class="section docs-topbar">
+      <div class="container docs-topbar-inner">
+        <div class="docs-nav">
+          <a class="docs-link" href="/">themeui-lab</a>
+          <a class="docs-link" href="/demo/">Demo</a>
+          <a class="docs-link" href="/demo/settings.html">Examples</a>
+        </div>
+        <div class="docs-nav"><a class="docs-link" href="https://github.com/rEinve/themeui-lab.git" target="_blank" rel="noreferrer">Resource</a></div>
+      </div>
+    </header>
+
+    <main class="section docs-main">
+      <section class="section">
+        <div class="container stack stack--lg">
+          <div class="stack stack--xs">
+            <h1>Components</h1>
+            <p>Core components are reusable UI pieces that style their own interior and state only.</p>
+          </div>
+
+          <div class="docs-note">
+            <p>
+              Canonical component classes are <code class="docs-inline-code">.button</code>, <code class="docs-inline-code">.card</code>,
+              <code class="docs-inline-code">.input</code>, <code class="docs-inline-code">.textarea</code>,
+              <code class="docs-inline-code">.tag</code>, and <code class="docs-inline-code">.divider</code>.
+              The legacy <code class="docs-inline-code">.btn</code> alias remains temporarily for compatibility only.
+            </p>
+          </div>
+
+          <div class="grid-12">
+            <article class="card md-col-12 lg-col-4 stack stack--sm">
+              <h2 class="card__title">Actions</h2>
+              <button class="button" type="button">Button</button>
+              <span class="tag">Tag</span>
+            </article>
+            <article class="card md-col-12 lg-col-4 stack stack--sm">
+              <h2 class="card__title">Inputs</h2>
+              <input class="input" type="text" placeholder="Input" />
+              <textarea class="textarea" placeholder="Textarea"></textarea>
+            </article>
+            <article class="card md-col-12 lg-col-4 stack stack--sm">
+              <h2 class="card__title">Surfaces</h2>
+              <p class="card__text">Card and divider support content presentation.</p>
+              <hr class="divider" />
+            </article>
+          </div>
+
+          <div class="stack stack--lg">
+            <article class="example-block stack stack--sm">
+              <h2 class="example-title">Button + Tag</h2>
+              <p class="example-description">Components should stay small and reusable, then compose together inside flow primitives.</p>
+              <div class="example-preview">
+                <div class="cluster">
+                  <button class="button" type="button">Save Changes</button>
+                  <span class="tag">Draft</span>
+                </div>
+              </div>
+              <pre class="example-code"><code>&lt;div class="cluster"&gt;
+  &lt;button class="button" type="button"&gt;Save Changes&lt;/button&gt;
+  &lt;span class="tag"&gt;Draft&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+            </article>
+
+            <article class="example-block stack stack--sm">
+              <h2 class="example-title">Card with Form Controls</h2>
+              <p class="example-description">Cards provide a neutral surface. Inputs and textareas keep their own interior styling.</p>
+              <div class="example-preview">
+                <article class="card stack stack--sm">
+                  <h3 class="card__title">Profile</h3>
+                  <input class="input" type="text" placeholder="Display name" />
+                  <textarea class="textarea" placeholder="Short bio"></textarea>
+                </article>
+              </div>
+              <pre class="example-code"><code>&lt;article class="card stack stack--sm"&gt;
+  &lt;h3 class="card__title"&gt;Profile&lt;/h3&gt;
+  &lt;input class="input" type="text" placeholder="Display name" /&gt;
+  &lt;textarea class="textarea" placeholder="Short bio"&gt;&lt;/textarea&gt;
+&lt;/article&gt;</code></pre>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Composition Docs - themeui-lab</title>
+    <script type="module">import "/src/scss/themeui-lab.scss";</script>
+    <link rel="stylesheet" href="/docs/docs-shell.css" />
+    <script src="/docs/example-copy.js" defer></script>
+  </head>
+  <body>
+    <header class="section docs-topbar">
+      <div class="container docs-topbar-inner">
+        <div class="docs-nav">
+          <a class="docs-link" href="/">themeui-lab</a>
+          <a class="docs-link" href="/demo/">Demo</a>
+          <a class="docs-link" href="/demo/settings.html">Examples</a>
+        </div>
+        <div class="docs-nav"><a class="docs-link" href="https://github.com/rEinve/themeui-lab.git" target="_blank" rel="noreferrer">Resource</a></div>
+      </div>
+    </header>
+
+    <main class="section docs-main">
+      <section class="section">
+        <div class="container stack stack--lg">
+          <div class="stack stack--xs">
+            <h1>Composition Model</h1>
+            <p>Use a clear three-layer composition model for predictable pages and reusable UI.</p>
+          </div>
+
+          <div class="docs-note">
+            <p>
+              Canonical composition uses page-shell primitives for structure, flow primitives for rhythm, and components only for reusable UI.
+              Treat older convenience selectors as compatibility helpers, not the primary API for new pages.
+            </p>
+          </div>
+
+          <article class="card stack stack--sm">
+            <h2 class="card__title">3 Layers</h2>
+            <p class="card__text">Page shell controls structure.</p>
+            <p class="card__text">Content flow controls rhythm.</p>
+            <p class="card__text">Components control their own interior.</p>
+            <hr class="divider" />
+            <p class="card__text">Do not let components own page layout or page rhythm.</p>
+          </article>
+
+          <article class="card stack stack--sm">
+            <h2 class="card__title">Canonical Pattern</h2>
+            <p class="card__text">section → container → stack → (intro + row/cluster/grid) → components</p>
+            <a href="/demo/settings.html" class="docs-link">See settings example in demo</a>
+            <a href="/docs/rules/" class="docs-link">Read system rules</a>
+          </article>
+
+          <div class="stack stack--lg">
+            <article class="example-block stack stack--sm">
+              <h2 class="example-title">Three-Layer Page Structure</h2>
+              <p class="example-description">Start with page shell, add flow rhythm inside the region, then place components inside that flow.</p>
+              <div class="example-preview">
+                <section class="section">
+                  <div class="container">
+                    <div class="stack stack--lg">
+                      <div class="stack stack--xs">
+                        <h3>Settings</h3>
+                        <p>Header content lives in the content flow layer.</p>
+                      </div>
+                      <div class="grid-12">
+                        <article class="card md-col-12 lg-col-8">
+                          <h3 class="card__title">Profile</h3>
+                          <p class="card__text">Component content stays inside the card.</p>
+                        </article>
+                        <aside class="card md-col-12 lg-col-4">
+                          <h3 class="card__title">Actions</h3>
+                          <button class="button" type="button">Save</button>
+                        </aside>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+              </div>
+              <pre class="example-code"><code>&lt;section class="section"&gt;
+  &lt;div class="container"&gt;
+    &lt;div class="stack stack--lg"&gt;
+      &lt;div class="stack stack--xs"&gt;
+        &lt;h3&gt;Settings&lt;/h3&gt;
+        &lt;p&gt;Header content lives in the content flow layer.&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class="grid-12"&gt;
+        &lt;article class="card md-col-12 lg-col-8"&gt;...&lt;/article&gt;
+        &lt;aside class="card md-col-12 lg-col-4"&gt;...&lt;/aside&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>System Rules - themeui-lab</title>
+    <script type="module">import "/src/scss/themeui-lab.scss";</script>
+    <link rel="stylesheet" href="/docs/docs-shell.css" />
+    <script src="/docs/example-copy.js" defer></script>
+  </head>
+  <body>
+    <header class="section docs-topbar">
+      <div class="container docs-topbar-inner">
+        <div class="docs-nav">
+          <a class="docs-link" href="/">themeui-lab</a>
+          <a class="docs-link" href="/demo/">Demo</a>
+          <a class="docs-link" href="/demo/settings.html">Examples</a>
+        </div>
+        <div class="docs-nav">
+          <a class="docs-link" href="https://github.com/rEinve/themeui-lab.git" target="_blank" rel="noreferrer">Resource</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="section docs-main">
+      <section class="section">
+        <div class="container stack stack--lg">
+          <div class="stack stack--xs">
+            <h1>System Rules</h1>
+            <p>Use these principles to keep the design system consistent, reusable, and resistant to design drift.</p>
+          </div>
+
+          <div class="grid-12">
+            <article class="card md-col-12 lg-col-6 stack stack--xs">
+              <h2 class="card__title">Primitives Control Layout</h2>
+              <p class="card__text">Use primitives like section, container, grid, stack, row, and cluster for structure and rhythm.</p>
+            </article>
+
+            <article class="card md-col-12 lg-col-6 stack stack--xs">
+              <h2 class="card__title">Components Control Interior Structure</h2>
+              <p class="card__text">Components style their own surface and internal content. They should not own page spacing or page shell layout.</p>
+            </article>
+
+            <article class="card md-col-12 lg-col-6 stack stack--xs">
+              <h2 class="card__title">Use a Three-Layer Page Structure</h2>
+              <p class="card__text">Page shell controls structure. Content flow controls rhythm. Components control their own interior.</p>
+            </article>
+
+            <article class="card md-col-12 lg-col-6 stack stack--xs">
+              <h2 class="card__title">Use Tokens, Not Hard-Coded Values</h2>
+              <p class="card__text">Prefer design tokens and exported CSS variables for color, spacing, typography, radius, motion, and shadows.</p>
+            </article>
+
+            <article class="card md-col-12 lg-col-6 stack stack--xs">
+              <h2 class="card__title">Prefer Composition Over Customization</h2>
+              <p class="card__text">Compose with existing primitives and components before creating special-case styles or one-off overrides.</p>
+            </article>
+
+            <article class="card md-col-12 lg-col-6 stack stack--xs">
+              <h2 class="card__title">Keep the System Small</h2>
+              <p class="card__text">Add only stable, reusable building blocks. Leave product-specific needs outside core system layers.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

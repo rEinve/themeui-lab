@@ -59,10 +59,14 @@ This file imports layers in order via `@use`:
 
 ## Primitive Docs
 
-- Container usage: `docs/primitives/container.md`
-- Grid usage: `docs/primitives/grid.md`
-- Stack usage: `docs/primitives/stack.md`
-- Row usage: `docs/primitives/row.md`
+- Docs hub: `/docs/`
+- Foundations docs: `/docs/foundations/`
+- Primitives docs: `/docs/primitives/`
+- Components docs: `/docs/components/`
+- Composition docs: `/docs/composition/`
+- System rules: `/docs/rules/`
+
+Markdown files in `docs/` are source/reference only and are not routed docs pages.
 
 ## Contributing SCSS Changes
 

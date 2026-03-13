@@ -1,0 +1,113 @@
+body {
+  margin: 0;
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
+}
+
+.docs-topbar {
+  border-bottom: 1px solid var(--color-outline-variant);
+  background: var(--color-surface-100);
+}
+
+.docs-topbar-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-s);
+}
+
+.docs-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+}
+
+.docs-link {
+  color: var(--color-text-secondary);
+  text-decoration: none;
+}
+
+.docs-link:hover,
+.docs-link[aria-current='page'] {
+  color: var(--color-text-primary);
+}
+
+.docs-main {
+  padding-block: var(--section-space);
+}
+
+.docs-note {
+  border-left: 3px solid var(--color-accent);
+  background: var(--color-surface-95);
+  padding: var(--space-s) var(--space-m);
+  color: var(--color-text-secondary);
+}
+
+.docs-note p {
+  margin: 0;
+}
+
+.docs-inline-code {
+  font-family: monospace;
+}
+
+.example-block {
+  border: 1px solid var(--color-outline-variant);
+  border-radius: var(--radius-container-md);
+  background: var(--color-surface-100);
+  padding: var(--space-m);
+}
+
+.example-title {
+  margin: 0;
+  font-size: var(--text-lg);
+}
+
+.example-description {
+  margin: 0;
+  color: var(--color-text-secondary);
+}
+
+.example-preview {
+  border: 1px solid var(--color-outline-variant);
+  border-radius: var(--radius-control-md);
+  background: var(--color-surface-95);
+  padding: var(--space-m);
+}
+
+.example-code {
+  margin: 0;
+  overflow-x: auto;
+  border: 1px solid var(--color-outline-variant);
+  border-radius: var(--radius-control-md);
+  background: var(--color-surface-100);
+  padding: var(--space-s);
+  font-size: var(--text-sm);
+}
+
+.example-code-shell {
+  position: relative;
+}
+
+.example-code-shell .example-code {
+  padding-top: var(--space-xl);
+}
+
+.example-copy {
+  position: absolute;
+  top: var(--space-xs);
+  right: var(--space-xs);
+  border: 1px solid var(--color-outline-variant);
+  border-radius: var(--radius-control-sm);
+  background: var(--color-surface-100);
+  color: var(--color-text-secondary);
+  padding: 0.2rem 0.6rem;
+  font-size: var(--text-sm);
+  line-height: var(--lh-label);
+  cursor: pointer;
+}
+
+.example-copy:hover {
+  color: var(--color-text-primary);
+}

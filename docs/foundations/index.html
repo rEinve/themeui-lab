@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Foundations Docs - themeui-lab</title>
+    <script type="module">import "/src/scss/themeui-lab.scss";</script>
+    <link rel="stylesheet" href="/docs/docs-shell.css" />
+    <script src="/docs/example-copy.js" defer></script>
+  </head>
+  <body>
+    <header class="section docs-topbar">
+      <div class="container docs-topbar-inner">
+        <div class="docs-nav">
+          <a class="docs-link" href="/">themeui-lab</a>
+          <a class="docs-link" href="/demo/">Demo</a>
+          <a class="docs-link" href="/demo/settings.html">Examples</a>
+        </div>
+        <div class="docs-nav"><a class="docs-link" href="https://github.com/rEinve/themeui-lab.git" target="_blank" rel="noreferrer">Resource</a></div>
+      </div>
+    </header>
+
+    <main class="section docs-main">
+      <section class="section">
+        <div class="container stack stack--lg">
+          <div class="stack stack--xs">
+            <h1>Foundations</h1>
+            <p>Foundations define the token contract for color, spacing, typography, radius, shadows, and motion.</p>
+          </div>
+
+          <div class="docs-note">
+            <p>
+              Canonical consumption should prefer exported CSS variables like <code class="docs-inline-code">--color-*</code>,
+              <code class="docs-inline-code">--space-*</code>, <code class="docs-inline-code">--radius-*</code>,
+              <code class="docs-inline-code">--shadow-*</code>, and <code class="docs-inline-code">--motion-*</code>.
+              Legacy aliases still exist for compatibility, but new work should use the canonical token names.
+            </p>
+          </div>
+
+          <div class="grid-12">
+            <article class="card md-col-12 lg-col-6 stack stack--sm">
+              <h2 class="card__title">Token Families</h2>
+              <div class="stack stack--xs">
+                <p class="card__text">Colors</p>
+                <p class="card__text">Spacing</p>
+                <p class="card__text">Typography</p>
+                <p class="card__text">Radius, Shadows, Motion</p>
+              </div>
+            </article>
+
+            <article class="card md-col-12 lg-col-6 stack stack--sm">
+              <h2 class="card__title">References</h2>
+              <a href="/docs/" class="docs-link">Architecture and conventions</a>
+              <a href="/docs/composition/" class="docs-link">Composition model</a>
+            </article>
+          </div>
+
+          <div class="stack stack--lg">
+            <article class="example-block stack stack--sm">
+              <h2 class="example-title">Token Usage in a Surface</h2>
+              <p class="example-description">Use tokens through CSS variables instead of repeating hard-coded values in product styles.</p>
+              <div class="example-preview">
+                <article
+                  class="card stack stack--xs"
+                  style="background: var(--color-surface-100); border-color: var(--color-outline-variant);"
+                >
+                  <h3 class="card__title">Foundation Tokens</h3>
+                  <p class="card__text" style="color: var(--color-text-secondary);">Spacing, color, and radius come from the shared token contract.</p>
+                  <span class="tag">token-driven</span>
+                </article>
+              </div>
+              <pre class="example-code"><code>&lt;article
+  class="card stack stack--xs"
+  style="background: var(--color-surface-100); border-color: var(--color-outline-variant);"&gt;
+  &lt;h3 class="card__title"&gt;Foundation Tokens&lt;/h3&gt;
+  &lt;p class="card__text" style="color: var(--color-text-secondary);"&gt;
+    Spacing, color, and radius come from the shared token contract.
+  &lt;/p&gt;
+  &lt;span class="tag"&gt;token-driven&lt;/span&gt;
+&lt;/article&gt;</code></pre>
+            </article>
+
+            <article class="example-block stack stack--sm">
+              <h2 class="example-title">Spacing Tokens in Layout</h2>
+              <p class="example-description">Layout rhythm should reuse the spacing scale rather than one-off spacing decisions.</p>
+              <div class="example-preview">
+                <div class="stack stack--sm">
+                  <div class="card">Space step: <code class="docs-inline-code">--space-s</code></div>
+                  <div class="card">Space step: <code class="docs-inline-code">--space-s</code></div>
+                </div>
+              </div>
+              <pre class="example-code"><code>&lt;div class="stack stack--sm"&gt;
+  &lt;div class="card"&gt;Space step: &lt;code&gt;--space-s&lt;/code&gt;&lt;/div&gt;
+  &lt;div class="card"&gt;Space step: &lt;code&gt;--space-s&lt;/code&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

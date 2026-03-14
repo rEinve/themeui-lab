@@ -75,8 +75,9 @@
         <h1>themeui-lab playground</h1>
         <p>Minimal inspection page for tokens, primitives, and core components.</p>
         <p style="color: var(--color-text-secondary)">
-          Canonical classes shown below: .container, .stack, .row, .cluster, .grid-12, .section, .button, .card, .input, .select, .textarea, .radio, .checkbox, .switch, .tag
+          Canonical classes shown below: .container, .stack, .row, .cluster, .grid-12, .section, .button, .card, .field-label, .field-hint, .input, .select, .textarea, .radio, .checkbox, .switch, .tag
         </p>
+        <p><a class="demo-link" href="/demo/app-shell.html">Open app shell pattern demo</a></p>
       </header>
 
       <section id="tokens" class="section demo-section stack stack--lg">
@@ -262,17 +263,18 @@
           </div>
 
           <label class="stack stack--xs">
-            <span>Input</span>
+            <span class="field-label">Input</span>
             <input class="input" type="text" placeholder="Type here..." />
+            <span class="field-hint">Short text input for names, titles, or single-line values.</span>
           </label>
 
           <label class="stack stack--xs">
-            <span>Textarea</span>
+            <span class="field-label">Textarea</span>
             <textarea class="textarea" placeholder="Write a longer message..."></textarea>
           </label>
 
           <label class="stack stack--xs">
-            <span>Select</span>
+            <span class="field-label">Select</span>
             <select class="select">
               <option>Choose a workspace</option>
               <option>Core System</option>
@@ -281,8 +283,8 @@
             </select>
           </label>
 
-          <div class="stack stack--xs">
-            <span>Radio</span>
+          <fieldset class="stack stack--xs">
+            <legend>Radio</legend>
             <label class="radio">
               <input class="radio__control" type="radio" name="demo-visibility" checked />
               <span>Visible to workspace</span>
@@ -291,10 +293,10 @@
               <input class="radio__control" type="radio" name="demo-visibility" />
               <span>Visible to organization</span>
             </label>
-          </div>
+          </fieldset>
 
-          <div class="stack stack--xs">
-            <span>Checkbox</span>
+          <fieldset class="stack stack--xs">
+            <legend>Checkbox</legend>
             <label class="checkbox">
               <input class="checkbox__control" type="checkbox" checked />
               <span>Enable notifications</span>
@@ -303,10 +305,10 @@
               <input class="checkbox__control" type="checkbox" />
               <span>Enable weekly digest</span>
             </label>
-          </div>
+          </fieldset>
 
-          <div class="stack stack--xs">
-            <span>Switch</span>
+          <fieldset class="stack stack--xs">
+            <legend>Switch</legend>
             <label class="switch">
               <input class="switch__control" type="checkbox" checked />
               <span>Auto save</span>
@@ -315,7 +317,7 @@
               <input class="switch__control" type="checkbox" />
               <span>Publish instantly</span>
             </label>
-          </div>
+          </fieldset>
 
           <hr class="divider" />
         </div>

@@ -64,6 +64,18 @@ $color-tokens: (
     accent-default: var(--color-accent-50),
     accent-strong: var(--color-accent-60),
 
+    danger: oklch(0.58 0.18 28),
+    danger-text: oklch(0.42 0.14 28),
+    danger-soft: oklch(0.95 0.03 28),
+
+    success: oklch(0.62 0.12 152),
+    success-text: oklch(0.42 0.1 152),
+    success-soft: oklch(0.95 0.03 152),
+
+    warning: oklch(0.75 0.13 92),
+    warning-text: oklch(0.5 0.1 92),
+    warning-soft: oklch(0.97 0.03 92),
+
     outline: oklch(from var(--color-text-70) l c h / 0.38),
     outline-variant: oklch(from var(--color-text-80) l c h / 0.22),
     primary: var(--color-accent)
@@ -86,6 +98,12 @@ $color-dark-overrides: (
     text-tertiary: var(--color-text-70),
 
     accent-default: var(--color-accent-70),
+    danger-soft: oklch(0.28 0.04 28),
+    danger-text: oklch(0.83 0.08 28),
+    success-soft: oklch(0.3 0.03 152),
+    success-text: oklch(0.84 0.05 152),
+    warning-soft: oklch(0.34 0.03 92),
+    warning-text: oklch(0.86 0.04 92),
     outline: oklch(from var(--color-text-70) l c h / 0.55),
     outline-variant: oklch(from var(--color-text-80) l c h / 0.28)
 );
@@ -158,6 +176,16 @@ $color-legacy-aliases: (
     accent: var(--color-accent),
     accent-default: var(--color-accent-default),
     accent-strong: var(--color-accent-strong),
+
+    danger: var(--color-danger),
+    danger-text: var(--color-danger-text),
+    danger-soft: var(--color-danger-soft),
+    success: var(--color-success),
+    success-text: var(--color-success-text),
+    success-soft: var(--color-success-soft),
+    warning: var(--color-warning),
+    warning-text: var(--color-warning-text),
+    warning-soft: var(--color-warning-soft),
 
     outline: var(--color-outline),
     outline-variant: var(--color-outline-variant),

@@ -31,3 +31,12 @@
     opacity: 0.6;
     cursor: not-allowed;
 }
+
+.input[aria-invalid='true'] {
+    border-color: var(--color-danger);
+}
+
+.input[aria-invalid='true']:focus-visible {
+    border-color: var(--color-danger);
+    box-shadow: 0 0 0 3px var(--color-danger-soft);
+}

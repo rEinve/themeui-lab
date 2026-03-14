@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>themeui-lab Demo - App Shell</title>
+    <script type="module">
+      import "/src/scss/themeui-lab.scss";
+    </script>
+    <script src="/demo/app-shell.js" defer></script>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container nav-container">
+        <a class="navbar-brand" href="/">themeui-lab</a>
+
+        <nav class="site-nav" data-app-nav aria-label="Primary navigation">
+          <button
+            class="nav-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="demo-nav-drawer"
+            aria-label="Open navigation"
+            data-nav-open
+          >
+            <span class="nav-toggle__label">Navigation</span>
+            <span aria-hidden="true">Menu</span>
+          </button>
+
+          <div class="nav-overlay" data-nav-overlay></div>
+
+          <div class="nav-drawer" id="demo-nav-drawer" data-nav-drawer>
+            <div class="nav-drawer__header">
+              <strong>Navigation</strong>
+              <button class="nav-close" type="button" aria-label="Close navigation" data-nav-close>Close</button>
+            </div>
+
+            <div class="nav-drawer__content">
+              <ul class="nav-links">
+                <li><a href="/demo/app-shell.html" aria-current="page">App Shell</a></li>
+                <li><a href="/demo/">Demo</a></li>
+                <li><a href="/docs/patterns/">Patterns</a></li>
+                <li><a href="/docs/rules/">Rules</a></li>
+              </ul>
+
+              <div class="nav-right">
+                <a class="feed-link" href="/demo/settings.html">Examples</a>
+                <a class="button" href="https://github.com/rEinve/themeui-lab.git" target="_blank" rel="noreferrer">Resource</a>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main class="section">
+      <section class="section">
+        <div class="container stack stack--lg">
+          <div class="stack stack--xs">
+            <h1>App Shell Pattern</h1>
+            <p>Top bar and off-canvas navigation pattern using the existing app shell classes.</p>
+          </div>
+
+          <div class="grid-12">
+            <article class="card md-col-12 lg-col-8 stack stack--sm">
+              <h2 class="card__title">Main Region</h2>
+              <p class="card__text">
+                On small screens, the navigation collapses into an off-canvas drawer. On larger screens, it returns to an inline top bar.
+              </p>
+              <p class="card__text">
+                This is a pattern-level feature because it controls page shell, major regions, and navigation behavior.
+              </p>
+            </article>
+
+            <aside class="card md-col-12 lg-col-4 stack stack--sm">
+              <h2 class="card__title">Pattern Notes</h2>
+              <span class="tag">mobile-first</span>
+              <span class="tag">page shell</span>
+              <span class="tag">off-canvas</span>
+            </aside>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

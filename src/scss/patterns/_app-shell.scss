@@ -4,8 +4,8 @@
     position: sticky;
     top: 0;
     z-index: 1000;
-    background: oklch(from var(--surface-100) l c h / 0.82);
-    border-bottom: 1px solid oklch(from var(--outline-variant) l c h / 0.8);
+    background: oklch(from var(--color-surface-100) l c h / 0.82);
+    border-bottom: 1px solid oklch(from var(--color-outline-variant) l c h / 0.8);
     backdrop-filter: blur(16px);
 }
 
@@ -45,11 +45,11 @@
     min-height: 2.75rem;
     min-width: 2.75rem;
     padding: 0.65rem 0.9rem;
-    border: 1px solid var(--outline-variant);
+    border: 1px solid var(--color-outline-variant);
     border-radius: var(--radius-pill);
-    background: oklch(from var(--surface-100) l c h / 0.92);
-    color: var(--text-primary);
-    box-shadow: var(--elevation-1);
+    background: oklch(from var(--color-surface-100) l c h / 0.92);
+    color: var(--color-text-primary);
+    box-shadow: var(--shadow-elevation-1);
 }
 
 .nav-toggle {
@@ -67,10 +67,10 @@
     position: fixed;
     inset: 0;
     display: block;
-    background: oklch(from var(--surface-0) l c h / 0.38);
+    background: oklch(from var(--color-surface-0) l c h / 0.38);
     opacity: 0;
     pointer-events: none;
-    transition: opacity var(--motion-fast) var(--ease-standard);
+    transition: opacity var(--motion-fast) var(--motion-ease-standard);
 }
 
 .nav-drawer {
@@ -84,13 +84,13 @@
     max-width: calc(100vw - 1rem);
     height: 100dvh;
     padding: var(--space-m);
-    background: oklch(from var(--surface-100) l c h / 0.98);
-    border-left: 1px solid var(--outline-variant);
-    box-shadow: var(--elevation-3);
+    background: oklch(from var(--color-surface-100) l c h / 0.98);
+    border-left: 1px solid var(--color-outline-variant);
+    box-shadow: var(--shadow-elevation-3);
     visibility: hidden;
     pointer-events: none;
     transform: translateX(calc(100% + 2rem));
-    transition: transform var(--motion-standard) var(--ease-standard);
+    transition: transform var(--motion-standard) var(--motion-ease-standard);
 }
 
 .nav-drawer__header {
@@ -99,7 +99,7 @@
     justify-content: space-between;
     gap: var(--space-s);
     padding-bottom: var(--space-m);
-    border-bottom: 1px solid var(--outline-variant);
+    border-bottom: 1px solid var(--color-outline-variant);
 }
 
 .nav-drawer__content {
@@ -127,26 +127,27 @@
 }
 
 .nav-links a {
-    color: var(--text-secondary);
+    display: flex;
+    color: var(--color-text-secondary);
     text-decoration: none;
     font-size: var(--step-0);
-    font-weight: 600;
-    transition: color 0.2s;
+    font-weight: var(--weight-semibold);
+    transition: color var(--motion-fast) var(--motion-ease-standard);
     white-space: normal;
     min-height: 3rem;
     align-items: center;
     justify-content: flex-start;
     padding: 0.85rem 1rem;
     border-radius: var(--radius-control-md);
-    background: var(--surface-container-low);
+    background: var(--color-surface-container-low);
     border: 1px solid transparent;
 }
 
 .nav-links a:hover,
 .nav-links a[aria-current="page"] {
-    color: var(--text-primary);
-    background: var(--surface-container);
-    border-color: var(--outline-variant);
+    color: var(--color-text-primary);
+    background: var(--color-surface-container);
+    border-color: var(--color-outline-variant);
 }
 
 .nav-right {
@@ -161,32 +162,34 @@
 }
 
 .feed-link {
-    color: var(--text-secondary);
+    color: var(--color-text-secondary);
     text-decoration: none;
     font-size: var(--text-sm);
-    transition: color 0.2s;
+    transition: color var(--motion-fast) var(--motion-ease-standard);
 }
 
 .nav-right a {
+    display: flex;
     min-height: 3rem;
     align-items: center;
     justify-content: flex-start;
     padding: 0.85rem 1rem;
     border-radius: var(--radius-control-md);
-    background: var(--surface-container-low);
+    background: var(--color-surface-container-low);
     border: 1px solid transparent;
     white-space: normal;
 }
 
 .feed-link:hover {
-    color: var(--text-primary);
+    color: var(--color-text-primary);
 }
 
 .nav-right a:hover {
-    background: var(--surface-container);
-    border-color: var(--outline-variant);
+    background: var(--color-surface-container);
+    border-color: var(--color-outline-variant);
 }
 
+.nav-right .button,
 .nav-right .btn {
     justify-content: center;
     width: 100%;

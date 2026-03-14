@@ -31,6 +31,8 @@
           <div class="docs-note">
             <p>
               Canonical component classes are <code class="docs-inline-code">.button</code>, <code class="docs-inline-code">.card</code>,
+              <code class="docs-inline-code">.field-label</code>, <code class="docs-inline-code">.field-hint</code>,
+              <code class="docs-inline-code">.field-error</code>, <code class="docs-inline-code">.field-success</code>, <code class="docs-inline-code">.field-warning</code>,
               <code class="docs-inline-code">.input</code>, <code class="docs-inline-code">.select</code>, <code class="docs-inline-code">.textarea</code>,
               <code class="docs-inline-code">.radio</code>, <code class="docs-inline-code">.checkbox</code>, <code class="docs-inline-code">.switch</code>,
               <code class="docs-inline-code">.tag</code>, and <code class="docs-inline-code">.divider</code>.
@@ -46,25 +48,38 @@
             </article>
             <article class="card md-col-12 lg-col-4 stack stack--sm">
               <h2 class="card__title">Inputs</h2>
-              <input class="input" type="text" placeholder="Input" />
-              <select class="select">
-                <option>Select option</option>
-                <option>First option</option>
-                <option>Second option</option>
-              </select>
-              <label class="radio">
-                <input class="radio__control" type="radio" name="component-preview" checked />
-                <span>Default radio</span>
+              <label class="stack stack--xs">
+                <span class="field-label">Display name</span>
+                <input class="input" type="text" placeholder="Input" />
+                <span class="field-hint">Shown on your profile.</span>
               </label>
-              <label class="checkbox">
-                <input class="checkbox__control" type="checkbox" checked />
-                <span>Default checkbox</span>
+              <label class="stack stack--xs">
+                <span class="field-label">Team</span>
+                <select class="select">
+                  <option>Select option</option>
+                  <option>First option</option>
+                  <option>Second option</option>
+                </select>
               </label>
-              <label class="switch">
-                <input class="switch__control" type="checkbox" checked />
-                <span>Default switch</span>
+              <fieldset class="stack stack--xs">
+                <legend>Visibility</legend>
+                <label class="radio">
+                  <input class="radio__control" type="radio" name="component-preview" checked />
+                  <span>Default radio</span>
+                </label>
+                <label class="checkbox">
+                  <input class="checkbox__control" type="checkbox" checked />
+                  <span>Default checkbox</span>
+                </label>
+                <label class="switch">
+                  <input class="switch__control" type="checkbox" checked />
+                  <span>Default switch</span>
+                </label>
+              </fieldset>
+              <label class="stack stack--xs">
+                <span class="field-label">Notes</span>
+                <textarea class="textarea" placeholder="Textarea"></textarea>
               </label>
-              <textarea class="textarea" placeholder="Textarea"></textarea>
             </article>
             <article class="card md-col-12 lg-col-4 stack stack--sm">
               <h2 class="card__title">Surfaces</h2>
@@ -91,17 +106,26 @@
 
             <article class="example-block stack stack--sm">
               <h2 class="example-title">Form Control Family</h2>
-              <p class="example-description">Input, select, textarea, radio, checkbox, and switch should feel related through shared color, focus, and interaction treatment.</p>
+              <p class="example-description">A practical form needs consistent labels, hints, grouped choices, and a clear validation contract built on semantic status tokens.</p>
               <div class="example-preview">
                 <article class="card stack stack--sm">
                   <h3 class="card__title">Profile</h3>
-                  <input class="input" type="text" placeholder="Display name" />
-                  <select class="select">
-                    <option>Choose team</option>
-                    <option>Design Systems</option>
-                    <option>Product Design</option>
-                  </select>
-                  <div class="stack stack--xs">
+                  <label class="stack stack--xs">
+                    <span class="field-label">Display name</span>
+                    <input class="input" type="text" placeholder="Display name" aria-invalid="true" />
+                    <span class="field-error">A display name is required.</span>
+                  </label>
+                  <label class="stack stack--xs">
+                    <span class="field-label">Team</span>
+                    <select class="select">
+                      <option>Choose team</option>
+                      <option>Design Systems</option>
+                      <option>Product Design</option>
+                    </select>
+                    <span class="field-success">Team selected successfully.</span>
+                  </label>
+                  <fieldset class="stack stack--xs">
+                    <legend>Team size</legend>
                     <label class="radio">
                       <input class="radio__control" type="radio" name="team-size" checked />
                       <span>Small team</span>
@@ -110,8 +134,9 @@
                       <input class="radio__control" type="radio" name="team-size" />
                       <span>Large team</span>
                     </label>
-                  </div>
-                  <div class="stack stack--xs">
+                  </fieldset>
+                  <fieldset class="stack stack--xs">
+                    <legend>Notifications</legend>
                     <label class="checkbox">
                       <input class="checkbox__control" type="checkbox" checked />
                       <span>Email updates</span>
@@ -120,8 +145,9 @@
                       <input class="checkbox__control" type="checkbox" />
                       <span>Product announcements</span>
                     </label>
-                  </div>
-                  <div class="stack stack--xs">
+                  </fieldset>
+                  <fieldset class="stack stack--xs">
+                    <legend>Publishing</legend>
                     <label class="switch">
                       <input class="switch__control" type="checkbox" checked />
                       <span>Auto publish</span>
@@ -130,19 +156,32 @@
                       <input class="switch__control" type="checkbox" />
                       <span>Quiet mode</span>
                     </label>
-                  </div>
-                  <textarea class="textarea" placeholder="Short bio"></textarea>
+                  </fieldset>
+                  <label class="stack stack--xs">
+                    <span class="field-label">Short bio</span>
+                    <textarea class="textarea" placeholder="Short bio"></textarea>
+                    <span class="field-warning">Keep this under 160 characters for profile cards.</span>
+                  </label>
                 </article>
               </div>
               <pre class="example-code"><code>&lt;article class="card stack stack--sm"&gt;
   &lt;h3 class="card__title"&gt;Profile&lt;/h3&gt;
-  &lt;input class="input" type="text" placeholder="Display name" /&gt;
-  &lt;select class="select"&gt;
-    &lt;option&gt;Choose team&lt;/option&gt;
-    &lt;option&gt;Design Systems&lt;/option&gt;
-    &lt;option&gt;Product Design&lt;/option&gt;
-  &lt;/select&gt;
-  &lt;div class="stack stack--xs"&gt;
+  &lt;label class="stack stack--xs"&gt;
+    &lt;span class="field-label"&gt;Display name&lt;/span&gt;
+    &lt;input class="input" type="text" placeholder="Display name" aria-invalid="true" /&gt;
+    &lt;span class="field-error"&gt;A display name is required.&lt;/span&gt;
+  &lt;/label&gt;
+  &lt;label class="stack stack--xs"&gt;
+    &lt;span class="field-label"&gt;Team&lt;/span&gt;
+    &lt;select class="select"&gt;
+      &lt;option&gt;Choose team&lt;/option&gt;
+      &lt;option&gt;Design Systems&lt;/option&gt;
+      &lt;option&gt;Product Design&lt;/option&gt;
+    &lt;/select&gt;
+    &lt;span class="field-success"&gt;Team selected successfully.&lt;/span&gt;
+  &lt;/label&gt;
+  &lt;fieldset class="stack stack--xs"&gt;
+    &lt;legend&gt;Team size&lt;/legend&gt;
     &lt;label class="radio"&gt;
       &lt;input class="radio__control" type="radio" name="team-size" checked /&gt;
       &lt;span&gt;Small team&lt;/span&gt;
@@ -151,8 +190,9 @@
       &lt;input class="radio__control" type="radio" name="team-size" /&gt;
       &lt;span&gt;Large team&lt;/span&gt;
     &lt;/label&gt;
-  &lt;/div&gt;
-  &lt;div class="stack stack--xs"&gt;
+  &lt;/fieldset&gt;
+  &lt;fieldset class="stack stack--xs"&gt;
+    &lt;legend&gt;Notifications&lt;/legend&gt;
     &lt;label class="checkbox"&gt;
       &lt;input class="checkbox__control" type="checkbox" checked /&gt;
       &lt;span&gt;Email updates&lt;/span&gt;
@@ -161,8 +201,9 @@
       &lt;input class="checkbox__control" type="checkbox" /&gt;
       &lt;span&gt;Product announcements&lt;/span&gt;
     &lt;/label&gt;
-  &lt;/div&gt;
-  &lt;div class="stack stack--xs"&gt;
+  &lt;/fieldset&gt;
+  &lt;fieldset class="stack stack--xs"&gt;
+    &lt;legend&gt;Publishing&lt;/legend&gt;
     &lt;label class="switch"&gt;
       &lt;input class="switch__control" type="checkbox" checked /&gt;
       &lt;span&gt;Auto publish&lt;/span&gt;
@@ -171,8 +212,12 @@
       &lt;input class="switch__control" type="checkbox" /&gt;
       &lt;span&gt;Quiet mode&lt;/span&gt;
     &lt;/label&gt;
-  &lt;/div&gt;
-  &lt;textarea class="textarea" placeholder="Short bio"&gt;&lt;/textarea&gt;
+  &lt;/fieldset&gt;
+  &lt;label class="stack stack--xs"&gt;
+    &lt;span class="field-label"&gt;Short bio&lt;/span&gt;
+    &lt;textarea class="textarea" placeholder="Short bio"&gt;&lt;/textarea&gt;
+    &lt;span class="field-warning"&gt;Keep this under 160 characters for profile cards.&lt;/span&gt;
+  &lt;/label&gt;
 &lt;/article&gt;</code></pre>
             </article>
           </div>

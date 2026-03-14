@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Patterns Docs - themeui-lab</title>
+    <script type="module">import "/src/scss/themeui-lab.scss";</script>
+    <link rel="stylesheet" href="/docs/docs-shell.css" />
+    <script src="/docs/example-copy.js" defer></script>
+  </head>
+  <body>
+    <header class="section docs-topbar">
+      <div class="container docs-topbar-inner">
+        <div class="docs-nav">
+          <a class="docs-link" href="/">themeui-lab</a>
+          <a class="docs-link" href="/demo/">Demo</a>
+          <a class="docs-link" href="/demo/settings.html">Examples</a>
+        </div>
+        <div class="docs-nav"><a class="docs-link" href="https://github.com/rEinve/themeui-lab.git" target="_blank" rel="noreferrer">Resource</a></div>
+      </div>
+    </header>
+
+    <main class="section docs-main">
+      <section class="section">
+        <div class="container stack stack--lg">
+          <div class="stack stack--xs">
+            <h1>Patterns</h1>
+            <p>Patterns combine primitives and components into larger page-level structures. They are not core UI components.</p>
+          </div>
+
+          <div class="docs-note">
+            <p>
+              Canonical pattern usage should stay in the pattern layer. Top bar and off-canvas navigation belong here because they manage page shell,
+              responsive behavior, and navigation structure.
+            </p>
+          </div>
+
+          <article class="example-block stack stack--sm">
+            <h2 class="example-title">App Shell</h2>
+            <p class="example-description">Use the existing app shell pattern for a responsive top bar that becomes an off-canvas drawer on smaller screens.</p>
+            <div class="example-preview">
+              <div class="stack stack--xs">
+                <p class="card__text">Pattern classes:</p>
+                <span class="tag">.header</span>
+                <span class="tag">.nav-container</span>
+                <span class="tag">.site-nav</span>
+                <span class="tag">.nav-toggle</span>
+                <span class="tag">.nav-drawer</span>
+                <span class="tag">.nav-links</span>
+                <span class="tag">data-nav-open</span>
+                <span class="tag">data-nav-drawer</span>
+              </div>
+            </div>
+            <pre class="example-code"><code>&lt;header class="header"&gt;
+  &lt;div class="container nav-container"&gt;
+    &lt;a class="navbar-brand" href="/"&gt;themeui-lab&lt;/a&gt;
+    &lt;nav class="site-nav" data-app-nav&gt;
+      &lt;button class="nav-toggle" type="button" aria-controls="demo-nav-drawer" data-nav-open&gt;Menu&lt;/button&gt;
+      &lt;div class="nav-overlay" data-nav-overlay&gt;&lt;/div&gt;
+      &lt;div class="nav-drawer" id="demo-nav-drawer" data-nav-drawer&gt;...&lt;/div&gt;
+    &lt;/nav&gt;
+  &lt;/div&gt;
+&lt;/header&gt;</code></pre>
+            <a class="docs-link" href="/demo/app-shell.html">Open app shell demo</a>
+          </article>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

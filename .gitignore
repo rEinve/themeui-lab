@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Temporary Google Fonts fetches.
+src/fonts/google-fonts*.css
+src/fonts/material-icons*.css

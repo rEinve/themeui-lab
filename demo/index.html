@@ -75,9 +75,12 @@
         <h1>themeui-lab playground</h1>
         <p>Minimal inspection page for tokens, primitives, and core components.</p>
         <p style="color: var(--color-text-secondary)">
-          Canonical classes shown below: .container, .stack, .row, .cluster, .grid-12, .section, .button, .card, .field-label, .field-hint, .input, .select, .textarea, .radio, .checkbox, .switch, .tag
+          Canonical classes shown below: .container, .stack, .row, .cluster, .grid-12, .section, .button, .card, .field-label, .field-hint, .input, .select, .textarea, .radio, .checkbox, .switch, .tag, .material-icons, .material-icons-outlined, .material-icons-round, .material-icons-sharp, .material-icons-two-tone
         </p>
-        <p><a class="demo-link" href="/demo/app-shell.html">Open app shell pattern demo</a></p>
+        <div class="cluster">
+          <a class="demo-link" href="/demo/app-shell.html">Open app shell pattern demo</a>
+          <a class="demo-link" href="/demo/hero.html">Open hero pattern demo</a>
+        </div>
       </header>
 
       <section id="tokens" class="section demo-section stack stack--lg">
@@ -110,6 +113,18 @@
             <div class="demo-swatch" style="background: var(--color-surface-100); color: var(--color-text-primary)">text: --color-text-primary</div>
           </div>
         </div>
+      </section>
+
+      <section class="section demo-section stack stack--lg">
+        <h2>Icons</h2>
+        <div class="cluster">
+          <span class="material-icons" aria-hidden="true">home</span>
+          <span class="material-icons-outlined" aria-hidden="true">home</span>
+          <span class="material-icons-round" aria-hidden="true">home</span>
+          <span class="material-icons-sharp" aria-hidden="true">home</span>
+          <span class="material-icons-two-tone" aria-hidden="true">home</span>
+        </div>
+        <p><a class="demo-link" href="/docs/icons/">Open icon documentation</a></p>
       </section>
 
       <section id="components" class="section demo-section stack stack--lg">

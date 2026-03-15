@@ -1,0 +1,50 @@
+@use '../tools' as *;
+
+.hero {
+    display: grid;
+    gap: var(--space-l);
+    align-items: center;
+    padding: var(--space-l);
+    border: 1px solid var(--color-outline-variant);
+    border-radius: var(--radius-container-lg);
+    background:
+        linear-gradient(
+            180deg,
+            oklch(from var(--color-surface-100) l c h / 1) 0%,
+            oklch(from var(--color-surface-container-low) l c h / 0.92) 100%
+        );
+    box-shadow: var(--shadow-elevation-1);
+}
+
+.hero__content {
+    display: grid;
+    gap: var(--space-m);
+}
+
+.hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-s);
+}
+
+.hero__media {
+    display: grid;
+    gap: var(--space-s);
+    min-height: 14rem;
+    padding: var(--space-m);
+    border: 1px solid var(--color-outline-variant);
+    border-radius: var(--radius-container-md);
+    background: oklch(from var(--color-surface-100) l c h / 0.82);
+}
+
+.hero__media .card {
+    height: 100%;
+}
+
+@include breakpoint(expanded) {
+    .hero {
+        grid-template-columns: minmax(0, 1.15fr) minmax(18rem, 0.85fr);
+        gap: var(--space-xl);
+        padding: var(--space-xl);
+    }
+}

@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Icons Docs - themeui-lab</title>
+    <script type="module">import "/src/scss/themeui-lab.scss";</script>
+    <link rel="stylesheet" href="/docs/docs-shell.css" />
+    <script src="/docs/example-copy.js" defer></script>
+  </head>
+  <body>
+    <header class="section docs-topbar">
+      <div class="container docs-topbar-inner">
+        <div class="docs-nav">
+          <a class="docs-link" href="/">themeui-lab</a>
+          <a class="docs-link" href="/demo/">Demo</a>
+          <a class="docs-link" href="/demo/settings.html">Examples</a>
+        </div>
+        <div class="docs-nav"><a class="docs-link" href="https://github.com/rEinve/themeui-lab.git" target="_blank" rel="noreferrer">Resource</a></div>
+      </div>
+    </header>
+
+    <main class="section docs-main">
+      <section class="section">
+        <div class="container stack stack--lg">
+          <div class="stack stack--xs">
+            <h1>Icons</h1>
+            <p>Material Icons is installed from npm and exposes the full ligature font set for regular, outlined, round, sharp, and two-tone styles.</p>
+          </div>
+
+          <div class="docs-note">
+            <p>
+              Package source: <code class="docs-inline-code">@material-design-icons/font</code>.
+              Default to <code class="docs-inline-code">.material-icons</code> for regular style. Use <code class="docs-inline-code">.material-icons-outlined</code>,
+              <code class="docs-inline-code">.material-icons-round</code>, <code class="docs-inline-code">.material-icons-sharp</code>, and
+              <code class="docs-inline-code">.material-icons-two-tone</code> only when a different style is intentionally needed.
+            </p>
+          </div>
+
+          <article class="example-block stack stack--sm">
+            <h2 class="example-title">Basic Usage</h2>
+            <p class="example-description">Use regular Material Icons as the default system style, and opt into the other font styles only when needed.</p>
+            <div class="example-preview">
+              <div class="cluster">
+                <span class="material-icons" aria-hidden="true">home</span>
+                <span class="material-icons-outlined" aria-hidden="true">home</span>
+                <span class="material-icons-round" aria-hidden="true">home</span>
+                <span class="material-icons-sharp" aria-hidden="true">home</span>
+                <span class="material-icons-two-tone" aria-hidden="true">home</span>
+              </div>
+            </div>
+            <pre class="example-code"><code>&lt;span class="material-icons" aria-hidden="true"&gt;home&lt;/span&gt;
+&lt;span class="material-icons-outlined" aria-hidden="true"&gt;home&lt;/span&gt;
+&lt;span class="material-icons-round" aria-hidden="true"&gt;home&lt;/span&gt;
+&lt;span class="material-icons-sharp" aria-hidden="true"&gt;home&lt;/span&gt;
+&lt;span class="material-icons-two-tone" aria-hidden="true"&gt;home&lt;/span&gt;</code></pre>
+          </article>
+
+          <article class="example-block stack stack--sm">
+            <h2 class="example-title">Canonical Style Set</h2>
+            <p class="example-description">The package is available in full, but the canonical default for themeui-lab is regular Material Icons.</p>
+            <div class="example-preview">
+              <div class="cluster">
+                <span class="material-icons" aria-hidden="true">favorite</span>
+                <span class="material-icons" aria-hidden="true">check_circle</span>
+                <span class="material-icons" aria-hidden="true">warning</span>
+                <span class="material-icons" aria-hidden="true">settings</span>
+              </div>
+            </div>
+            <pre class="example-code"><code>&lt;span class="material-icons" aria-hidden="true"&gt;favorite&lt;/span&gt;
+&lt;span class="material-icons" aria-hidden="true"&gt;check_circle&lt;/span&gt;
+&lt;span class="material-icons" aria-hidden="true"&gt;warning&lt;/span&gt;
+&lt;span class="material-icons" aria-hidden="true"&gt;settings&lt;/span&gt;</code></pre>
+          </article>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

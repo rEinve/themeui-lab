@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hero Pattern Demo - themeui-lab</title>
+    <script type="module">
+      import "/src/scss/themeui-lab.scss";
+    </script>
+    <link rel="stylesheet" href="/demo/demo-shell.css" />
+  </head>
+  <body>
+    <header class="section demo-topbar">
+      <div class="container demo-topbar-inner">
+        <div class="demo-nav">
+          <a class="demo-link" href="/">themeui-lab</a>
+          <a class="demo-link" href="/docs/">Docs</a>
+          <a class="demo-link" href="/demo/">Demo</a>
+        </div>
+        <div class="demo-nav">
+          <a class="demo-link" href="https://github.com/rEinve/themeui-lab.git" target="_blank" rel="noreferrer">Resource</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="demo-main">
+      <section class="section">
+        <div class="container stack stack--xl">
+          <section class="hero">
+            <div class="hero__content">
+              <div class="cluster">
+                <span class="tag">Material 3 DNA</span>
+                <span class="tag">Pattern</span>
+              </div>
+              <div class="stack stack--sm">
+                <h1>Calm landing pages start with a simple hero.</h1>
+                <p style="color: var(--color-text-secondary)">
+                  This hero pattern gives themeui-lab a clear landing-page introduction using existing tokens, layout primitives, and core components.
+                </p>
+              </div>
+              <div class="hero__actions">
+                <a class="button" href="/docs/patterns/">View Pattern Docs</a>
+                <a class="demo-link" href="/demo/">Back to Demo Hub</a>
+              </div>
+            </div>
+
+            <div class="hero__media">
+              <article class="card stack stack--sm">
+                <h2 class="card__title">What this tests</h2>
+                <p class="card__text">Headline scale, action rhythm, surface layering, and responsive two-region composition.</p>
+                <div class="divider" role="presentation"></div>
+                <div class="stack stack--xs">
+                  <span class="field-hint">Built from canonical system pieces:</span>
+                  <div class="cluster">
+                    <span class="tag">section</span>
+                    <span class="tag">container</span>
+                    <span class="tag">hero</span>
+                    <span class="tag">button</span>
+                    <span class="tag">card</span>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <section class="section">
+            <div class="grid-12">
+              <article class="card md-col-12 lg-col-4 stack stack--sm">
+                <h2 class="card__title">Headline</h2>
+                <p class="card__text">Large type establishes hierarchy without needing a separate hero-title component.</p>
+              </article>
+              <article class="card md-col-12 lg-col-4 stack stack--sm">
+                <h2 class="card__title">Actions</h2>
+                <p class="card__text">Call-to-action buttons sit in a simple action row and wrap safely on smaller screens.</p>
+              </article>
+              <article class="card md-col-12 lg-col-4 stack stack--sm">
+                <h2 class="card__title">Visual Area</h2>
+                <p class="card__text">An optional media region can hold imagery, cards, or supporting content without redefining hero itself.</p>
+              </article>
+            </div>
+          </section>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

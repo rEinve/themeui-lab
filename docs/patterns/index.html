@@ -31,9 +31,48 @@
           <div class="docs-note">
             <p>
               Canonical pattern usage should stay in the pattern layer. Top bar and off-canvas navigation belong here because they manage page shell,
-              responsive behavior, and navigation structure.
+              responsive behavior, and navigation structure. Hero belongs here too because it composes page regions, content flow, and components into
+              one landing-page section.
             </p>
           </div>
+
+          <article class="example-block stack stack--sm">
+            <h2 class="example-title">Hero</h2>
+            <p class="example-description">Use the hero pattern for a landing-page introduction with headline, supporting copy, actions, and an optional visual area.</p>
+            <div class="example-preview">
+              <section class="hero">
+                <div class="hero__content">
+                  <span class="tag">themeui-lab</span>
+                  <h2>Minimal hero pattern</h2>
+                  <p class="card__text">Hero stays in patterns because it composes primitives and components into a page-level introduction.</p>
+                  <div class="hero__actions">
+                    <a class="button" href="/demo/hero.html">Open Demo</a>
+                    <a class="docs-link" href="/docs/rules/">System Rules</a>
+                  </div>
+                </div>
+                <div class="hero__media">
+                  <article class="card stack stack--xs">
+                    <h3 class="card__title">Landing Region</h3>
+                    <p class="card__text">Use card, button, tag, and layout primitives inside the hero instead of inventing hero-only UI elements.</p>
+                  </article>
+                </div>
+              </section>
+            </div>
+            <pre class="example-code"><code>&lt;section class="hero"&gt;
+  &lt;div class="hero__content"&gt;
+    &lt;span class="tag"&gt;themeui-lab&lt;/span&gt;
+    &lt;h1&gt;Minimal hero pattern&lt;/h1&gt;
+    &lt;p&gt;Use hero for landing-page introduction, not as a generic card replacement.&lt;/p&gt;
+    &lt;div class="hero__actions"&gt;
+      &lt;a class="button" href="/demo/hero.html"&gt;Open Demo&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="hero__media"&gt;
+    &lt;article class="card"&gt;...&lt;/article&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+            <a class="docs-link" href="/demo/hero.html">Open hero demo</a>
+          </article>
 
           <article class="example-block stack stack--sm">
             <h2 class="example-title">App Shell</h2>

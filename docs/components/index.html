@@ -35,7 +35,7 @@
               <code class="docs-inline-code">.field-error</code>, <code class="docs-inline-code">.field-success</code>, <code class="docs-inline-code">.field-warning</code>,
               <code class="docs-inline-code">.input</code>, <code class="docs-inline-code">.select</code>, <code class="docs-inline-code">.textarea</code>,
               <code class="docs-inline-code">.radio</code>, <code class="docs-inline-code">.checkbox</code>, <code class="docs-inline-code">.switch</code>,
-              <code class="docs-inline-code">.tag</code>, and <code class="docs-inline-code">.divider</code>.
+              <code class="docs-inline-code">.tag</code>, <code class="docs-inline-code">.divider</code>, and <code class="docs-inline-code">.pagination</code>.
               The legacy <code class="docs-inline-code">.btn</code> alias remains temporarily for compatibility only.
             </p>
           </div>
@@ -85,10 +85,44 @@
               <h2 class="card__title">Surfaces</h2>
               <p class="card__text">Card and divider support content presentation.</p>
               <hr class="divider" />
+              <nav class="pagination" aria-label="Pagination preview">
+                <ul class="pagination__list">
+                  <li><a class="pagination__link" href="#" aria-disabled="true">Prev</a></li>
+                  <li><a class="pagination__link" href="#" aria-current="page">1</a></li>
+                  <li><a class="pagination__link" href="#">2</a></li>
+                  <li><a class="pagination__link" href="#">3</a></li>
+                  <li><a class="pagination__link" href="#">Next</a></li>
+                </ul>
+              </nav>
             </article>
           </div>
 
           <div class="stack stack--lg">
+            <article class="example-block stack stack--sm">
+              <h2 class="example-title">Pagination</h2>
+              <p class="example-description">Pagination stays small: a nav region, a list, link elements, and an aria-current state for the active page.</p>
+              <div class="example-preview">
+                <nav class="pagination" aria-label="Search results pages">
+                  <ul class="pagination__list">
+                    <li><a class="pagination__link" href="#" aria-disabled="true">Prev</a></li>
+                    <li><a class="pagination__link" href="#" aria-current="page">1</a></li>
+                    <li><a class="pagination__link" href="#">2</a></li>
+                    <li><a class="pagination__link" href="#">3</a></li>
+                    <li><a class="pagination__link" href="#">Next</a></li>
+                  </ul>
+                </nav>
+              </div>
+              <pre class="example-code"><code>&lt;nav class="pagination" aria-label="Search results pages"&gt;
+  &lt;ul class="pagination__list"&gt;
+    &lt;li&gt;&lt;a class="pagination__link" href="#" aria-disabled="true"&gt;Prev&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a class="pagination__link" href="#" aria-current="page"&gt;1&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a class="pagination__link" href="#"&gt;2&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a class="pagination__link" href="#"&gt;3&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a class="pagination__link" href="#"&gt;Next&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+            </article>
+
             <article class="example-block stack stack--sm">
               <h2 class="example-title">Button + Tag</h2>
               <p class="example-description">Components should stay small and reusable, then compose together inside flow primitives.</p>

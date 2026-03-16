@@ -35,7 +35,7 @@
               <code class="docs-inline-code">.field-error</code>, <code class="docs-inline-code">.field-success</code>, <code class="docs-inline-code">.field-warning</code>,
               <code class="docs-inline-code">.input</code>, <code class="docs-inline-code">.select</code>, <code class="docs-inline-code">.textarea</code>,
               <code class="docs-inline-code">.radio</code>, <code class="docs-inline-code">.checkbox</code>, <code class="docs-inline-code">.switch</code>,
-              <code class="docs-inline-code">.tag</code>, <code class="docs-inline-code">.divider</code>, and <code class="docs-inline-code">.pagination</code>.
+              <code class="docs-inline-code">.tag</code>, <code class="docs-inline-code">.divider</code>, <code class="docs-inline-code">.pagination</code>, and <code class="docs-inline-code">.breadcrumbs</code>.
               The legacy <code class="docs-inline-code">.btn</code> alias remains temporarily for compatibility only.
             </p>
           </div>
@@ -45,6 +45,13 @@
               <h2 class="card__title">Actions</h2>
               <button class="button" type="button">Button</button>
               <span class="tag">Tag</span>
+              <nav class="breadcrumbs" aria-label="Breadcrumb preview">
+                <ol class="breadcrumbs__list">
+                  <li class="breadcrumbs__item"><a class="breadcrumbs__link" href="#">Home</a></li>
+                  <li class="breadcrumbs__item"><a class="breadcrumbs__link" href="#">Docs</a></li>
+                  <li class="breadcrumbs__item" aria-current="page">Components</li>
+                </ol>
+              </nav>
             </article>
             <article class="card md-col-12 lg-col-4 stack stack--sm">
               <h2 class="card__title">Inputs</h2>
@@ -98,6 +105,27 @@
           </div>
 
           <div class="stack stack--lg">
+            <article class="example-block stack stack--sm">
+              <h2 class="example-title">Breadcrumbs</h2>
+              <p class="example-description">Breadcrumbs stay text-first and low-emphasis: a simple trail with links for prior levels and aria-current for the current page.</p>
+              <div class="example-preview">
+                <nav class="breadcrumbs" aria-label="Documentation path">
+                  <ol class="breadcrumbs__list">
+                    <li class="breadcrumbs__item"><a class="breadcrumbs__link" href="#">Home</a></li>
+                    <li class="breadcrumbs__item"><a class="breadcrumbs__link" href="#">Docs</a></li>
+                    <li class="breadcrumbs__item" aria-current="page">Components</li>
+                  </ol>
+                </nav>
+              </div>
+              <pre class="example-code"><code>&lt;nav class="breadcrumbs" aria-label="Documentation path"&gt;
+  &lt;ol class="breadcrumbs__list"&gt;
+    &lt;li class="breadcrumbs__item"&gt;&lt;a class="breadcrumbs__link" href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
+    &lt;li class="breadcrumbs__item"&gt;&lt;a class="breadcrumbs__link" href="#"&gt;Docs&lt;/a&gt;&lt;/li&gt;
+    &lt;li class="breadcrumbs__item" aria-current="page"&gt;Components&lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/nav&gt;</code></pre>
+            </article>
+
             <article class="example-block stack stack--sm">
               <h2 class="example-title">Pagination</h2>
               <p class="example-description">Pagination stays small: a nav region, a list, link elements, and an aria-current state for the active page.</p>

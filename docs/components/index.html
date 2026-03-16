@@ -36,7 +36,7 @@
               <code class="docs-inline-code">.input</code>, <code class="docs-inline-code">.select</code>, <code class="docs-inline-code">.textarea</code>,
               <code class="docs-inline-code">.radio</code>, <code class="docs-inline-code">.checkbox</code>, <code class="docs-inline-code">.switch</code>,
               <code class="docs-inline-code">.tag</code>, <code class="docs-inline-code">.divider</code>, <code class="docs-inline-code">.list</code>,
-              <code class="docs-inline-code">.pagination</code>, and <code class="docs-inline-code">.breadcrumbs</code>.
+              <code class="docs-inline-code">.pagination</code>, <code class="docs-inline-code">.breadcrumbs</code>, and <code class="docs-inline-code">.table</code>.
               The legacy <code class="docs-inline-code">.btn</code> alias remains temporarily for compatibility only.
             </p>
           </div>
@@ -112,10 +112,81 @@
                   <li><a class="pagination__link" href="#">Next</a></li>
                 </ul>
               </nav>
+              <div class="table-wrapper">
+                <table class="table">
+                  <caption>Preview table</caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">Name</th>
+                      <th scope="col">Role</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Ada Lovelace</td>
+                      <td>Admin</td>
+                    </tr>
+                    <tr>
+                      <td>Grace Hopper</td>
+                      <td>Editor</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </article>
           </div>
 
           <div class="stack stack--lg">
+            <article class="example-block stack stack--sm">
+              <h2 class="example-title">Table</h2>
+              <p class="example-description">The first pass is a styled native table. Keep data structure semantic and use a wrapper only for horizontal overflow.</p>
+              <div class="example-preview">
+                <div class="table-wrapper">
+                  <table class="table">
+                    <caption>Team access</caption>
+                    <thead>
+                      <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Role</th>
+                        <th scope="col">Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Ada Lovelace</td>
+                        <td>Admin</td>
+                        <td>Active</td>
+                      </tr>
+                      <tr>
+                        <td>Grace Hopper</td>
+                        <td>Editor</td>
+                        <td>Invited</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <pre class="example-code"><code>&lt;div class="table-wrapper"&gt;
+  &lt;table class="table"&gt;
+    &lt;caption&gt;Team access&lt;/caption&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th scope="col"&gt;Name&lt;/th&gt;
+        &lt;th scope="col"&gt;Role&lt;/th&gt;
+        &lt;th scope="col"&gt;Status&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Ada Lovelace&lt;/td&gt;
+        &lt;td&gt;Admin&lt;/td&gt;
+        &lt;td&gt;Active&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/div&gt;</code></pre>
+            </article>
+
             <article class="example-block stack stack--sm">
               <h2 class="example-title">Content List</h2>
               <p class="example-description">Use the list component for repeated content blocks that need consistent rhythm, titles, and supporting text.</p>

@@ -4,7 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Components Docs - themeui-lab</title>
-    <script type="module">import "/src/scss/themeui-lab.scss";</script>
+    <script type="module">
+      import "/src/scss/themeui-lab.scss";
+      import { initCarousels, initTabs } from "/src/js/components/index.js";
+
+      initCarousels();
+      initTabs();
+    </script>
     <link rel="stylesheet" href="/docs/docs-shell.css" />
     <script src="/docs/example-copy.js" defer></script>
   </head>
@@ -36,7 +42,8 @@
               <code class="docs-inline-code">.input</code>, <code class="docs-inline-code">.select</code>, <code class="docs-inline-code">.textarea</code>,
               <code class="docs-inline-code">.radio</code>, <code class="docs-inline-code">.checkbox</code>, <code class="docs-inline-code">.switch</code>,
               <code class="docs-inline-code">.tag</code>, <code class="docs-inline-code">.divider</code>, <code class="docs-inline-code">.list</code>,
-              <code class="docs-inline-code">.pagination</code>, <code class="docs-inline-code">.breadcrumbs</code>, and <code class="docs-inline-code">.table</code>.
+              <code class="docs-inline-code">.pagination</code>, <code class="docs-inline-code">.breadcrumbs</code>, <code class="docs-inline-code">.tabs</code>,
+              <code class="docs-inline-code">.carousel</code>, and <code class="docs-inline-code">.table</code>.
               The legacy <code class="docs-inline-code">.btn</code> alias remains temporarily for compatibility only.
             </p>
           </div>
@@ -140,6 +147,25 @@
             <article class="example-block stack stack--sm">
               <h2 class="example-title">Table</h2>
               <p class="example-description">The first pass is a styled native table. Keep data structure semantic and use a wrapper only for horizontal overflow.</p>
+              <div class="docs-note">
+                <p>
+                  Contract: use real table elements in order:
+                  <code class="docs-inline-code">table</code>, optional <code class="docs-inline-code">caption</code>,
+                  <code class="docs-inline-code">thead</code>, <code class="docs-inline-code">tbody</code>,
+                  <code class="docs-inline-code">tr</code>, and scoped header cells. Keep
+                  <code class="docs-inline-code">.table-wrapper</code> only as the overflow shell, not as a replacement for semantic table structure.
+                </p>
+              </div>
+              <div class="docs-pair">
+                <div class="docs-do">
+                  <strong>Do</strong>
+                  <p>Keep headers scoped and use the wrapper only when the table needs horizontal scrolling.</p>
+                </div>
+                <div class="docs-dont">
+                  <strong>Don't</strong>
+                  <p>Use <code class="docs-inline-code">div</code> rows and columns to imitate data tables that already have a native semantic element.</p>
+                </div>
+              </div>
               <div class="example-preview">
                 <div class="table-wrapper">
                   <table class="table">
@@ -190,6 +216,24 @@
             <article class="example-block stack stack--sm">
               <h2 class="example-title">Content List</h2>
               <p class="example-description">Use the list component for repeated content blocks that need consistent rhythm, titles, and supporting text.</p>
+              <div class="docs-note">
+                <p>
+                  Contract: <code class="docs-inline-code">.list</code> is only the rhythm shell. Choose the inner element by meaning:
+                  use <code class="docs-inline-code">li</code> inside a semantic list, <code class="docs-inline-code">article</code> for standalone repeated entries,
+                  or <code class="docs-inline-code">div</code> only when there is no stronger HTML element. Keep
+                  <code class="docs-inline-code">.list__title</code> and <code class="docs-inline-code">.list__text</code> optional.
+                </p>
+              </div>
+              <div class="docs-pair">
+                <div class="docs-do">
+                  <strong>Do</strong>
+                  <p>Pick the repeated item element by meaning, then add <code class="docs-inline-code">.list__title</code> and <code class="docs-inline-code">.list__text</code> only when needed.</p>
+                </div>
+                <div class="docs-dont">
+                  <strong>Don't</strong>
+                  <p>Treat <code class="docs-inline-code">.list</code> as a page layout primitive or assume every item must be an <code class="docs-inline-code">article</code>.</p>
+                </div>
+              </div>
               <div class="example-preview">
                 <div class="list">
                   <article class="list__item">
@@ -260,6 +304,22 @@
             <article class="example-block stack stack--sm">
               <h2 class="example-title">Breadcrumbs</h2>
               <p class="example-description">Breadcrumbs stay text-first and low-emphasis: a simple trail with links for prior levels and aria-current for the current page.</p>
+              <div class="docs-note">
+                <p>
+                  Contract: wrap breadcrumbs in a labeled <code class="docs-inline-code">nav</code>, keep the trail in an
+                  ordered list, and use <code class="docs-inline-code">aria-current="page"</code> on the final item only. Prior levels should stay real links when navigation is possible.
+                </p>
+              </div>
+              <div class="docs-pair">
+                <div class="docs-do">
+                  <strong>Do</strong>
+                  <p>Keep only the current page non-linked and mark that final crumb with <code class="docs-inline-code">aria-current="page"</code>.</p>
+                </div>
+                <div class="docs-dont">
+                  <strong>Don't</strong>
+                  <p>Turn every crumb into plain text or mark multiple items as current.</p>
+                </div>
+              </div>
               <div class="example-preview">
                 <nav class="breadcrumbs" aria-label="Documentation path">
                   <ol class="breadcrumbs__list">
@@ -281,10 +341,27 @@
             <article class="example-block stack stack--sm">
               <h2 class="example-title">Pagination</h2>
               <p class="example-description">Pagination stays small: a nav region, a list, link elements, and an aria-current state for the active page.</p>
+              <div class="docs-note">
+                <p>
+                  Contract: wrap pagination in a labeled <code class="docs-inline-code">nav</code> and keep items in a list. Use
+                  <code class="docs-inline-code">aria-current="page"</code> on the active item. If a control cannot be activated, prefer a
+                  <code class="docs-inline-code">button</code> with <code class="docs-inline-code">disabled</code> over a placeholder link.
+                </p>
+              </div>
+              <div class="docs-pair">
+                <div class="docs-do">
+                  <strong>Do</strong>
+                  <p>Use links for real destinations and a disabled button when previous or next is temporarily unavailable.</p>
+                </div>
+                <div class="docs-dont">
+                  <strong>Don't</strong>
+                  <p>Ship fake disabled links that still look or announce like navigation targets.</p>
+                </div>
+              </div>
               <div class="example-preview">
                 <nav class="pagination" aria-label="Search results pages">
                   <ul class="pagination__list">
-                    <li><a class="pagination__link" href="#" aria-disabled="true">Prev</a></li>
+                    <li><button class="pagination__link" type="button" disabled>Prev</button></li>
                     <li><a class="pagination__link" href="#" aria-current="page">1</a></li>
                     <li><a class="pagination__link" href="#">2</a></li>
                     <li><a class="pagination__link" href="#">3</a></li>
@@ -294,7 +371,7 @@
               </div>
               <pre class="example-code"><code>&lt;nav class="pagination" aria-label="Search results pages"&gt;
   &lt;ul class="pagination__list"&gt;
-    &lt;li&gt;&lt;a class="pagination__link" href="#" aria-disabled="true"&gt;Prev&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;button class="pagination__link" type="button" disabled&gt;Prev&lt;/button&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a class="pagination__link" href="#" aria-current="page"&gt;1&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a class="pagination__link" href="#"&gt;2&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a class="pagination__link" href="#"&gt;3&lt;/a&gt;&lt;/li&gt;
@@ -304,8 +381,192 @@
             </article>
 
             <article class="example-block stack stack--sm">
+              <h2 class="example-title">Tabs</h2>
+              <p class="example-description">Tabs work well for a few peer views. Styling stays in the component, while a tiny vanilla JS helper manages keyboard navigation and panel visibility.</p>
+              <div class="docs-note">
+                <p>
+                  Contract: keep <code class="docs-inline-code">data-tabs</code> on the root, one
+                  <code class="docs-inline-code">[role="tablist"]</code>, buttons with
+                  <code class="docs-inline-code">role="tab"</code>, and panels with
+                  <code class="docs-inline-code">role="tabpanel"</code>. Each tab needs a unique
+                  <code class="docs-inline-code">id</code> and matching <code class="docs-inline-code">aria-controls</code>; each panel needs a matching
+                  <code class="docs-inline-code">id</code> and <code class="docs-inline-code">aria-labelledby</code>.
+                </p>
+              </div>
+              <div class="docs-pair">
+                <div class="docs-do">
+                  <strong>Do</strong>
+                  <p>Use tabs for a small set of peer views that share the same surrounding context.</p>
+                </div>
+                <div class="docs-dont">
+                  <strong>Don't</strong>
+                  <p>Use tabs as a replacement for page layout, long multi-step flows, or missing heading structure.</p>
+                </div>
+              </div>
+              <div class="example-preview">
+                <section class="tabs" data-tabs>
+                  <div class="tabs__list" role="tablist" aria-label="Workspace views">
+                    <button class="tabs__tab" type="button" id="tab-overview" role="tab" aria-controls="panel-overview" aria-selected="true">
+                      Overview
+                    </button>
+                    <button class="tabs__tab" type="button" id="tab-activity" role="tab" aria-controls="panel-activity" aria-selected="false" tabindex="-1">
+                      Activity
+                    </button>
+                    <button class="tabs__tab" type="button" id="tab-settings" role="tab" aria-controls="panel-settings" aria-selected="false" tabindex="-1">
+                      Settings
+                    </button>
+                  </div>
+
+                  <section class="tabs__panel stack stack--xs" id="panel-overview" role="tabpanel" aria-labelledby="tab-overview">
+                    <h3>Workspace overview</h3>
+                    <p class="card__text">Keep the first panel visible in markup so the content still reads naturally before JavaScript enhances the experience.</p>
+                  </section>
+
+                  <section class="tabs__panel stack stack--xs" id="panel-activity" role="tabpanel" aria-labelledby="tab-activity">
+                    <h3>Recent activity</h3>
+                    <p class="card__text">Arrow keys move between tabs, and the active panel is the only one shown after initialization.</p>
+                  </section>
+
+                  <section class="tabs__panel stack stack--xs" id="panel-settings" role="tabpanel" aria-labelledby="tab-settings">
+                    <h3>Workspace settings</h3>
+                    <p class="card__text">Use tabs for short sibling views, not for broad page composition or multi-step flows.</p>
+                  </section>
+                </section>
+              </div>
+              <pre class="example-code"><code>&lt;section class="tabs" data-tabs&gt;
+  &lt;div class="tabs__list" role="tablist" aria-label="Workspace views"&gt;
+    &lt;button class="tabs__tab" type="button" id="tab-overview" role="tab" aria-controls="panel-overview" aria-selected="true"&gt;
+      Overview
+    &lt;/button&gt;
+    &lt;button class="tabs__tab" type="button" id="tab-activity" role="tab" aria-controls="panel-activity" aria-selected="false" tabindex="-1"&gt;
+      Activity
+    &lt;/button&gt;
+    &lt;button class="tabs__tab" type="button" id="tab-settings" role="tab" aria-controls="panel-settings" aria-selected="false" tabindex="-1"&gt;
+      Settings
+    &lt;/button&gt;
+  &lt;/div&gt;
+
+  &lt;section class="tabs__panel" id="panel-overview" role="tabpanel" aria-labelledby="tab-overview"&gt;
+    ...
+  &lt;/section&gt;
+  &lt;section class="tabs__panel" id="panel-activity" role="tabpanel" aria-labelledby="tab-activity"&gt;
+    ...
+  &lt;/section&gt;
+  &lt;section class="tabs__panel" id="panel-settings" role="tabpanel" aria-labelledby="tab-settings"&gt;
+    ...
+  &lt;/section&gt;
+&lt;/section&gt;
+
+&lt;script type="module"&gt;
+  import { initTabs } from "/src/js/components/index.js";
+
+  initTabs();
+&lt;/script&gt;</code></pre>
+            </article>
+
+            <article class="example-block stack stack--sm">
+              <h2 class="example-title">Carousel</h2>
+              <p class="example-description">Use a carousel for a short sequence of peer slides. The component owns its viewport, controls, and state, while content inside each slide stays flexible.</p>
+              <div class="docs-note">
+                <p>
+                  Contract: keep <code class="docs-inline-code">data-carousel</code> on the root,
+                  <code class="docs-inline-code">data-carousel-track</code> on the moving track, and
+                  <code class="docs-inline-code">data-carousel-slide</code> on each slide. Previous/next buttons and dot buttons are optional, but if present they must use the matching
+                  <code class="docs-inline-code">data-carousel-prev</code>, <code class="docs-inline-code">data-carousel-next</code>, and
+                  <code class="docs-inline-code">data-carousel-dot</code> hooks. Hidden slides are made non-tabbable by the initializer, so slide content can include links or buttons safely.
+                </p>
+              </div>
+              <div class="docs-pair">
+                <div class="docs-do">
+                  <strong>Do</strong>
+                  <p>Keep carousels short, give the region a clear label, and make each slide meaningful on its own.</p>
+                </div>
+                <div class="docs-dont">
+                  <strong>Don't</strong>
+                  <p>Bury essential content in long sliders or assume motion alone will communicate state.</p>
+                </div>
+              </div>
+              <div class="example-preview">
+                <section class="carousel" data-carousel aria-label="Featured updates">
+                  <div class="carousel__viewport">
+                    <div class="carousel__track" data-carousel-track>
+                      <article class="carousel__slide stack stack--xs" data-carousel-slide>
+                        <p class="carousel__meta">Release note</p>
+                        <h3>Small, composable foundations</h3>
+                        <p class="card__text">Ship layout primitives, then layer reusable components on top instead of baking page structure into every feature.</p>
+                      </article>
+                      <article class="carousel__slide stack stack--xs" data-carousel-slide>
+                        <p class="carousel__meta">Accessibility</p>
+                        <h3>Keyboard-friendly controls</h3>
+                        <p class="card__text">Previous, next, and direct slide buttons keep the interaction predictable without adding a heavy dependency.</p>
+                      </article>
+                      <article class="carousel__slide stack stack--xs" data-carousel-slide>
+                        <p class="carousel__meta">Implementation</p>
+                        <h3>Vanilla JS only where needed</h3>
+                        <p class="card__text">A tiny initializer updates the active slide, disabled states, and status text while the HTML remains readable on its own.</p>
+                      </article>
+                    </div>
+                  </div>
+                  <div class="carousel__controls">
+                    <div class="carousel__actions">
+                      <button class="carousel__button" type="button" data-carousel-prev aria-label="Show previous slide">Prev</button>
+                      <button class="carousel__button" type="button" data-carousel-next aria-label="Show next slide">Next</button>
+                    </div>
+                    <p class="carousel__meta" data-carousel-status aria-live="polite">1 / 3</p>
+                    <div class="carousel__dot-list" aria-label="Select slide">
+                      <button class="carousel__dot" type="button" data-carousel-dot aria-label="Go to slide 1">1</button>
+                      <button class="carousel__dot" type="button" data-carousel-dot aria-label="Go to slide 2">2</button>
+                      <button class="carousel__dot" type="button" data-carousel-dot aria-label="Go to slide 3">3</button>
+                    </div>
+                  </div>
+                </section>
+              </div>
+              <pre class="example-code"><code>&lt;section class="carousel" data-carousel aria-label="Featured updates"&gt;
+  &lt;div class="carousel__viewport"&gt;
+    &lt;div class="carousel__track" data-carousel-track&gt;
+      &lt;article class="carousel__slide" data-carousel-slide&gt;...&lt;/article&gt;
+      &lt;article class="carousel__slide" data-carousel-slide&gt;...&lt;/article&gt;
+      &lt;article class="carousel__slide" data-carousel-slide&gt;...&lt;/article&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="carousel__controls"&gt;
+    &lt;button class="carousel__button" type="button" data-carousel-prev&gt;Prev&lt;/button&gt;
+    &lt;button class="carousel__button" type="button" data-carousel-next&gt;Next&lt;/button&gt;
+    &lt;p class="carousel__meta" data-carousel-status aria-live="polite"&gt;1 / 3&lt;/p&gt;
+    &lt;div class="carousel__dot-list"&gt;
+      &lt;button class="carousel__dot" type="button" data-carousel-dot&gt;1&lt;/button&gt;
+      &lt;button class="carousel__dot" type="button" data-carousel-dot&gt;2&lt;/button&gt;
+      &lt;button class="carousel__dot" type="button" data-carousel-dot&gt;3&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;script type="module"&gt;
+  import { initCarousels } from "/src/js/components/index.js";
+
+  initCarousels();
+&lt;/script&gt;</code></pre>
+            </article>
+
+            <article class="example-block stack stack--sm">
               <h2 class="example-title">Button + Tag</h2>
               <p class="example-description">Components should stay small and reusable, then compose together inside flow primitives.</p>
+              <div class="docs-note">
+                <p>
+                  Contract: use <code class="docs-inline-code">.tag</code> for short status or metadata labels only. Tags are presentational text by default, not interactive controls,
+                  and they work best when the content is brief enough to avoid wrapping or truncation pressure in tight layouts.
+                </p>
+              </div>
+              <div class="docs-pair">
+                <div class="docs-do">
+                  <strong>Do</strong>
+                  <p>Use tags for short labels like status, category, or environment markers.</p>
+                </div>
+                <div class="docs-dont">
+                  <strong>Don't</strong>
+                  <p>Use a tag as a button, filter chip, or home for long free-form text.</p>
+                </div>
+              </div>
               <div class="example-preview">
                 <div class="cluster">
                   <button class="button" type="button">Save Changes</button>
@@ -321,23 +582,50 @@
             <article class="example-block stack stack--sm">
               <h2 class="example-title">Form Control Family</h2>
               <p class="example-description">A practical form needs consistent labels, hints, grouped choices, and a clear validation contract built on semantic status tokens.</p>
+              <div class="docs-note">
+                <p>
+                  Contract: every input should have a programmatic label. Prefer explicit
+                  <code class="docs-inline-code">label for</code> plus control <code class="docs-inline-code">id</code>, then connect help or validation text with
+                  <code class="docs-inline-code">aria-describedby</code>. For invalid fields, pair
+                  <code class="docs-inline-code">aria-invalid="true"</code> with an error element and, when possible,
+                  <code class="docs-inline-code">aria-errormessage</code>.
+                </p>
+              </div>
+              <div class="docs-pair">
+                <div class="docs-do">
+                  <strong>Do</strong>
+                  <p>Connect labels, hints, and errors programmatically so the visual grouping and accessibility tree match.</p>
+                </div>
+                <div class="docs-dont">
+                  <strong>Don't</strong>
+                  <p>Rely on placeholder text as the label or show validation copy without associating it to the control.</p>
+                </div>
+              </div>
               <div class="example-preview">
                 <article class="card stack stack--sm">
                   <h3 class="card__title">Profile</h3>
-                  <label class="stack stack--xs">
-                    <span class="field-label">Display name</span>
-                    <input class="input" type="text" placeholder="Display name" aria-invalid="true" />
-                    <span class="field-error">A display name is required.</span>
-                  </label>
-                  <label class="stack stack--xs">
-                    <span class="field-label">Team</span>
-                    <select class="select">
+                  <div class="stack stack--xs">
+                    <label class="field-label" for="profile-display-name">Display name</label>
+                    <input
+                      class="input"
+                      id="profile-display-name"
+                      type="text"
+                      placeholder="Display name"
+                      aria-invalid="true"
+                      aria-describedby="profile-display-name-error"
+                      aria-errormessage="profile-display-name-error"
+                    />
+                    <span class="field-error" id="profile-display-name-error">A display name is required.</span>
+                  </div>
+                  <div class="stack stack--xs">
+                    <label class="field-label" for="profile-team">Team</label>
+                    <select class="select" id="profile-team" aria-describedby="profile-team-success">
                       <option>Choose team</option>
                       <option>Design Systems</option>
                       <option>Product Design</option>
                     </select>
-                    <span class="field-success">Team selected successfully.</span>
-                  </label>
+                    <span class="field-success" id="profile-team-success">Team selected successfully.</span>
+                  </div>
                   <fieldset class="stack stack--xs">
                     <legend>Team size</legend>
                     <label class="radio">
@@ -371,29 +659,37 @@
                       <span>Quiet mode</span>
                     </label>
                   </fieldset>
-                  <label class="stack stack--xs">
-                    <span class="field-label">Short bio</span>
-                    <textarea class="textarea" placeholder="Short bio"></textarea>
-                    <span class="field-warning">Keep this under 160 characters for profile cards.</span>
-                  </label>
+                  <div class="stack stack--xs">
+                    <label class="field-label" for="profile-short-bio">Short bio</label>
+                    <textarea class="textarea" id="profile-short-bio" placeholder="Short bio" aria-describedby="profile-short-bio-warning"></textarea>
+                    <span class="field-warning" id="profile-short-bio-warning">Keep this under 160 characters for profile cards.</span>
+                  </div>
                 </article>
               </div>
               <pre class="example-code"><code>&lt;article class="card stack stack--sm"&gt;
   &lt;h3 class="card__title"&gt;Profile&lt;/h3&gt;
-  &lt;label class="stack stack--xs"&gt;
-    &lt;span class="field-label"&gt;Display name&lt;/span&gt;
-    &lt;input class="input" type="text" placeholder="Display name" aria-invalid="true" /&gt;
-    &lt;span class="field-error"&gt;A display name is required.&lt;/span&gt;
-  &lt;/label&gt;
-  &lt;label class="stack stack--xs"&gt;
-    &lt;span class="field-label"&gt;Team&lt;/span&gt;
-    &lt;select class="select"&gt;
+  &lt;div class="stack stack--xs"&gt;
+    &lt;label class="field-label" for="profile-display-name"&gt;Display name&lt;/label&gt;
+    &lt;input
+      class="input"
+      id="profile-display-name"
+      type="text"
+      placeholder="Display name"
+      aria-invalid="true"
+      aria-describedby="profile-display-name-error"
+      aria-errormessage="profile-display-name-error"
+    /&gt;
+    &lt;span class="field-error" id="profile-display-name-error"&gt;A display name is required.&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="stack stack--xs"&gt;
+    &lt;label class="field-label" for="profile-team"&gt;Team&lt;/label&gt;
+    &lt;select class="select" id="profile-team" aria-describedby="profile-team-success"&gt;
       &lt;option&gt;Choose team&lt;/option&gt;
       &lt;option&gt;Design Systems&lt;/option&gt;
       &lt;option&gt;Product Design&lt;/option&gt;
     &lt;/select&gt;
-    &lt;span class="field-success"&gt;Team selected successfully.&lt;/span&gt;
-  &lt;/label&gt;
+    &lt;span class="field-success" id="profile-team-success"&gt;Team selected successfully.&lt;/span&gt;
+  &lt;/div&gt;
   &lt;fieldset class="stack stack--xs"&gt;
     &lt;legend&gt;Team size&lt;/legend&gt;
     &lt;label class="radio"&gt;
@@ -427,11 +723,11 @@
       &lt;span&gt;Quiet mode&lt;/span&gt;
     &lt;/label&gt;
   &lt;/fieldset&gt;
-  &lt;label class="stack stack--xs"&gt;
-    &lt;span class="field-label"&gt;Short bio&lt;/span&gt;
-    &lt;textarea class="textarea" placeholder="Short bio"&gt;&lt;/textarea&gt;
-    &lt;span class="field-warning"&gt;Keep this under 160 characters for profile cards.&lt;/span&gt;
-  &lt;/label&gt;
+  &lt;div class="stack stack--xs"&gt;
+    &lt;label class="field-label" for="profile-short-bio"&gt;Short bio&lt;/label&gt;
+    &lt;textarea class="textarea" id="profile-short-bio" placeholder="Short bio" aria-describedby="profile-short-bio-warning"&gt;&lt;/textarea&gt;
+    &lt;span class="field-warning" id="profile-short-bio-warning"&gt;Keep this under 160 characters for profile cards.&lt;/span&gt;
+  &lt;/div&gt;
 &lt;/article&gt;</code></pre>
             </article>
           </div>

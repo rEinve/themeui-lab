@@ -3,10 +3,30 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "exports": {
+    ".": "./src/js/index.js",
+    "./components": "./src/js/components/index.js",
+    "./styles.css": "./dist/themeui-lab.css",
+    "./styles.scss": "./src/scss/themeui-lab.scss"
+  },
+  "style": "./dist/themeui-lab.css",
+  "files": [
+    "dist/themeui-lab.css",
+    "src/js",
+    "src/scss",
+    "README.md"
+  ],
+  "sideEffects": [
+    "**/*.css",
+    "**/*.scss"
+  ],
   "scripts": {
     "dev": "vite",
+    "build:styles": "sass src/scss/themeui-lab.scss dist/themeui-lab.css --no-source-map --style=expanded",
+    "build:package": "npm run build:styles",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "prepare": "npm run build:package"
   },
   "devDependencies": {
     "@material-design-icons/font": "^0.14.15",

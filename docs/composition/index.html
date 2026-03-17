@@ -31,7 +31,8 @@
           <div class="docs-note">
             <p>
               Canonical composition uses page-shell primitives for structure, flow primitives for rhythm, and components only for reusable UI.
-              Treat older convenience selectors as compatibility helpers, not the primary API for new pages.
+              Treat older convenience selectors as compatibility helpers, not the primary API for new pages. Alignment belongs to utilities layered on top of primitives,
+              not to components or ad-hoc page-specific selectors.
             </p>
           </div>
 
@@ -47,6 +48,7 @@
           <article class="card stack stack--sm">
             <h2 class="card__title">Canonical Pattern</h2>
             <p class="card__text">section → container → stack → (intro + row/cluster/grid) → components</p>
+            <p class="card__text">Add alignment utilities only after the primitive is in place: for example <code class="docs-inline-code">row items-center justify-between</code>, <code class="docs-inline-code">self-end</code>, or <code class="docs-inline-code">place-center</code>.</p>
             <a href="/demo/settings.html" class="docs-link">See settings example in demo</a>
             <a href="/docs/rules/" class="docs-link">Read system rules</a>
           </article>
@@ -55,6 +57,16 @@
             <article class="example-block stack stack--sm">
               <h2 class="example-title">Three-Layer Page Structure</h2>
               <p class="example-description">Start with page shell, add flow rhythm inside the region, then place components inside that flow.</p>
+              <div class="docs-pair">
+                <div class="docs-do">
+                  <strong>Do</strong>
+                  <p>Use utilities like <code class="docs-inline-code">.items-center</code>, <code class="docs-inline-code">.self-end</code>, or <code class="docs-inline-code">.place-center</code> to refine the primitive layer.</p>
+                </div>
+                <div class="docs-dont">
+                  <strong>Don't</strong>
+                  <p>Hide page-level alignment inside a component class, because that makes the component harder to reuse in other layouts.</p>
+                </div>
+              </div>
               <div class="example-preview">
                 <section class="section">
                   <div class="container">
@@ -63,6 +75,10 @@
                         <h3>Settings</h3>
                         <p>Header content lives in the content flow layer.</p>
                       </div>
+                      <div class="row items-center justify-between">
+                        <p class="card__text">Section actions can align at the primitive layer.</p>
+                        <button class="button" type="button">Save</button>
+                      </div>
                       <div class="grid-12">
                         <article class="card md-col-12 lg-col-8">
                           <h3 class="card__title">Profile</h3>
@@ -70,7 +86,7 @@
                         </article>
                         <aside class="card md-col-12 lg-col-4">
                           <h3 class="card__title">Actions</h3>
-                          <button class="button" type="button">Save</button>
+                          <p class="card__text">The card does not own the page-level alignment.</p>
                         </aside>
                       </div>
                     </div>
@@ -83,6 +99,10 @@
       &lt;div class="stack stack--xs"&gt;
         &lt;h3&gt;Settings&lt;/h3&gt;
         &lt;p&gt;Header content lives in the content flow layer.&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class="row items-center justify-between"&gt;
+        &lt;p&gt;Section actions can align at the primitive layer.&lt;/p&gt;
+        &lt;button class="button" type="button"&gt;Save&lt;/button&gt;
       &lt;/div&gt;
       &lt;div class="grid-12"&gt;
         &lt;article class="card md-col-12 lg-col-8"&gt;...&lt;/article&gt;

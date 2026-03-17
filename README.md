@@ -5,8 +5,31 @@ A lightweight front-end lab for evolving a reusable in-house design system.
 ## Scripts
 
 - `npm run dev` - start Vite dev server
+- `npm run build:styles` - compile the package stylesheet entry to `dist/themeui-lab.css`
+- `npm run build:package` - prepare package assets for linking or packing
 - `npm run build` - build production assets
 - `npm run preview` - preview production build
+
+## Package Linking
+
+You can test the design system in a real app with `npm link`.
+
+1. In this repo, run `npm link`
+2. In the consuming project, run `npm link themeui-lab`
+3. Import the package stylesheet:
+
+   - `import "themeui-lab/styles.css";`
+
+4. Import the JavaScript helpers you need:
+
+   - `import { initTabs, initCarousels } from "themeui-lab";`
+
+The package exposes:
+
+- `themeui-lab` - JavaScript entry for interactive helpers
+- `themeui-lab/components` - component-level helper exports
+- `themeui-lab/styles.css` - compiled stylesheet entry
+- `themeui-lab/styles.scss` - source Sass entry
 
 ## SCSS Architecture
 

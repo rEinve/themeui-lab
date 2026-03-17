@@ -32,7 +32,9 @@
             <p>
               Canonical usage: <code class="docs-inline-code">.container</code>, <code class="docs-inline-code">.section</code>,
               <code class="docs-inline-code">.grid-12</code>, <code class="docs-inline-code">.stack</code>,
-              <code class="docs-inline-code">.row</code>, <code class="docs-inline-code">.cluster</code>.
+              <code class="docs-inline-code">.row</code>, <code class="docs-inline-code">.cluster</code>. Alignment helpers like
+              <code class="docs-inline-code">.items-center</code>, <code class="docs-inline-code">.justify-between</code>, and
+              <code class="docs-inline-code">.text-center</code> live in utilities and should only refine an existing layout primitive.
               Legacy aliases like <code class="docs-inline-code">.frame</code>, <code class="docs-inline-code">.section-shell</code>,
               <code class="docs-inline-code">.page-grid</code>, <code class="docs-inline-code">.content-grid</code>,
               <code class="docs-inline-code">.stack-tight</code>, and <code class="docs-inline-code">.stack-loose</code> remain for compatibility only.
@@ -119,6 +121,75 @@
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;/section&gt;</code></pre>
+            </article>
+
+            <article class="example-block stack stack--sm">
+              <h2 class="example-title">Alignment Utilities</h2>
+              <p class="example-description">Use alignment helpers to refine an existing primitive, not to replace the primitive itself.</p>
+              <div class="docs-note">
+                <p>
+                  Contract: start with <code class="docs-inline-code">.row</code>, <code class="docs-inline-code">.cluster</code>,
+                  <code class="docs-inline-code">.stack</code>, or <code class="docs-inline-code">.grid-12</code>, then add a utility only for the alignment adjustment you need.
+                  Use <code class="docs-inline-code">.items-*</code> for cross-axis alignment,
+                  <code class="docs-inline-code">.justify-*</code> for main-axis distribution, and
+                  <code class="docs-inline-code">.self-*</code> when one child needs different alignment from its siblings. Use
+                  <code class="docs-inline-code">.place-center</code> only for simple two-axis centering on grid containers, and
+                  <code class="docs-inline-code">.text-*</code> for inline text alignment.
+                </p>
+              </div>
+              <div class="docs-pair">
+                <div class="docs-do">
+                  <strong>Do</strong>
+                  <p>Combine a layout primitive with one or two alignment helpers when a specific section or one child needs different positioning.</p>
+                </div>
+                <div class="docs-dont">
+                  <strong>Don't</strong>
+                  <p>Invent one-off component classes just to center, spread, or individually offset content that already belongs to a primitive.</p>
+                </div>
+              </div>
+              <div class="example-preview">
+                <div class="stack stack--lg">
+                  <div class="row items-center justify-between">
+                    <h3>Workspace</h3>
+                    <button class="button" type="button">New Project</button>
+                  </div>
+                  <div class="stack stack--xs text-center">
+                    <h3>Empty State</h3>
+                    <p class="card__text">Text alignment can shift independently without changing the stack rhythm.</p>
+                  </div>
+                  <div class="stack stack--xs" style="min-height: 10rem;">
+                    <div class="card self-end">
+                      <h3 class="card__title">Single Child Adjustment</h3>
+                      <p class="card__text">Use <code>.self-end</code> when one child needs different alignment inside the same flow.</p>
+                    </div>
+                  </div>
+                  <div class="grid-12 place-center" style="min-height: 10rem;">
+                    <article class="card md-col-12 lg-col-4">
+                      <h3 class="card__title">Centered Panel</h3>
+                      <p class="card__text">Use <code>.place-center</code> only when a grid container should center its children on both axes.</p>
+                    </article>
+                  </div>
+                </div>
+              </div>
+              <pre class="example-code"><code>&lt;div class="row items-center justify-between"&gt;
+  &lt;h3&gt;Workspace&lt;/h3&gt;
+  &lt;button class="button" type="button"&gt;New Project&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;div class="stack stack--xs text-center"&gt;
+  &lt;h3&gt;Empty State&lt;/h3&gt;
+  &lt;p class="card__text"&gt;Text alignment can shift independently without changing the stack rhythm.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class="stack stack--xs" style="min-height: 10rem;"&gt;
+  &lt;div class="card self-end"&gt;
+    ...
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="grid-12 place-center" style="min-height: 10rem;"&gt;
+  &lt;article class="card md-col-12 lg-col-4"&gt;...&lt;/article&gt;
+&lt;/div&gt;</code></pre>
             </article>
           </div>
 

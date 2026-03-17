@@ -81,3 +81,59 @@
     background: var(--surface);
     border-radius: var(--radius-media-md);
 }
+
+.items-start {
+    align-items: flex-start;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.items-end {
+    align-items: flex-end;
+}
+
+.justify-start {
+    justify-content: flex-start;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.justify-end {
+    justify-content: flex-end;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.self-start {
+    align-self: flex-start;
+}
+
+.self-center {
+    align-self: center;
+}
+
+.self-end {
+    align-self: flex-end;
+}
+
+.place-center {
+    place-items: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}

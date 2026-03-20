@@ -12,22 +12,24 @@
     grid-column: 1 / -1;
 }
 
-@include breakpoint(medium) {
-    .md-col-6 {
-        @include col-span(6);
-    }
-
-    .md-col-12 {
-        @include col-span(12);
+@mixin span-range($prefix, $from: 1, $to: 12) {
+    @for $span from $from through $to {
+        .#{$prefix}-#{$span} {
+            @include col-span($span);
+        }
     }
 }
 
-@include breakpoint(large) {
-    .lg-col-4 {
-        @include col-span(4);
+@include breakpoint(medium) {
+    .grid-12,
+    .page-grid,
+    .content-grid {
+        align-items: stretch;
     }
 
-    .lg-col-8 {
-        @include col-span(8);
-    }
+    @include span-range('md-col');
+}
+
+@include breakpoint(large) {
+    @include span-range('lg-col');
 }

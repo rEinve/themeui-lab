@@ -3,9 +3,16 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "types": "./src/js/index.d.ts",
   "exports": {
-    ".": "./src/js/index.js",
-    "./components": "./src/js/components/index.js",
+    ".": {
+      "types": "./src/js/index.d.ts",
+      "default": "./src/js/index.js"
+    },
+    "./components": {
+      "types": "./src/js/components/index.d.ts",
+      "default": "./src/js/components/index.js"
+    },
     "./styles.css": "./dist/themeui-lab.css",
     "./styles.scss": "./src/scss/themeui-lab.scss"
   },

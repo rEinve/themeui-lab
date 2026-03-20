@@ -33,8 +33,10 @@
               Canonical usage: <code class="docs-inline-code">.container</code>, <code class="docs-inline-code">.section</code>,
               <code class="docs-inline-code">.grid-12</code>, <code class="docs-inline-code">.stack</code>,
               <code class="docs-inline-code">.row</code>, <code class="docs-inline-code">.cluster</code>. Alignment helpers like
-              <code class="docs-inline-code">.items-center</code>, <code class="docs-inline-code">.justify-between</code>, and
+              <code class="docs-inline-code">.items-middle</code>, <code class="docs-inline-code">.justify-between</code>, and
               <code class="docs-inline-code">.text-center</code> live in utilities and should only refine an existing layout primitive.
+              Grid spans are available as <code class="docs-inline-code">.md-col-1</code> through <code class="docs-inline-code">.md-col-12</code> and
+              <code class="docs-inline-code">.lg-col-1</code> through <code class="docs-inline-code">.lg-col-12</code>.
               Legacy aliases like <code class="docs-inline-code">.frame</code>, <code class="docs-inline-code">.section-shell</code>,
               <code class="docs-inline-code">.page-grid</code>, <code class="docs-inline-code">.content-grid</code>,
               <code class="docs-inline-code">.stack-tight</code>, and <code class="docs-inline-code">.stack-loose</code> remain for compatibility only.
@@ -130,17 +132,20 @@
                 <p>
                   Contract: start with <code class="docs-inline-code">.row</code>, <code class="docs-inline-code">.cluster</code>,
                   <code class="docs-inline-code">.stack</code>, or <code class="docs-inline-code">.grid-12</code>, then add a utility only for the alignment adjustment you need.
-                  Use <code class="docs-inline-code">.items-*</code> for cross-axis alignment,
+                  Use <code class="docs-inline-code">.items-top</code>, <code class="docs-inline-code">.items-middle</code>, or
+                  <code class="docs-inline-code">.items-bottom</code> for cross-axis alignment,
                   <code class="docs-inline-code">.justify-*</code> for main-axis distribution, and
-                  <code class="docs-inline-code">.self-*</code> when one child needs different alignment from its siblings. Use
-                  <code class="docs-inline-code">.place-center</code> only for simple two-axis centering on grid containers, and
+                  <code class="docs-inline-code">.self-top</code>, <code class="docs-inline-code">.self-middle</code>, or
+                  <code class="docs-inline-code">.self-bottom</code> when one child needs different alignment from its siblings. Use
+                  <code class="docs-inline-code">.place-center</code> only for simple two-axis centering on grid containers,
+                  <code class="docs-inline-code">.item-grow</code> when one child in a flex-based primitive should absorb remaining space, and
                   <code class="docs-inline-code">.text-*</code> for inline text alignment.
                 </p>
               </div>
               <div class="docs-pair">
                 <div class="docs-do">
                   <strong>Do</strong>
-                  <p>Combine a layout primitive with one or two alignment helpers when a specific section or one child needs different positioning.</p>
+                  <p>Combine a layout primitive with one or two alignment helpers when a specific section or one child needs different positioning or should absorb extra space.</p>
                 </div>
                 <div class="docs-dont">
                   <strong>Don't</strong>
@@ -149,7 +154,7 @@
               </div>
               <div class="example-preview">
                 <div class="stack stack--lg">
-                  <div class="row items-center justify-between">
+                  <div class="row items-middle justify-between">
                     <h3>Workspace</h3>
                     <button class="button" type="button">New Project</button>
                   </div>
@@ -157,10 +162,14 @@
                     <h3>Empty State</h3>
                     <p class="card__text">Text alignment can shift independently without changing the stack rhythm.</p>
                   </div>
+                  <div class="row items-middle">
+                    <p class="card__text item-grow">Use <code>.item-grow</code> when one item in a row should take the remaining width.</p>
+                    <button class="button" type="button">Action</button>
+                  </div>
                   <div class="stack stack--xs" style="min-height: 10rem;">
-                    <div class="card self-end">
+                    <div class="card self-bottom">
                       <h3 class="card__title">Single Child Adjustment</h3>
-                      <p class="card__text">Use <code>.self-end</code> when one child needs different alignment inside the same flow.</p>
+                      <p class="card__text">Use <code>.self-bottom</code> when one child needs different alignment inside the same flow.</p>
                     </div>
                   </div>
                   <div class="grid-12 place-center" style="min-height: 10rem;">
@@ -171,7 +180,7 @@
                   </div>
                 </div>
               </div>
-              <pre class="example-code"><code>&lt;div class="row items-center justify-between"&gt;
+              <pre class="example-code"><code>&lt;div class="row items-middle justify-between"&gt;
   &lt;h3&gt;Workspace&lt;/h3&gt;
   &lt;button class="button" type="button"&gt;New Project&lt;/button&gt;
 &lt;/div&gt;
@@ -181,8 +190,13 @@
   &lt;p class="card__text"&gt;Text alignment can shift independently without changing the stack rhythm.&lt;/p&gt;
 &lt;/div&gt;
 
+&lt;div class="row items-middle"&gt;
+  &lt;p class="card__text item-grow"&gt;Use .item-grow when one item in a row should take the remaining width.&lt;/p&gt;
+  &lt;button class="button" type="button"&gt;Action&lt;/button&gt;
+&lt;/div&gt;
+
 &lt;div class="stack stack--xs" style="min-height: 10rem;"&gt;
-  &lt;div class="card self-end"&gt;
+  &lt;div class="card self-bottom"&gt;
     ...
   &lt;/div&gt;
 &lt;/div&gt;

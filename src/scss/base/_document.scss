@@ -1,3 +1,9 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 html {
     scroll-behavior: smooth;
     overflow-x: clip;
@@ -6,6 +12,27 @@ html {
 body {
     background-color: oklch(from var(--surface-95) l c h / 0.6);
     overflow-x: clip;
+}
+
+p {
+    max-inline-size: 68ch;
+}
+
+img {
+    display: block;
+    max-inline-size: 100%;
+    block-size: auto;
+}
+
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+    display: block;
+    max-inline-size: 100%;
 }
 
 article {

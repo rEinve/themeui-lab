@@ -48,7 +48,7 @@
           <article class="card stack stack--sm">
             <h2 class="card__title">Canonical Pattern</h2>
             <p class="card__text">section → container → stack → (intro + row/cluster/grid) → components</p>
-            <p class="card__text">Add alignment utilities only after the primitive is in place: for example <code class="docs-inline-code">row items-center justify-between</code>, <code class="docs-inline-code">self-end</code>, or <code class="docs-inline-code">place-center</code>.</p>
+            <p class="card__text">Add alignment utilities only after the primitive is in place: for example <code class="docs-inline-code">row items-middle justify-between</code>, <code class="docs-inline-code">item-grow</code>, <code class="docs-inline-code">self-bottom</code>, or <code class="docs-inline-code">place-center</code>.</p>
             <a href="/demo/settings.html" class="docs-link">See settings example in demo</a>
             <a href="/docs/rules/" class="docs-link">Read system rules</a>
           </article>
@@ -60,7 +60,7 @@
               <div class="docs-pair">
                 <div class="docs-do">
                   <strong>Do</strong>
-                  <p>Use utilities like <code class="docs-inline-code">.items-center</code>, <code class="docs-inline-code">.self-end</code>, or <code class="docs-inline-code">.place-center</code> to refine the primitive layer.</p>
+                  <p>Use utilities like <code class="docs-inline-code">.items-middle</code>, <code class="docs-inline-code">.item-grow</code>, <code class="docs-inline-code">.self-bottom</code>, or <code class="docs-inline-code">.place-center</code> to refine the primitive layer.</p>
                 </div>
                 <div class="docs-dont">
                   <strong>Don't</strong>
@@ -75,9 +75,13 @@
                         <h3>Settings</h3>
                         <p>Header content lives in the content flow layer.</p>
                       </div>
-                      <div class="row items-center justify-between">
+                      <div class="row items-middle justify-between">
                         <p class="card__text">Section actions can align at the primitive layer.</p>
                         <button class="button" type="button">Save</button>
+                      </div>
+                      <div class="row items-middle">
+                        <p class="card__text item-grow">The summary can grow while the secondary action stays compact.</p>
+                        <a class="docs-link" href="/docs/primitives/">Review primitives</a>
                       </div>
                       <div class="grid-12">
                         <article class="card md-col-12 lg-col-8">
@@ -100,9 +104,13 @@
         &lt;h3&gt;Settings&lt;/h3&gt;
         &lt;p&gt;Header content lives in the content flow layer.&lt;/p&gt;
       &lt;/div&gt;
-      &lt;div class="row items-center justify-between"&gt;
+      &lt;div class="row items-middle justify-between"&gt;
         &lt;p&gt;Section actions can align at the primitive layer.&lt;/p&gt;
         &lt;button class="button" type="button"&gt;Save&lt;/button&gt;
+      &lt;/div&gt;
+      &lt;div class="row items-middle"&gt;
+        &lt;p class="item-grow"&gt;The summary can grow while the secondary action stays compact.&lt;/p&gt;
+        &lt;a href="/docs/primitives/"&gt;Review primitives&lt;/a&gt;
       &lt;/div&gt;
       &lt;div class="grid-12"&gt;
         &lt;article class="card md-col-12 lg-col-8"&gt;...&lt;/article&gt;

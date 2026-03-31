@@ -14,6 +14,7 @@ const FOCUSABLE_SELECTOR = [
 
 function getParts(root) {
   return {
+    viewport: root.querySelector('[data-carousel-viewport]') || root.querySelector('.carousel__viewport'),
     track: root.querySelector('[data-carousel-track]'),
     slides: Array.from(root.querySelectorAll('[data-carousel-slide]')),
     prev: root.querySelector('[data-carousel-prev]'),
@@ -53,18 +54,49 @@ function setSlideInteractivity(slide, isActive) {
   });
 }
 
+function getCarouselMetrics(root) {
+  const { viewport, track, slides } = getParts(root);
+
+  if (!viewport || !track || !slides.length) {
+    return null;
+  }
+
+  const maxOffset = Math.max(0, track.scrollWidth - viewport.clientWidth);
+  const offsets = slides.map((slide) => Math.min(slide.offsetLeft, maxOffset));
+  const finalIndex = offsets.findIndex((offset) => offset >= maxOffset);
+  const maxIndex = finalIndex === -1 ? Math.max(0, slides.length - 1) : finalIndex;
+
+  return {
+    viewport,
+    track,
+    slides,
+    maxOffset,
+    offsets,
+    maxIndex,
+  };
+}
+
 function renderCarousel(root, index) {
-  const { track, slides, prev, next, status, dots } = getParts(root);
+  const metrics = getCarouselMetrics(root);
+  const { prev, next, status, dots } = getParts(root);
 
-  if (!track || !slides.length) return;
+  if (!metrics) return;
 
-  const clampedIndex = Math.max(0, Math.min(index, slides.length - 1));
+  const { viewport, track, slides, offsets, maxIndex } = metrics;
+  const clampedIndex = Math.max(0, Math.min(index, maxIndex));
+  const currentOffset = offsets[clampedIndex] || 0;
+
   root.dataset.carouselIndex = String(clampedIndex);
-  track.style.transform = `translateX(-${clampedIndex * 100}%)`;
+  track.style.transform = `translateX(-${currentOffset}px)`;
 
   slides.forEach((slide, slideIndex) => {
-    const isActive = slideIndex === clampedIndex;
-    setSlideInteractivity(slide, isActive);
+    const slideStart = slide.offsetLeft;
+    const slideEnd = slideStart + slide.offsetWidth;
+    const isVisible = slideStart < currentOffset + viewport.clientWidth && slideEnd > currentOffset;
+
+    slide.dataset.carouselVisible = String(isVisible);
+    slide.dataset.carouselCurrent = String(slideIndex === clampedIndex);
+    setSlideInteractivity(slide, isVisible);
   });
 
   dots.forEach((dot, dotIndex) => {
@@ -74,8 +106,8 @@ function renderCarousel(root, index) {
   });
 
   if (prev) prev.disabled = clampedIndex === 0;
-  if (next) next.disabled = clampedIndex === slides.length - 1;
-  if (status) status.textContent = `${clampedIndex + 1} / ${slides.length}`;
+  if (next) next.disabled = clampedIndex === maxIndex;
+  if (status) status.textContent = `${clampedIndex + 1} / ${maxIndex + 1}`;
 }
 
 function moveCarousel(root, delta) {
@@ -112,10 +144,13 @@ function onCarouselKeydown(event) {
 
 export function initCarousels(scope = document) {
   getCarousels(scope).forEach((root) => {
+    if (root.dataset.carouselReady === 'true') return;
+
     const { slides, prev, next, dots } = getParts(root);
 
     if (!slides.length) return;
 
+    root.dataset.carouselReady = 'true';
     root.tabIndex = root.hasAttribute('tabindex') ? root.tabIndex : 0;
     root.addEventListener('keydown', onCarouselKeydown);
 
@@ -131,6 +166,9 @@ export function initCarousels(scope = document) {
       dot.addEventListener('click', () => renderCarousel(root, index));
     });
 
+    const rerender = () => renderCarousel(root, Number(root.dataset.carouselIndex || 0));
+
+    window.addEventListener('resize', rerender);
     renderCarousel(root, Number(root.dataset.carouselIndex || 0));
   });
 }

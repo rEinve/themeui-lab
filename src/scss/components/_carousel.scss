@@ -1,6 +1,9 @@
 .carousel {
     display: grid;
     gap: var(--space-m);
+    --carousel-gap: var(--space-m);
+    --carousel-slide-size: 100%;
+    --carousel-slide-padding: var(--space-l);
 }
 
 .carousel__viewport {
@@ -13,14 +16,15 @@
 
 .carousel__track {
     display: flex;
+    gap: var(--carousel-gap);
     transition: transform var(--motion-moderate) var(--motion-ease-standard);
     will-change: transform;
 }
 
 .carousel__slide {
-    flex: 0 0 100%;
+    flex: 0 0 var(--carousel-slide-size);
     min-width: 0;
-    padding: var(--space-l);
+    padding: var(--carousel-slide-padding);
 }
 
 .carousel__slide > :first-child {
@@ -74,6 +78,14 @@
     border-radius: var(--radius-control-md);
     font-size: var(--text-sm);
     line-height: var(--lh-label);
+}
+
+.carousel__button--icon {
+    min-width: 2.75rem;
+    padding: 0;
+    border-radius: var(--radius-pill);
+    font-size: var(--step-1);
+    line-height: 1;
 }
 
 .carousel__dot-list {

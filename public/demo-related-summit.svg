@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 720" role="img" aria-labelledby="title desc">
+  <title id="title">Conference audience</title>
+  <desc id="desc">An abstract event scene with a highlighted speaker and crowd.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#7c57ff"/>
+      <stop offset="40%" stop-color="#dad7ff"/>
+      <stop offset="100%" stop-color="#2d255c"/>
+    </linearGradient>
+    <radialGradient id="lights" cx="0.22" cy="0.18" r="0.5">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="50%" stop-color="#ffffff" stop-opacity=".85"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="960" height="720" fill="url(#bg)"/>
+  <rect width="960" height="720" fill="url(#lights)"/>
+  <g fill="#ffffff" opacity=".8">
+    <circle cx="155" cy="118" r="84"/>
+    <circle cx="392" cy="100" r="112"/>
+    <circle cx="655" cy="116" r="94"/>
+  </g>
+  <g transform="translate(260 140)">
+    <ellipse cx="250" cy="472" rx="316" ry="95" fill="#241746" opacity=".45"/>
+    <path d="M370 161c0 76-48 137-107 137s-107-61-107-137 48-138 107-138 107 62 107 138Z" fill="#f7d2c8"/>
+    <path d="M308 292c84 10 155 66 213 167-75 65-169 103-283 115-91-13-165-48-224-104 58-109 125-168 199-178 24 30 57 46 95 46Z" fill="#1c224e"/>
+    <path d="M162 152c8-73 48-128 119-164 72 7 131 51 177 133-31 35-71 56-120 62-70-7-129-17-176-31Z" fill="#e9b3c5"/>
+    <path d="M470 356c70 14 121 54 155 123-50 53-114 96-194 128 9-113 22-196 39-251Z" fill="#cfa2b7"/>
+  </g>
+</svg>

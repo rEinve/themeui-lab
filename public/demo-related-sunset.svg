@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 720" role="img" aria-labelledby="title desc">
+  <title id="title">Sunset by the water</title>
+  <desc id="desc">An abstract sunset with silhouettes near the shoreline.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f8ce7c"/>
+      <stop offset="46%" stop-color="#f29d52"/>
+      <stop offset="100%" stop-color="#2a100f"/>
+    </linearGradient>
+    <radialGradient id="sun" cx="0.26" cy="0.44" r="0.22">
+      <stop offset="0%" stop-color="#fff5cf"/>
+      <stop offset="60%" stop-color="#ffd37a"/>
+      <stop offset="100%" stop-color="#ffd37a" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="960" height="720" fill="url(#sky)"/>
+  <rect y="470" width="960" height="250" fill="#2b1514"/>
+  <ellipse cx="270" cy="320" rx="150" ry="150" fill="url(#sun)"/>
+  <path d="M0 525c85-40 175-60 271-59 118 2 203 44 303 53 118 11 233-21 386-85v286H0Z" fill="#1b0c0b"/>
+  <path d="M732 36c17 74 14 176-5 307-14 99-30 178-48 238h-20c12-111 12-231 1-362-10-110-17-171-22-183Z" fill="#281311"/>
+  <path d="M820 115c13 42 15 111 7 208-6 80-17 153-32 218h-16c8-88 6-176-6-264-11-81-23-136-35-162Z" fill="#311715"/>
+  <path d="M337 452c38 14 69 41 93 81-17 66-66 118-147 155-83-34-131-85-145-154 19-42 49-69 91-82 12-67 33-108 63-124 28 18 43 59 45 124Z" fill="#0b0707"/>
+  <path d="M513 474c31 15 58 42 80 80-16 63-57 112-124 149-71-28-112-77-125-147 18-40 44-67 78-81 8-58 25-94 49-108 23 14 37 50 42 107Z" fill="#120909" opacity=".9"/>
+</svg>

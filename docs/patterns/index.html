@@ -4,7 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Patterns Docs - themeui-lab</title>
-    <script type="module">import "/src/scss/themeui-lab.scss";</script>
+    <script type="module">
+      import "/src/scss/themeui-lab.scss";
+      import { initCarousels } from "/src/js/components/index.js";
+
+      initCarousels();
+    </script>
     <link rel="stylesheet" href="/docs/docs-shell.css" />
     <script src="/docs/example-copy.js" defer></script>
   </head>
@@ -32,9 +37,134 @@
             <p>
               Canonical pattern usage should stay in the pattern layer. Top bar and off-canvas navigation belong here because they manage page shell,
               responsive behavior, and navigation structure. Hero belongs here too because it composes page regions, content flow, and components into
-              one landing-page section.
+              one landing-page section. Related posts belongs here for the same reason: it composes a section header, actions, carousel behavior, and reusable cards.
             </p>
           </div>
+
+          <article class="example-block stack stack--sm">
+            <h2 class="example-title">Related Posts</h2>
+            <p class="example-description">Use this pattern when a page needs an editorial recommendation rail with a section header, a browse action, and multi-card carousel controls.</p>
+            <div class="docs-note">
+              <p>
+                Contract: <code class="docs-inline-code">.related-posts</code> owns the section composition only. Keep the cards themselves in
+                <code class="docs-inline-code">.post-card</code> and let the carousel component own viewport movement and button wiring.
+              </p>
+            </div>
+            <div class="docs-pair">
+              <div class="docs-do">
+                <strong>Do</strong>
+                <p>Use the pattern when the page needs a cohesive recommendation section with header content and carousel controls living together.</p>
+              </div>
+              <div class="docs-dont">
+                <strong>Don't</strong>
+                <p>Turn the card component into a section-level abstraction or hard-code section spacing into the carousel itself.</p>
+              </div>
+            </div>
+            <div class="example-preview">
+              <section class="related-posts" data-carousel aria-label="Related posts">
+                <div class="related-posts__header">
+                  <div class="related-posts__intro">
+                    <h2 class="related-posts__title">Related Posts</h2>
+                    <a class="related-posts__link" href="/demo/article.html">Explore all posts</a>
+                  </div>
+                  <div class="related-posts__actions">
+                    <button class="carousel__button carousel__button--icon" type="button" data-carousel-prev aria-label="Show previous posts">&#8592;</button>
+                    <button class="carousel__button carousel__button--icon" type="button" data-carousel-next aria-label="Show next posts">&#8594;</button>
+                  </div>
+                </div>
+                <div class="carousel related-posts__carousel">
+                  <div class="carousel__viewport" data-carousel-viewport>
+                    <div class="carousel__track" data-carousel-track>
+                      <div class="carousel__slide" data-carousel-slide>
+                        <article class="post-card">
+                          <a class="post-card__link" href="/demo/article.html">
+                            <div class="post-card__media">
+                              <img class="post-card__image" src="/demo-related-sunset.svg" alt="Abstract sunset by the water" />
+                            </div>
+                            <div class="post-card__body">
+                              <p class="post-card__eyebrow">Business, Happiness</p>
+                              <h3 class="post-card__title">Achieve success and fulfillment by aligning your business with life goals</h3>
+                              <p class="post-card__excerpt">Build an editorial rail with reusable cards instead of inventing a page-specific card variant.</p>
+                            </div>
+                          </a>
+                        </article>
+                      </div>
+                      <div class="carousel__slide" data-carousel-slide>
+                        <article class="post-card">
+                          <a class="post-card__link" href="/demo/article.html">
+                            <div class="post-card__media">
+                              <img class="post-card__image" src="/demo-related-summit.svg" alt="Abstract conference audience" />
+                            </div>
+                            <div class="post-card__body">
+                              <p class="post-card__eyebrow">Happiness</p>
+                              <h3 class="post-card__title">Awaken Your True Power at the 2024 She's Unstoppable Summit</h3>
+                              <p class="post-card__excerpt">The carousel now supports fixed-width peek slides, so the pattern can feel closer to a modern editorial rail.</p>
+                            </div>
+                          </a>
+                        </article>
+                      </div>
+                      <div class="carousel__slide" data-carousel-slide>
+                        <article class="post-card">
+                          <a class="post-card__link" href="/demo/article.html">
+                            <div class="post-card__media">
+                              <img class="post-card__image" src="/demo-related-purpose.svg" alt="Abstract backlit figure by the sea" />
+                            </div>
+                            <div class="post-card__body">
+                              <p class="post-card__eyebrow">Happiness</p>
+                              <h3 class="post-card__title">How to find your purpose</h3>
+                              <p class="post-card__excerpt">Patterns should handle section assembly while components stay portable and reusable.</p>
+                            </div>
+                          </a>
+                        </article>
+                      </div>
+                      <div class="carousel__slide" data-carousel-slide>
+                        <article class="post-card">
+                          <a class="post-card__link" href="/demo/article.html">
+                            <div class="post-card__media">
+                              <img class="post-card__image" src="/demo-related-mindset.svg" alt="Abstract growth illustration" />
+                            </div>
+                            <div class="post-card__body">
+                              <p class="post-card__eyebrow">Mindset</p>
+                              <h3 class="post-card__title">Cultivate the habits that support lasting growth</h3>
+                              <p class="post-card__excerpt">Use as many slides as you need, but keep the set short enough that users can still scan it quickly.</p>
+                            </div>
+                          </a>
+                        </article>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+<pre class="example-code"><code>&lt;section class="related-posts" data-carousel aria-label="Related posts"&gt;
+  &lt;div class="related-posts__header"&gt;
+    &lt;div class="related-posts__intro"&gt;
+      &lt;h2 class="related-posts__title"&gt;Related Posts&lt;/h2&gt;
+      &lt;a class="related-posts__link" href="/posts"&gt;Explore all posts&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div class="related-posts__actions"&gt;
+      &lt;button class="carousel__button carousel__button--icon" type="button" data-carousel-prev aria-label="Show previous posts"&gt;&amp;#8592;&lt;/button&gt;
+      &lt;button class="carousel__button carousel__button--icon" type="button" data-carousel-next aria-label="Show next posts"&gt;&amp;#8594;&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="carousel related-posts__carousel"&gt;
+    &lt;div class="carousel__viewport" data-carousel-viewport&gt;
+      &lt;div class="carousel__track" data-carousel-track&gt;
+        &lt;div class="carousel__slide" data-carousel-slide&gt;
+          &lt;article class="post-card"&gt;...&lt;/article&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;script type="module"&gt;
+  import { initCarousels } from "/src/js/components/index.js";
+
+  initCarousels();
+&lt;/script&gt;</code></pre>
+            <a class="docs-link" href="/demo/article.html">Open related posts demo</a>
+          </article>
 
           <article class="example-block stack stack--sm">
             <h2 class="example-title">Hero</h2>

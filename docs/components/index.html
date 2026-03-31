@@ -43,7 +43,7 @@
               <code class="docs-inline-code">.radio</code>, <code class="docs-inline-code">.checkbox</code>, <code class="docs-inline-code">.switch</code>,
               <code class="docs-inline-code">.tag</code>, <code class="docs-inline-code">.divider</code>, <code class="docs-inline-code">.list</code>,
               <code class="docs-inline-code">.pagination</code>, <code class="docs-inline-code">.breadcrumbs</code>, <code class="docs-inline-code">.tabs</code>,
-              <code class="docs-inline-code">.carousel</code>, and <code class="docs-inline-code">.table</code>.
+              <code class="docs-inline-code">.carousel</code>, <code class="docs-inline-code">.post-card</code>, and <code class="docs-inline-code">.table</code>.
               The legacy <code class="docs-inline-code">.btn</code> alias remains temporarily for compatibility only.
             </p>
           </div>
@@ -465,25 +465,76 @@
             </article>
 
             <article class="example-block stack stack--sm">
-              <h2 class="example-title">Carousel</h2>
-              <p class="example-description">Use a carousel for a short sequence of peer slides. The component owns its viewport, controls, and state, while content inside each slide stays flexible.</p>
+              <h2 class="example-title">Post Card</h2>
+              <p class="example-description">Use post cards for editorial or blog-style entries where media, metadata, a title, and a short excerpt need one reusable content shell.</p>
               <div class="docs-note">
                 <p>
-                  Contract: keep <code class="docs-inline-code">data-carousel</code> on the root,
-                  <code class="docs-inline-code">data-carousel-track</code> on the moving track, and
-                  <code class="docs-inline-code">data-carousel-slide</code> on each slide. Previous/next buttons and dot buttons are optional, but if present they must use the matching
-                  <code class="docs-inline-code">data-carousel-prev</code>, <code class="docs-inline-code">data-carousel-next</code>, and
-                  <code class="docs-inline-code">data-carousel-dot</code> hooks. Hidden slides are made non-tabbable by the initializer, so slide content can include links or buttons safely.
+                  Contract: <code class="docs-inline-code">.post-card</code> owns the card interior only. Keep page spacing, section headers, and carousel composition outside the component.
+                  Use <code class="docs-inline-code">.post-card__media</code> for the visual block,
+                  <code class="docs-inline-code">.post-card__body</code> for text content, and keep the whole card clickable with
+                  <code class="docs-inline-code">.post-card__link</code> when appropriate.
                 </p>
               </div>
               <div class="docs-pair">
                 <div class="docs-do">
                   <strong>Do</strong>
-                  <p>Keep carousels short, give the region a clear label, and make each slide meaningful on its own.</p>
+                  <p>Use the component for reusable editorial content and feed it real links, real metadata, and concise excerpts.</p>
                 </div>
                 <div class="docs-dont">
                   <strong>Don't</strong>
-                  <p>Bury essential content in long sliders or assume motion alone will communicate state.</p>
+                  <p>Put container widths, section spacing, or grid behavior inside the card just because it often appears in a page section.</p>
+                </div>
+              </div>
+              <div class="example-preview">
+                <article class="post-card">
+                  <a class="post-card__link" href="/demo/article.html">
+                    <div class="post-card__media">
+                      <img class="post-card__image" src="/demo-related-sunset.svg" alt="Abstract sunset by the water" />
+                    </div>
+                    <div class="post-card__body">
+                      <p class="post-card__eyebrow">Business, Happiness</p>
+                      <h3 class="post-card__title">Achieve success and fulfillment by aligning your business with life goals</h3>
+                      <p class="post-card__excerpt">A reusable post card keeps editorial content compact while still supporting a strong visual lead and readable metadata.</p>
+                    </div>
+                  </a>
+                </article>
+              </div>
+              <pre class="example-code"><code>&lt;article class="post-card"&gt;
+  &lt;a class="post-card__link" href="/posts/align-business-life-goals"&gt;
+    &lt;div class="post-card__media"&gt;
+      &lt;img class="post-card__image" src="/images/post-cover.jpg" alt="People watching a sunset" /&gt;
+    &lt;/div&gt;
+    &lt;div class="post-card__body"&gt;
+      &lt;p class="post-card__eyebrow"&gt;Business, Happiness&lt;/p&gt;
+      &lt;h3 class="post-card__title"&gt;Achieve success and fulfillment by aligning your business with life goals&lt;/h3&gt;
+      &lt;p class="post-card__excerpt"&gt;Short supporting summary text goes here.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/a&gt;
+&lt;/article&gt;</code></pre>
+            </article>
+
+            <article class="example-block stack stack--sm">
+              <h2 class="example-title">Carousel</h2>
+              <p class="example-description">Use a carousel for a short sequence of peer slides. The component owns its viewport, controls, and state, while content inside each slide stays flexible.</p>
+              <div class="docs-note">
+                <p>
+                  Contract: keep <code class="docs-inline-code">data-carousel</code> on the root,
+                  <code class="docs-inline-code">data-carousel-viewport</code> or <code class="docs-inline-code">.carousel__viewport</code> on the clipping viewport,
+                  <code class="docs-inline-code">data-carousel-track</code> on the moving track, and
+                  <code class="docs-inline-code">data-carousel-slide</code> on each slide. Previous/next buttons and dot buttons are optional, but if present they must use the matching
+                  <code class="docs-inline-code">data-carousel-prev</code>, <code class="docs-inline-code">data-carousel-next</code>, and
+                  <code class="docs-inline-code">data-carousel-dot</code> hooks. Use CSS custom properties like <code class="docs-inline-code">--carousel-slide-size</code> and
+                  <code class="docs-inline-code">--carousel-slide-padding</code> when you need peek layouts or media-led cards.
+                </p>
+              </div>
+              <div class="docs-pair">
+                <div class="docs-do">
+                  <strong>Do</strong>
+                  <p>Keep carousels short, give the region a clear label, and let slide width be a styling decision rather than a JavaScript rewrite.</p>
+                </div>
+                <div class="docs-dont">
+                  <strong>Don't</strong>
+                  <p>Bury essential content in long sliders or push page-level section structure into the component itself.</p>
                 </div>
               </div>
               <div class="example-preview">

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 720" role="img" aria-labelledby="title desc">
+  <title id="title">Abstract growth pattern</title>
+  <desc id="desc">An abstract composition of leaves, glow, and layered shapes.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0c3d1f"/>
+      <stop offset="45%" stop-color="#15703c"/>
+      <stop offset="100%" stop-color="#d3f18d"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.72" cy="0.24" r="0.28">
+      <stop offset="0%" stop-color="#f5ffd1"/>
+      <stop offset="100%" stop-color="#f5ffd1" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="960" height="720" fill="url(#bg)"/>
+  <rect width="960" height="720" fill="url(#glow)"/>
+  <g opacity=".88">
+    <path d="M177 531c71-180 188-286 352-317-27 177-145 282-352 317Z" fill="#0a2412"/>
+    <path d="M373 622c39-146 136-252 291-319 18 164-79 271-291 319Z" fill="#0f3319"/>
+    <path d="M586 580c42-101 124-173 247-217-13 123-95 196-247 217Z" fill="#184b26"/>
+  </g>
+  <g fill="#def5b9" opacity=".62">
+    <circle cx="176" cy="168" r="34"/>
+    <circle cx="296" cy="94" r="14"/>
+    <circle cx="432" cy="151" r="20"/>
+    <circle cx="792" cy="164" r="22"/>
+  </g>
+</svg>

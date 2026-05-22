@@ -8,72 +8,253 @@
       import "/src/scss/themeui-lab.scss";
     </script>
     <link rel="stylesheet" href="/docs/docs-shell.css" />
-    <script src="/docs/example-copy.js" defer></script>
+    <script src="/docs/docs-sidebar.js" defer></script>
   </head>
   <body>
-    <header class="section docs-topbar">
-      <div class="container docs-topbar-inner">
-        <div class="docs-nav">
-          <a class="docs-link" href="/">themeui-lab</a>
-          <a class="docs-link" href="/docs/">Docs</a>
-          <a class="docs-link" href="/demo/">Demo</a>
-        </div>
-        <div class="docs-nav">
-          <a class="docs-link" href="https://github.com/rEinve/themeui-lab.git" target="_blank" rel="noreferrer">Resource</a>
-        </div>
-      </div>
-    </header>
+    <div data-docs-header></div>
 
     <main class="section docs-main">
       <section class="section">
-        <div class="container stack stack--lg">
-          <div class="stack stack--xs">
-            <h1>Documentation Hub</h1>
-            <p>HTML documentation for foundations, primitives, components, and composition guidance in themeui-lab.</p>
-          </div>
+        <div class="container docs-home">
+          <aside class="docs-home__sidebar">
+            <div data-docs-sidebar></div>
+          </aside>
 
-          <div class="grid-12">
-            <article class="card md-col-12 lg-col-3 stack stack--sm">
-              <h2 class="card__title">Foundations</h2>
-              <p class="card__text">Tokens and core visual language.</p>
-              <a href="/docs/foundations/" class="docs-link">Open Foundations</a>
-            </article>
+          <div class="docs-home__content stack stack--xl">
+            <section class="stack stack--sm">
+              <p class="docs-eyebrow">themeui-lab documentation</p>
+              <h1>Docs directory</h1>
+              <p class="docs-lead">
+                All active documentation now lives inside the <code class="docs-inline-code">docs/</code> folder.
+                The docs are arranged bottom-up by system layer: foundations first, then icons, primitives, components, patterns, utilities,
+                and finally composition and rules. Each section keeps intro and examples separate, and the sidebar links to the actual item pages.
+              </p>
+            </section>
 
-            <article class="card md-col-12 lg-col-3 stack stack--sm">
-              <h2 class="card__title">Icons</h2>
-              <p class="card__text">Package-hosted Material Icons usage and guidance.</p>
-              <a href="/docs/icons/" class="docs-link">Open Icons</a>
-            </article>
+            <section class="docs-topic stack stack--sm">
+              <div class="stack stack--xs">
+                <h2>Popular starting point: Forms</h2>
+                <p class="card__text">If you are building a form, start with the dedicated guide instead of hunting through individual component pages.</p>
+              </div>
+              <div class="docs-topic-row">
+                <div class="stack stack--xs">
+                  <p class="docs-section-label">Form Guide</p>
+                  <p class="card__text">Open the quick path for labels, validation messages, control selection, accessibility, and layout boundaries.</p>
+                </div>
+                <div class="docs-topic-actions stack stack--xs">
+                  <a href="/docs/components/forms.html" class="docs-link">Open Form Guide</a>
+                </div>
+              </div>
+            </section>
 
-            <article class="card md-col-12 lg-col-3 stack stack--sm">
-              <h2 class="card__title">Primitives</h2>
-              <p class="card__text">Layout and rhythm building blocks.</p>
-              <a href="/docs/primitives/" class="docs-link">Open Primitives</a>
-            </article>
+            <section class="docs-topic stack stack--sm">
+              <div class="stack stack--xs">
+                <h2>Foundations</h2>
+                <p class="card__text">Base token families and root contracts that every later layer depends on.</p>
+              </div>
+              <div class="docs-topic-row">
+                <div class="stack stack--xs">
+                  <p class="docs-section-label">Intro</p>
+                  <p class="card__text">Read when you need the token contract, semantic usage guidance, and the base visual rules of the system.</p>
+                </div>
+                <div class="docs-topic-actions stack stack--xs">
+                  <a href="/docs/foundations/" class="docs-link">Open Foundations Intro</a>
+                </div>
+              </div>
+              <div class="docs-topic-row">
+                <div class="stack stack--xs">
+                  <p class="docs-section-label">Examples</p>
+                  <p class="card__text">Open token previews and base examples when you need a fast reference for system values.</p>
+                </div>
+                <div class="docs-topic-actions stack stack--xs">
+                  <a href="/docs/foundations/examples.html" class="docs-link">Open Foundations Examples</a>
+                </div>
+              </div>
+            </section>
 
-            <article class="card md-col-12 lg-col-3 stack stack--sm">
-              <h2 class="card__title">Components</h2>
-              <p class="card__text">Reusable core UI components.</p>
-              <a href="/docs/components/" class="docs-link">Open Components</a>
-            </article>
+            <section class="docs-topic stack stack--sm">
+              <div class="stack stack--xs">
+                <h2>Icons</h2>
+                <p class="card__text">The shared icon layer that sits alongside the base system language and supports common UI actions.</p>
+              </div>
+              <div class="docs-topic-row">
+                <div class="stack stack--xs">
+                  <p class="docs-section-label">Intro</p>
+                  <p class="card__text">Read when you need the default icon style, variant guidance, and the role of icons in the base system.</p>
+                </div>
+                <div class="docs-topic-actions stack stack--xs">
+                  <a href="/docs/icons/" class="docs-link">Open Icons Intro</a>
+                </div>
+              </div>
+              <div class="docs-topic-row">
+                <div class="stack stack--xs">
+                  <p class="docs-section-label">Examples</p>
+                  <p class="card__text">Open icon examples when you need a quick visual check of the available icon styles.</p>
+                </div>
+                <div class="docs-topic-actions stack stack--xs">
+                  <a href="/docs/icons/examples.html" class="docs-link">Open Icons Examples</a>
+                </div>
+              </div>
+            </section>
 
-            <article class="card md-col-12 lg-col-3 stack stack--sm">
-              <h2 class="card__title">Patterns</h2>
-              <p class="card__text">Page-level assemblies like app shell and navigation.</p>
-              <a href="/docs/patterns/" class="docs-link">Open Patterns</a>
-            </article>
+            <section class="docs-topic stack stack--sm">
+              <div class="stack stack--xs">
+                <h2>Primitives</h2>
+                <p class="card__text">Structural layout building blocks for regions, width, columns, and flow.</p>
+              </div>
+              <div class="docs-topic-row">
+                <div class="stack stack--xs">
+                  <p class="docs-section-label">Intro</p>
+                  <p class="card__text">Read when you are placing containers, sections, grids, rows, or stacks in a page shell.</p>
+                </div>
+                <div class="docs-topic-actions stack stack--xs">
+                  <a href="/docs/primitives/" class="docs-link">Open Primitives Intro</a>
+                </div>
+              </div>
+              <div class="docs-topic-row">
+                <div class="stack stack--xs">
+                  <p class="docs-section-label">Examples</p>
+                  <p class="card__text">Open working primitive examples for grid, stack, row, and layout composition.</p>
+                </div>
+                <div class="docs-topic-actions stack stack--xs">
+                  <a href="/docs/primitives/examples.html" class="docs-link">Open Primitives Examples</a>
+                </div>
+              </div>
+            </section>
 
-            <article class="card md-col-12 lg-col-3 stack stack--sm">
-              <h2 class="card__title">Composition</h2>
-              <p class="card__text">3-layer page composition model.</p>
-              <a href="/docs/composition/" class="docs-link">Open Composition</a>
-            </article>
+            <section class="docs-topic stack stack--sm">
+              <div class="stack stack--xs">
+                <h2>Components</h2>
+                <p class="card__text">Reusable UI pieces such as buttons, fields, tabs, tables, lists, and cards.</p>
+              </div>
+              <div class="docs-topic-row">
+                <div class="stack stack--xs">
+                  <p class="docs-section-label">Intro</p>
+                  <p class="card__text">Read when you need the boundary and intent of the component layer before adding or changing UI elements.</p>
+                </div>
+                <div class="docs-topic-actions stack stack--xs">
+                  <a href="/docs/components/" class="docs-link">Open Components Intro</a>
+                </div>
+              </div>
+              <div class="docs-topic-row">
+                <div class="stack stack--xs">
+                  <p class="docs-section-label">Examples</p>
+                  <p class="card__text">Open the component reference for action, form, navigation, and content-surface examples.</p>
+                </div>
+                <div class="docs-topic-actions stack stack--xs">
+                  <a href="/docs/components/examples.html" class="docs-link">Open Components Examples</a>
+                </div>
+              </div>
+              <div class="docs-topic-row">
+                <div class="stack stack--xs">
+                  <p class="docs-section-label">Form Guide</p>
+                  <p class="card__text">Jump straight to the form docs bundle for field messaging, inputs, selection controls, and the canonical example.</p>
+                </div>
+                <div class="docs-topic-actions stack stack--xs">
+                  <a href="/docs/components/forms.html" class="docs-link">Open Form Guide</a>
+                </div>
+              </div>
+            </section>
 
-            <article class="card md-col-12 lg-col-3 stack stack--sm">
-              <h2 class="card__title">System Rules</h2>
-              <p class="card__text">Core principles that prevent design drift.</p>
-              <a href="/docs/rules/" class="docs-link">Open System Rules</a>
-            </article>
+            <section class="docs-topic stack stack--sm">
+              <div class="stack stack--xs">
+                <h2>Patterns</h2>
+                <p class="card__text">Page-level assemblies that coordinate multiple regions, behaviors, and reusable pieces.</p>
+              </div>
+              <div class="docs-topic-row">
+                <div class="stack stack--xs">
+                  <p class="docs-section-label">Intro</p>
+                  <p class="card__text">Read when you need to understand what belongs in a pattern instead of a component or primitive.</p>
+                </div>
+                <div class="docs-topic-actions stack stack--xs">
+                  <a href="/docs/patterns/" class="docs-link">Open Patterns Intro</a>
+                </div>
+              </div>
+              <div class="docs-topic-row">
+                <div class="stack stack--xs">
+                  <p class="docs-section-label">Examples</p>
+                  <p class="card__text">Open hero, related-posts, and app-shell examples when composing larger page sections.</p>
+                </div>
+                <div class="docs-topic-actions stack stack--xs">
+                  <a href="/docs/patterns/examples.html" class="docs-link">Open Patterns Examples</a>
+                </div>
+              </div>
+            </section>
+
+            <section class="docs-topic stack stack--sm">
+              <div class="stack stack--xs">
+                <h2>Utilities</h2>
+                <p class="card__text">Late-stage helpers for alignment, centering, spacing, surface, and text refinements after structure is already in place.</p>
+              </div>
+              <div class="docs-topic-row">
+                <div class="stack stack--xs">
+                  <p class="docs-section-label">Intro</p>
+                  <p class="card__text">Read when you need to understand where utilities belong and how to use them without replacing layout structure.</p>
+                </div>
+                <div class="docs-topic-actions stack stack--xs">
+                  <a href="/docs/utilities/" class="docs-link">Open Utilities Intro</a>
+                </div>
+              </div>
+              <div class="docs-topic-row">
+                <div class="stack stack--xs">
+                  <p class="docs-section-label">Examples</p>
+                  <p class="card__text">Open centering and alignment examples when you need a concrete class combination quickly.</p>
+                </div>
+                <div class="docs-topic-actions stack stack--xs">
+                  <a href="/docs/utilities/examples.html" class="docs-link">Open Utilities Examples</a>
+                </div>
+              </div>
+            </section>
+
+            <section class="docs-topic stack stack--sm">
+              <div class="stack stack--xs">
+                <h2>Composition</h2>
+                <p class="card__text">The layer map that explains how the system parts fit together in a predictable page structure.</p>
+              </div>
+              <div class="docs-topic-row">
+                <div class="stack stack--xs">
+                  <p class="docs-section-label">Intro</p>
+                  <p class="card__text">Read when you need help deciding where a new layout or UI decision belongs in the system.</p>
+                </div>
+                <div class="docs-topic-actions stack stack--xs">
+                  <a href="/docs/composition/" class="docs-link">Open Composition Intro</a>
+                </div>
+              </div>
+              <div class="docs-topic-row">
+                <div class="stack stack--xs">
+                  <p class="docs-section-label">Examples</p>
+                  <p class="card__text">Open composition examples for page-shell, flow, and reusable UI assembly.</p>
+                </div>
+                <div class="docs-topic-actions stack stack--xs">
+                  <a href="/docs/composition/examples.html" class="docs-link">Open Composition Examples</a>
+                </div>
+              </div>
+            </section>
+
+            <section class="docs-topic stack stack--sm">
+              <div class="stack stack--xs">
+                <h2>Rules</h2>
+                <p class="card__text">Architecture guardrails that prevent layer drift and keep the system small and maintainable.</p>
+              </div>
+              <div class="docs-topic-row">
+                <div class="stack stack--xs">
+                  <p class="docs-section-label">Intro</p>
+                  <p class="card__text">Read when you want the shortest path to the system rules and boundary decisions.</p>
+                </div>
+                <div class="docs-topic-actions stack stack--xs">
+                  <a href="/docs/rules/" class="docs-link">Open Rules Intro</a>
+                </div>
+              </div>
+              <div class="docs-topic-row">
+                <div class="stack stack--xs">
+                  <p class="docs-section-label">Examples</p>
+                  <p class="card__text">Open applied rule examples when you need practical guidance for checking scope and placement.</p>
+                </div>
+                <div class="docs-topic-actions stack stack--xs">
+                  <a href="/docs/rules/examples.html" class="docs-link">Open Rules Examples</a>
+                </div>
+              </div>
+            </section>
           </div>
         </div>
       </section>

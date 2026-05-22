@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Utilities Intro - themeui-lab</title>
+    <script type="module">import "/src/scss/themeui-lab.scss";</script>
+    <link rel="stylesheet" href="/docs/docs-shell.css" />
+    <script src="/docs/docs-sidebar.js" defer></script>
+  </head>
+  <body>
+    <div data-docs-header></div>
+
+    <main class="section docs-main">
+      <section class="section">
+        <div class="container docs-shell">
+          <aside class="docs-shell__sidebar">
+            <div data-docs-sidebar></div>
+          </aside>
+          <div class="docs-shell__content stack stack--lg">
+          <div class="stack stack--xs">
+            <h1>Utilities</h1>
+            <p>Utilities are small helpers that refine an existing primitive. They sit late in the system, as the last adjustment layer before composition guidance.</p>
+          </div>
+
+          <div class="docs-note">
+            <p>
+              Start with <code class="docs-inline-code">.stack</code>, <code class="docs-inline-code">.row</code>,
+              <code class="docs-inline-code">.cluster</code>, or <code class="docs-inline-code">.grid-12</code>, then add the smallest utility needed for
+              alignment, centering, spacing, or surface treatment.
+            </p>
+          </div>
+
+          <div class="docs-summary-grid">
+            <article class="card stack stack--sm">
+              <h2 class="card__title">Alignment</h2>
+              <p class="card__text">Use <code class="docs-inline-code">.items-*</code>, <code class="docs-inline-code">.justify-*</code>, <code class="docs-inline-code">.self-*</code>, and <code class="docs-inline-code">.item-grow</code> to refine flex and grid behavior.</p>
+            </article>
+            <article class="card stack stack--sm">
+              <h2 class="card__title">Centering</h2>
+              <p class="card__text">Use <code class="docs-inline-code">.margin-inline-auto</code> to center a block, and combine primitive layout with utilities when content needs horizontal or two-axis centering.</p>
+            </article>
+            <article class="card stack stack--sm">
+              <h2 class="card__title">Spacing and Surface</h2>
+              <p class="card__text">Spacing, border, radius, and surface helpers are available for small adjustments that should not become new component variants.</p>
+            </article>
+            <article class="card stack stack--sm">
+              <h2 class="card__title">Keep Scope Small</h2>
+              <p class="card__text">Utilities should not own page spacing, container width, grid composition, or component internals.</p>
+            </article>
+          </div>
+
+          <div class="stack stack--sm">
+            <h2>Utility Directory</h2>
+            <p class="card__text">These pages split the utility layer into the concrete helper groups you can apply once structure already exists.</p>
+          </div>
+
+          <div class="docs-card-grid">
+            <article class="card stack stack--sm">
+              <h3 class="card__title">Position and Alignment</h3>
+              <a class="docs-link" href="/docs/utilities/alignment.html">Alignment Utilities</a>
+              <a class="docs-link" href="/docs/utilities/centering.html">Centering Utilities</a>
+            </article>
+
+            <article class="card stack stack--sm">
+              <h3 class="card__title">Finishing Helpers</h3>
+              <a class="docs-link" href="/docs/utilities/spacing.html">Spacing Utilities</a>
+              <a class="docs-link" href="/docs/utilities/surface.html">Surface Utilities</a>
+              <a class="docs-link" href="/docs/utilities/text.html">Text Utilities</a>
+            </article>
+          </div>
+
+          <div class="docs-page-nav">
+            <a class="docs-link" href="/docs/utilities/examples.html">Open Utilities Examples</a>
+            <a class="docs-link" href="/docs/patterns/">Read Patterns Intro</a>
+            <a class="docs-link" href="/docs/composition/">Read Composition Intro</a>
+          </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

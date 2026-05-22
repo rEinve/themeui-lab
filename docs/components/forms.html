@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Guide - themeui-lab</title>
+    <script type="module">import "/src/scss/themeui-lab.scss";</script>
+    <link rel="stylesheet" href="/docs/docs-shell.css" />
+    <script src="/docs/docs-sidebar.js" defer></script>
+  </head>
+  <body>
+    <div data-docs-header></div>
+
+    <main class="section docs-main">
+      <section class="section">
+        <div class="container docs-shell">
+          <aside class="docs-shell__sidebar">
+            <div data-docs-sidebar></div>
+          </aside>
+
+          <div class="docs-shell__content stack stack--lg">
+            <section class="stack stack--sm">
+              <p class="docs-eyebrow">components / form guide</p>
+              <h1>Form Guide</h1>
+              <p class="docs-lead">
+                Start here when you need to build or document a form in themeui-lab. This guide pulls together the control docs, shared field language,
+                accessibility contract, and layout boundary in one place.
+              </p>
+            </section>
+
+            <div class="docs-note">
+              <p>
+                Forms span two layers: primitives control page layout and grouping, while components control the inside of each field or choice control.
+                Keep section spacing, container width, and grid decisions outside the form components themselves.
+              </p>
+            </div>
+
+            <div class="docs-summary-grid">
+              <article class="card stack stack--sm">
+                <h2 class="card__title">1. Start with field messaging</h2>
+                <p class="card__text">Use the shared label, hint, success, warning, and error helpers before choosing the specific control.</p>
+                <a class="docs-link" href="/docs/components/field.html">Open Field Messaging</a>
+              </article>
+              <article class="card stack stack--sm">
+                <h2 class="card__title">2. Choose the right control</h2>
+                <p class="card__text">Use input or textarea for text entry, select for bounded options, and radio, checkbox, or switch for choices.</p>
+                <a class="docs-link" href="/docs/components/">Open Components Directory</a>
+              </article>
+              <article class="card stack stack--sm">
+                <h2 class="card__title">3. Wire accessibility</h2>
+                <p class="card__text">Every field needs a programmatic label, connected help text, and linked validation feedback when present.</p>
+                <a class="docs-link" href="/docs/components/examples.html#form-control-family">Open Form Example</a>
+              </article>
+              <article class="card stack stack--sm">
+                <h2 class="card__title">4. Keep layout in primitives</h2>
+                <p class="card__text">Use stack, grid, section, and container to compose the page shell around the form rather than pushing layout into controls.</p>
+                <a class="docs-link" href="/docs/composition/examples.html">Open Composition Examples</a>
+              </article>
+            </div>
+
+            <section class="docs-topic stack stack--sm">
+              <div class="stack stack--xs">
+                <h2>Quick path</h2>
+                <p class="card__text">These are the three pages most teams need first.</p>
+              </div>
+              <div class="docs-topic-row">
+                <div class="stack stack--xs">
+                  <p class="docs-section-label">Canonical example</p>
+                  <p class="card__text">Open the complete profile form example for labels, validation, grouped choices, and helper messaging.</p>
+                </div>
+                <div class="docs-topic-actions stack stack--xs">
+                  <a href="/docs/components/examples.html#form-control-family" class="docs-link">Open Form Example</a>
+                </div>
+              </div>
+              <div class="docs-topic-row">
+                <div class="stack stack--xs">
+                  <p class="docs-section-label">Field contract</p>
+                  <p class="card__text">Use field messaging to keep labels, hints, and status copy consistent across input, select, and textarea.</p>
+                </div>
+                <div class="docs-topic-actions stack stack--xs">
+                  <a href="/docs/components/field.html" class="docs-link">Open Field Messaging</a>
+                </div>
+              </div>
+              <div class="docs-topic-row">
+                <div class="stack stack--xs">
+                  <p class="docs-section-label">Page composition</p>
+                  <p class="card__text">Use composition examples when the question is where the form sits on the page, not how a specific control looks.</p>
+                </div>
+                <div class="docs-topic-actions stack stack--xs">
+                  <a href="/docs/composition/examples.html" class="docs-link">Open Composition Examples</a>
+                </div>
+              </div>
+            </section>
+
+            <section class="stack stack--sm">
+              <div class="stack stack--xs">
+                <h2>Control chooser</h2>
+                <p class="card__text">Use the control that matches the kind of decision the user is making.</p>
+              </div>
+
+              <div class="docs-card-grid">
+                <article class="card stack stack--sm">
+                  <h3 class="card__title">Text entry</h3>
+                  <p class="card__text">Use input for short, single-line values like names, titles, email addresses, and IDs.</p>
+                  <a class="docs-link" href="/docs/components/input.html">Open Input</a>
+                  <a class="docs-link" href="/docs/components/textarea.html">Open Textarea</a>
+                </article>
+                <article class="card stack stack--sm">
+                  <h3 class="card__title">Bounded options</h3>
+                  <p class="card__text">Use select when the value must come from a predefined list and freeform entry is not needed.</p>
+                  <a class="docs-link" href="/docs/components/select.html">Open Select</a>
+                </article>
+                <article class="card stack stack--sm">
+                  <h3 class="card__title">Single choice</h3>
+                  <p class="card__text">Use radio controls when only one option in a group may be selected.</p>
+                  <a class="docs-link" href="/docs/components/radio.html">Open Radio</a>
+                </article>
+                <article class="card stack stack--sm">
+                  <h3 class="card__title">Multiple or immediate choices</h3>
+                  <p class="card__text">Use checkbox for opt-ins and multi-select states. Use switch for immediate on or off settings.</p>
+                  <a class="docs-link" href="/docs/components/checkbox.html">Open Checkbox</a>
+                  <a class="docs-link" href="/docs/components/switch.html">Open Switch</a>
+                </article>
+              </div>
+            </section>
+
+            <section class="stack stack--sm">
+              <div class="stack stack--xs">
+                <h2>Accessibility contract</h2>
+                <p class="card__text">This is the baseline contract the form example follows.</p>
+              </div>
+              <div class="docs-note">
+                <p>
+                  Every input should have a programmatic label. Prefer explicit <code class="docs-inline-code">label for</code> plus control
+                  <code class="docs-inline-code">id</code>, connect helper or validation copy with <code class="docs-inline-code">aria-describedby</code>,
+                  and pair invalid states with <code class="docs-inline-code">aria-invalid="true"</code> and an error message when available.
+                </p>
+              </div>
+            </section>
+
+            <div class="docs-page-nav">
+              <a class="docs-link" href="/docs/components/examples.html#form-control-family">Open Form Example</a>
+              <a class="docs-link" href="/docs/components/">Open Components Intro</a>
+              <a class="docs-link" href="/docs/primitives/stack.html">Open Stack Primitive</a>
+              <a class="docs-link" href="/docs/composition/examples.html">Open Composition Examples</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

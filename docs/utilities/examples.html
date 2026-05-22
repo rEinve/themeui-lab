@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Utilities Examples - themeui-lab</title>
+    <script type="module">import "/src/scss/themeui-lab.scss";</script>
+    <link rel="stylesheet" href="/docs/docs-shell.css" />
+    <script src="/docs/docs-sidebar.js" defer></script>
+    <script src="/docs/example-copy.js" defer></script>
+  </head>
+  <body>
+    <div data-docs-header></div>
+
+    <main class="section docs-main">
+      <section class="section">
+        <div class="container docs-shell">
+          <aside class="docs-shell__sidebar">
+            <div data-docs-sidebar></div>
+          </aside>
+          <div class="docs-shell__content stack stack--lg">
+          <div class="stack stack--xs">
+            <h1>Utilities Examples</h1>
+            <p>Utilities are small, explicit helpers that refine an existing primitive. They do not replace layout primitives or components.</p>
+          </div>
+
+          <div class="docs-note">
+            <p>
+              Start with a primitive such as <code class="docs-inline-code">.stack</code>, <code class="docs-inline-code">.row</code>,
+              <code class="docs-inline-code">.cluster</code>, or <code class="docs-inline-code">.grid-12</code>. Then add one utility for the adjustment you need.
+              If you are trying to center a <code class="docs-inline-code">div</code>, first decide whether you want to center the block itself, center the children inside a flow,
+              or center content on both axes inside a container.
+            </p>
+          </div>
+
+          <div class="utility-matrix">
+            <article class="utility-card stack stack--xs">
+              <h2 class="card__title">Block and Text Alignment</h2>
+              <p class="card__text">Use these when the centering target is the element itself or just the text inside it.</p>
+              <ul class="stack stack--xs">
+                <li><code class="docs-inline-code">.margin-inline-auto</code></li>
+                <li><code class="docs-inline-code">.text-left</code></li>
+                <li><code class="docs-inline-code">.text-center</code></li>
+                <li><code class="docs-inline-code">.text-right</code></li>
+              </ul>
+            </article>
+
+            <article class="utility-card stack stack--xs">
+              <h2 class="card__title">Flex and Grid Alignment</h2>
+              <p class="card__text">Use these on primitives that already define layout behavior.</p>
+              <ul class="stack stack--xs">
+                <li><code class="docs-inline-code">.items-top</code>, <code class="docs-inline-code">.items-middle</code>, <code class="docs-inline-code">.items-bottom</code></li>
+                <li><code class="docs-inline-code">.justify-start</code>, <code class="docs-inline-code">.justify-center</code>, <code class="docs-inline-code">.justify-end</code>, <code class="docs-inline-code">.justify-between</code></li>
+                <li><code class="docs-inline-code">.self-top</code>, <code class="docs-inline-code">.self-middle</code>, <code class="docs-inline-code">.self-bottom</code></li>
+                <li><code class="docs-inline-code">.item-grow</code></li>
+                <li><code class="docs-inline-code">.place-center</code></li>
+              </ul>
+            </article>
+
+            <article class="utility-card stack stack--xs">
+              <h2 class="card__title">Spacing and Surface Helpers</h2>
+              <p class="card__text">Use these for small adjustments, not for page composition.</p>
+              <ul class="stack stack--xs">
+                <li><code class="docs-inline-code">.margin-xxl</code>, <code class="docs-inline-code">.margin-xl</code>, <code class="docs-inline-code">.margin-tb-m</code>, <code class="docs-inline-code">.margin-b-m</code>, <code class="docs-inline-code">.margin-t-m</code></li>
+                <li><code class="docs-inline-code">.padding-xxl</code>, <code class="docs-inline-code">.padding-t-xxl</code>, <code class="docs-inline-code">.padding-b-xxl</code>, <code class="docs-inline-code">.padding-b-m</code>, <code class="docs-inline-code">.padding-l</code>, <code class="docs-inline-code">.padding-b-l</code>, <code class="docs-inline-code">.padding-xl</code></li>
+                <li><code class="docs-inline-code">.border-t</code>, <code class="docs-inline-code">.border-b</code>, <code class="docs-inline-code">.surface</code></li>
+                <li><code class="docs-inline-code">.border-rs</code>, <code class="docs-inline-code">.border-rm</code>, <code class="docs-inline-code">.border-rl</code>, <code class="docs-inline-code">.border-rxl</code></li>
+                <li><code class="docs-inline-code">.aspect-standard</code></li>
+              </ul>
+            </article>
+          </div>
+
+          <div class="stack stack--lg">
+            <article class="example-block stack stack--sm">
+              <h2 class="example-title">Center One Div Horizontally</h2>
+              <p class="example-description">Use <code>.margin-inline-auto</code> when the block itself should sit in the horizontal center.</p>
+              <div class="docs-note">
+                <p>
+                  The block must be narrower than the available width, so pair the utility with a constrained width or max-width.
+                  This is the clearest answer when you want to center a single card or panel on the x-axis.
+                </p>
+              </div>
+              <div class="example-preview">
+                <div class="utility-frame">
+                  <div class="card utility-sample margin-inline-auto">
+                    <h3 class="card__title">Centered Panel</h3>
+                    <p class="card__text">The panel itself is centered, not just its text.</p>
+                  </div>
+                </div>
+              </div>
+              <pre class="example-code"><code>&lt;div class="card utility-sample margin-inline-auto"&gt;
+  &lt;h3 class="card__title"&gt;Centered Panel&lt;/h3&gt;
+  &lt;p class="card__text"&gt;The panel itself is centered, not just its text.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+            </article>
+
+            <article class="example-block stack stack--sm">
+              <h2 class="example-title">Center Children on the Horizontal Axis in a Stack</h2>
+              <p class="example-description">Use <code>.items-middle</code> on <code>.stack</code> when a vertical flow should center its child blocks horizontally.</p>
+              <div class="example-preview">
+                <div class="stack stack--sm items-middle utility-frame">
+                  <div class="card utility-sample utility-sample--compact text-center">
+                    <p class="card__text">Card A</p>
+                  </div>
+                  <div class="card utility-sample utility-sample--compact text-center">
+                    <p class="card__text">Card B</p>
+                  </div>
+                </div>
+              </div>
+              <pre class="example-code"><code>&lt;div class="stack stack--sm items-middle"&gt;
+  &lt;div class="card utility-sample utility-sample--compact"&gt;Card A&lt;/div&gt;
+  &lt;div class="card utility-sample utility-sample--compact"&gt;Card B&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </article>
+
+            <article class="example-block stack stack--sm">
+              <h2 class="example-title">Center Items Horizontally in a Row</h2>
+              <p class="example-description">Use <code>.justify-center</code> on <code>.row</code> when the row content should gather in the middle.</p>
+              <div class="example-preview">
+                <div class="row justify-center items-middle utility-frame">
+                  <button class="button" type="button">Back</button>
+                  <button class="button" type="button">Preview</button>
+                  <button class="button" type="button">Publish</button>
+                </div>
+              </div>
+              <pre class="example-code"><code>&lt;div class="row justify-center items-middle"&gt;
+  &lt;button class="button" type="button"&gt;Back&lt;/button&gt;
+  &lt;button class="button" type="button"&gt;Preview&lt;/button&gt;
+  &lt;button class="button" type="button"&gt;Publish&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+            </article>
+
+            <article class="example-block stack stack--sm">
+              <h2 class="example-title">Center a Div on Both Axes</h2>
+              <p class="example-description">Use a flex primitive with both <code>.justify-center</code> and <code>.items-middle</code> when the child should sit in the middle of a taller area.</p>
+              <div class="example-preview">
+                <div class="row justify-center items-middle utility-frame">
+                  <div class="card utility-sample">
+                    <h3 class="card__title">Centered in Area</h3>
+                    <p class="card__text">This uses available utilities for true two-axis centering.</p>
+                  </div>
+                </div>
+              </div>
+              <pre class="example-code"><code>&lt;div class="row justify-center items-middle" style="min-height: 12rem;"&gt;
+  &lt;div class="card utility-sample"&gt;
+    &lt;h3 class="card__title"&gt;Centered in Area&lt;/h3&gt;
+    &lt;p class="card__text"&gt;This uses available utilities for true two-axis centering.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </article>
+
+            <article class="example-block stack stack--sm">
+              <h2 class="example-title">What <code>.place-center</code> Actually Does</h2>
+              <p class="example-description">Use <code>.place-center</code> on <code>.grid-12</code> when items should center inside their own grid areas.</p>
+              <div class="docs-note">
+                <p>
+                  <code class="docs-inline-code">.place-center</code> sets <code class="docs-inline-code">place-items: center</code>.
+                  It is useful for centering content inside grid cells. It is not the primary tool for centering one standalone panel in a section.
+                </p>
+              </div>
+              <div class="example-preview">
+                <div class="grid-12 place-center utility-frame">
+                  <div class="card utility-grid-span utility-sample utility-sample--compact text-center">
+                    <p class="card__text">Cell 1</p>
+                  </div>
+                  <div class="card utility-grid-span utility-sample utility-sample--compact text-center">
+                    <p class="card__text">Cell 2</p>
+                  </div>
+                  <div class="card utility-grid-span utility-sample utility-sample--compact text-center">
+                    <p class="card__text">Cell 3</p>
+                  </div>
+                </div>
+              </div>
+              <pre class="example-code"><code>&lt;div class="grid-12 place-center"&gt;
+  &lt;div class="card utility-grid-span utility-sample utility-sample--compact"&gt;Cell 1&lt;/div&gt;
+  &lt;div class="card utility-grid-span utility-sample utility-sample--compact"&gt;Cell 2&lt;/div&gt;
+  &lt;div class="card utility-grid-span utility-sample utility-sample--compact"&gt;Cell 3&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </article>
+          </div>
+
+          <div class="docs-pair">
+            <div class="docs-do">
+              <strong>Do</strong>
+              <p>Pick the smallest utility that matches the layout adjustment you need, and keep the main structure in primitives.</p>
+            </div>
+            <div class="docs-dont">
+              <strong>Don't</strong>
+              <p>Use utilities to replace page composition, container width, section spacing, or component-specific structure.</p>
+            </div>
+          </div>
+
+          <div class="stack stack--xs">
+            <a class="docs-link" href="/docs/primitives/">Back to Primitives</a>
+            <a class="docs-link" href="/docs/composition/">Read the composition model</a>
+          </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

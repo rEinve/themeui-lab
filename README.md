@@ -80,14 +80,19 @@ This file imports layers in order via `@use`:
 - Canonical components: `.button`, `.card`, `.input`, `.textarea`, `.tag`, `.divider`.
 - Legacy aliases still exist in the CSS for backward compatibility and are marked inline in SCSS.
 
-## Primitive Docs
+## Docs Structure
 
 - Docs hub: `/docs/`
-- Foundations docs: `/docs/foundations/`
-- Primitives docs: `/docs/primitives/`
-- Components docs: `/docs/components/`
-- Composition docs: `/docs/composition/`
-- System rules: `/docs/rules/`
+- Each main section now lives entirely under `docs/<section>/`
+- `index.html` is the intro page for a section
+- `examples.html` is the example/reference page for a section
+- Foundations: `/docs/foundations/` and `/docs/foundations/examples.html`
+- Primitives: `/docs/primitives/` and `/docs/primitives/examples.html`
+- Utilities: `/docs/utilities/` and `/docs/utilities/examples.html`
+- Components: `/docs/components/` and `/docs/components/examples.html`
+- Patterns: `/docs/patterns/` and `/docs/patterns/examples.html`
+- Composition: `/docs/composition/` and `/docs/composition/examples.html`
+- System rules: `/docs/rules/` and `/docs/rules/examples.html`
 
 Markdown files in `docs/` are source/reference only and are not routed docs pages.
 

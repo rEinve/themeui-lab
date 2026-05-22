@@ -29,6 +29,7 @@ if (siteNav) {
   openButton?.addEventListener("click", () => setOpen(true));
   closeButton?.addEventListener("click", () => setOpen(false));
   overlay?.addEventListener("click", () => setOpen(false));
+
   siteNav.querySelectorAll("a").forEach((link) => {
     link.addEventListener("click", () => {
       if (!desktopMedia.matches) {

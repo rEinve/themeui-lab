@@ -199,8 +199,8 @@
             <h2 class="example-title">Hero</h2>
             <p class="example-description">Use the hero pattern for a landing-page introduction with headline, supporting copy, actions, and an optional visual area.</p>
             <div class="example-preview">
-              <section class="hero">
-                <div class="hero__content">
+              <section class="hero grid-12">
+                <div class="hero__content col-full lg-col-7 stack stack--sm">
                   <span class="tag">themeui-lab</span>
                   <h2>Minimal hero pattern</h2>
                   <p class="card__text">Hero stays in patterns because it composes primitives and components into a page-level introduction.</p>
@@ -209,7 +209,7 @@
                     <a class="docs-link" href="/docs/rules/">System Rules</a>
                   </div>
                 </div>
-                <div class="hero__media">
+                <div class="hero__media col-full lg-col-5">
                   <article class="card stack stack--xs">
                     <h3 class="card__title">Landing Region</h3>
                     <p class="card__text">Use card, button, tag, and layout primitives inside the hero instead of inventing hero-only UI elements.</p>
@@ -217,8 +217,8 @@
                 </div>
               </section>
             </div>
-            <pre class="example-code"><code>&lt;section class="hero"&gt;
-  &lt;div class="hero__content"&gt;
+            <pre class="example-code"><code>&lt;section class="hero grid-12"&gt;
+  &lt;div class="hero__content col-full lg-col-7 stack stack--sm"&gt;
     &lt;span class="tag"&gt;themeui-lab&lt;/span&gt;
     &lt;h1&gt;Minimal hero pattern&lt;/h1&gt;
     &lt;p&gt;Use hero for landing-page introduction, not as a generic card replacement.&lt;/p&gt;
@@ -226,7 +226,7 @@
       &lt;a class="button" href="#hero-example"&gt;View Example&lt;/a&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-  &lt;div class="hero__media"&gt;
+  &lt;div class="hero__media col-full lg-col-5"&gt;
     &lt;article class="card"&gt;...&lt;/article&gt;
   &lt;/div&gt;
 &lt;/section&gt;</code></pre>

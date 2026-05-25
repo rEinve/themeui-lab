@@ -38,7 +38,11 @@ $bp-large: 1440px;
 }
 
 @mixin col-span($span) {
-    grid-column: span #{$span} / span #{$span};
+    grid-column: span #{$span};
+}
+
+@mixin col-start($line) {
+    grid-column-start: #{$line};
 }
 
 @mixin glass-vanilla($alpha: 0.76) {

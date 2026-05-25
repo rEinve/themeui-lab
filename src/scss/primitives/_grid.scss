@@ -20,6 +20,29 @@
     }
 }
 
+@mixin start-range($prefix, $from: 1, $to: 13) {
+    @for $line from $from through $to {
+        .#{$prefix}-#{$line} {
+            @include col-start($line);
+        }
+    }
+}
+
+/*
+ * Centered spans inside a 12-col grid (even spans only — odd spans can't
+ * be perfectly centered on integer column lines). Pairs `grid-column-start`
+ * with `span` so the child sits symmetrically: e.g. an 8-col block leaves
+ * 2 empty columns on each side.
+ */
+@mixin center-spans($prefix) {
+    @each $span in (2, 4, 6, 8, 10) {
+        $start: (12 - $span) * 0.5 + 1;
+        .#{$prefix}-#{$span}-centered {
+            grid-column: #{$start} / span #{$span};
+        }
+    }
+}
+
 @include breakpoint(medium) {
     .grid-12,
     .page-grid,
@@ -28,8 +51,12 @@
     }
 
     @include span-range('md-col');
+    @include start-range('md-col-start');
+    @include center-spans('md-col');
 }
 
 @include breakpoint(large) {
     @include span-range('lg-col');
+    @include start-range('lg-col-start');
+    @include center-spans('lg-col');
 }

@@ -237,9 +237,10 @@ border-color: var(--color-outline-variant);`,
         accomplishes: 'Grid creates predictable multi-column layouts while span classes control responsive width allocation.',
         howToUse: [
           'Use `.grid-12` for the parent and apply span classes such as `.md-col-*` and `.lg-col-*` to children.',
+          'Offset a child with `.md-col-start-N` / `.lg-col-start-N`, or center an even-span block with `.md-col-N-centered` / `.lg-col-N-centered` (N ∈ 2, 4, 6, 8, 10).',
           'Reserve grid for page and region structure rather than component internals.',
         ],
-        keyItems: ['.grid-12', '.md-col-*', '.lg-col-*'],
+        keyItems: ['.grid-12', '.md-col-*', '.lg-col-*', '.md-col-start-*', '.md-col-N-centered'],
         preview: `<div class="grid-12"><article class="card md-col-12 lg-col-8">Main</article><aside class="card md-col-12 lg-col-4">Sidebar</aside></div>`,
         code: `<div class="grid-12">
   <article class="card md-col-12 lg-col-8">Main</article>
@@ -318,11 +319,11 @@ border-color: var(--color-outline-variant);`,
           'Use the hero pattern for top-of-page intros, not as a generic card replacement.',
           'Compose hero from existing primitives and components rather than inventing hero-only UI parts.',
         ],
-        keyItems: ['.hero', '.hero__content', '.hero__actions', '.hero__media'],
-        preview: `<section class="hero"><div class="hero__content"><span class="tag">Pattern</span><h2>Minimal hero</h2><p>Hero composes multiple pieces into one page introduction.</p></div><div class="hero__media"><article class="card">Supporting media region</article></div></section>`,
-        code: `<section class="hero">
-  <div class="hero__content">...</div>
-  <div class="hero__media">...</div>
+        keyItems: ['.hero', '.hero__content', '.hero__actions', '.hero__media', '.grid-12', '.lg-col-7', '.lg-col-5'],
+        preview: `<section class="hero grid-12"><div class="hero__content col-full lg-col-7"><span class="tag">Pattern</span><h2>Minimal hero</h2><p>Hero composes multiple pieces into one page introduction.</p></div><div class="hero__media col-full lg-col-5"><article class="card">Supporting media region</article></div></section>`,
+        code: `<section class="hero grid-12">
+  <div class="hero__content col-full lg-col-7">...</div>
+  <div class="hero__media col-full lg-col-5">...</div>
 </section>`,
       },
       'related-posts': {

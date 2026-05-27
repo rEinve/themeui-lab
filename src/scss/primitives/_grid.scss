@@ -8,6 +8,14 @@
     align-items: start;
 }
 
+/* Mobile default: every grid child spans the full width until a breakpoint class
+   overrides it. Without this, children sit in 1/12-wide tracks on narrow screens. */
+.grid-12 > *,
+.page-grid > *,
+.content-grid > * {
+    grid-column: 1 / -1;
+}
+
 .col-full {
     grid-column: 1 / -1;
 }

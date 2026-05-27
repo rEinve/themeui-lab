@@ -21,9 +21,14 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-xs);
+  align-items: center;
 }
 
 .docs-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  padding-inline: 0.25rem;
   color: var(--color-text-secondary);
   text-decoration: none;
 }

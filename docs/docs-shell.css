@@ -72,6 +72,59 @@ body {
   min-width: 0;
 }
 
+/* ── Mobile sidebar disclosure ─────────────────────────────────────────── */
+
+.docs-sidenav-disclosure__toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 2.75rem;
+  padding: var(--space-s) var(--space-m);
+  border: 1px solid var(--color-outline-variant);
+  border-radius: var(--radius-container-md);
+  background: var(--color-surface-100);
+  cursor: pointer;
+  font-size: inherit;
+  font-weight: var(--weight-semibold);
+  color: var(--color-text-primary);
+  list-style: none;
+  user-select: none;
+}
+
+/* Hide native disclosure triangle in all browsers */
+.docs-sidenav-disclosure__toggle::-webkit-details-marker { display: none; }
+.docs-sidenav-disclosure__toggle::marker { display: none; }
+
+.docs-sidenav-disclosure__toggle::after {
+  content: '+';
+  color: var(--color-text-secondary);
+  font-weight: var(--weight-regular);
+}
+
+.docs-sidenav-disclosure[open] .docs-sidenav-disclosure__toggle::after {
+  content: '−';
+}
+
+.docs-sidenav-disclosure[open] .docs-sidenav {
+  margin-block-start: var(--space-s);
+}
+
+/* Desktop: hide the toggle and always show the nav */
+@media (min-width: 64rem) {
+  .docs-sidenav-disclosure__toggle {
+    display: none;
+  }
+
+  /* Override UA stylesheet that hides details children when closed */
+  .docs-sidenav-disclosure > *:not(summary) {
+    display: block;
+  }
+
+  .docs-sidenav-disclosure[open] .docs-sidenav {
+    margin-block-start: 0;
+  }
+}
+
 @media (min-width: 64rem) {
   .docs-home__sidebar {
     position: sticky;

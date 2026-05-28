@@ -58,6 +58,17 @@ article {
     display: block;
 }
 
+ul,
+ol {
+    margin: 0;
+    padding-inline-start: var(--space-l);
+}
+
+li {
+    margin: 0;
+    padding: 0;
+}
+
 fieldset {
     min-width: 0;
     margin: 0;

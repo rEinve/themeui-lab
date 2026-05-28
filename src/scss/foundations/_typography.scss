@@ -246,3 +246,29 @@ hr {
     margin: var(--space-xl) 0;
     background-color: var(--color-outline-variant);
 }
+
+/* ── Lists ──────────────────────────────────────────────────────────────── */
+
+ul,
+ol {
+    color: var(--color-text-secondary);
+}
+
+li {
+    line-height: var(--lh-body);
+}
+
+li + li {
+    margin-block-start: var(--space-xs);
+}
+
+li::marker {
+    color: var(--color-text-tertiary);
+}
+
+/* Nested lists: tighter indent, a little top breathing room */
+li > ul,
+li > ol {
+    margin-block-start: var(--space-xs);
+    padding-inline-start: var(--space-m);
+}

@@ -1,20 +1,23 @@
-/* tools */
-@use './tools';
-
-/* foundations */
-@use './foundations';
+/* abstracts */
+@use './abstracts';
 
 /* base */
 @use './base';
 
-/* primitives */
-@use './primitives';
+/* layout */
+@use './layout';
 
 /* components */
 @use './components';
 
-/* patterns */
-@use './patterns';
+/* pages */
+@use './pages';
+
+/* themes */
+@use './themes';
+
+/* vendors */
+@use './vendors';
 
 /* utilities */
 @use './utilities';

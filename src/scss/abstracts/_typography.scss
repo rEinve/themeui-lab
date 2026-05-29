@@ -1,22 +1,42 @@
 /* Canonical typography token map. Exported as unprefixed typography vars. */
 $typography-tokens: (
-    font-body: ('Inter Variable', 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif),
-    font-display: ('Inter Tight', 'Inter Variable', 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif),
-    font-label: ('Inter Variable', 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif),
-    font-icon: 'Material Icons',
+    font-body: (
+        "Inter Variable",
+        "Inter",
+        system-ui,
+        -apple-system,
+        "Segoe UI",
+        sans-serif,
+    ),
+    font-display: (
+        "Inter Tight",
+        "Inter Variable",
+        "Inter",
+        system-ui,
+        -apple-system,
+        "Segoe UI",
+        sans-serif,
+    ),
+    font-label: (
+        "Inter Variable",
+        "Inter",
+        system-ui,
+        -apple-system,
+        "Segoe UI",
+        sans-serif,
+    ),
+    font-icon: "Material Icons",
 
-    'step--1': clamp(0.875rem, 0.84rem + 0.16vw, 0.95rem),
+    "step--1": clamp(0.875rem, 0.84rem + 0.16vw, 0.95rem),
     step-0: clamp(1rem, 0.96rem + 0.22vw, 1.125rem),
     step-1: clamp(1.125rem, 1.04rem + 0.4vw, 1.375rem),
     step-2: clamp(1.35rem, 1.18rem + 0.82vw, 1.85rem),
     step-3: clamp(1.7rem, 1.38rem + 1.5vw, 2.65rem),
     step-4: clamp(2.1rem, 1.58rem + 2.45vw, 3.6rem),
     step-5: clamp(2.7rem, 1.96rem + 3.4vw, 4.8rem),
-
     text-sm: var(--step--1),
     text-xs: clamp(0.75rem, 0.72rem + 0.12vw, 0.8125rem),
     text-2xs: clamp(0.6875rem, 0.67rem + 0.08vw, 0.75rem),
-
     lh-display: 0.98,
     lh-headline: 1.08,
     lh-title: 1.18,
@@ -32,9 +52,8 @@ $typography-tokens: (
     weight-medium: 500,
     weight-semibold: 600,
     weight-strong: 650,
-    weight-bold: 700
+    weight-bold: 700,
 );
-
 
 html {
     -webkit-font-smoothing: antialiased;
@@ -251,7 +270,12 @@ hr {
 
 ul,
 ol {
-    color: var(--color-text-secondary);
+    list-style-type: disc;
+    padding-left: var(--space-xl);
+}
+
+ol {
+    list-style-type: decimal;
 }
 
 li {
@@ -270,5 +294,32 @@ li::marker {
 li > ul,
 li > ol {
     margin-block-start: var(--space-xs);
-    padding-inline-start: var(--space-m);
+    padding-inline-start: var(--space-xl);
+}
+
+/* ── Blockquote ─────────────────────────────────────────────────────────── */
+
+blockquote,
+.blockquote {
+    padding-inline-start: var(--space-l);
+    border-inline-start: 3px solid var(--color-accent);
+    font-family: var(--font-display);
+    font-size: var(--step-2);
+    font-weight: var(--weight-medium);
+    line-height: var(--lh-headline);
+    letter-spacing: var(--ls-headline);
+    color: var(--color-text-primary);
+    font-style: italic;
+}
+
+blockquote cite,
+.blockquote cite {
+    display: block;
+    margin-block-start: var(--space-s);
+    font-family: var(--font-label);
+    font-size: var(--text-sm);
+    font-style: normal;
+    font-weight: var(--weight-medium);
+    letter-spacing: var(--ls-label);
+    color: var(--color-text-tertiary);
 }

@@ -13,6 +13,7 @@ $space-tokens: (
 
 /* Canonical layout token map. Exported without prefix for authored layout contracts. */
 $layout-tokens: (
+    space: 1rem,
     frame-max: 1816px,
     content-max: 72rem,
     frame-gutter: clamp(1rem, 4vw, 2rem),
@@ -26,5 +27,5 @@ $layout-tokens: (
 
 /* Legacy alias map kept for compatibility only. */
 $space-legacy-aliases: (
-    king-space: var(--space-king)
+    king-space: clamp(3rem, 5vw, 5rem)
 );

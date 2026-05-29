@@ -1,3 +1,45 @@
+/* ── Spacing utilities ───────────────────────────────────────────────────── */
+/* All use --space (1rem) as the shared value. Pair with --king-space for     */
+/* large-section use: .padding-t-king, .padding-b-king, etc.                 */
+
+/* Padding — all sides */
+.padding    { padding: var(--space); }
+.padding-t  { padding-top: var(--space); }
+.padding-r  { padding-right: var(--space); }
+.padding-b  { padding-bottom: var(--space); }
+.padding-l  { padding-left: var(--space); }
+.padding-x  { padding-inline: var(--space); }
+.padding-y  { padding-block: var(--space); }
+
+/* Padding — king-space (fluid: clamp 3rem → 5rem) */
+.padding-king   { padding: var(--king-space); }
+.padding-t-king { padding-top: var(--king-space); }
+.padding-r-king { padding-right: var(--king-space); }
+.padding-b-king { padding-bottom: var(--king-space); }
+.padding-l-king { padding-left: var(--king-space); }
+.padding-x-king { padding-inline: var(--king-space); }
+.padding-y-king { padding-block: var(--king-space); }
+
+/* Margin — all sides */
+.margin    { margin: var(--space); }
+.margin-t  { margin-top: var(--space); }
+.margin-r  { margin-right: var(--space); }
+.margin-b  { margin-bottom: var(--space); }
+.margin-l  { margin-left: var(--space); }
+.margin-x  { margin-inline: var(--space); }
+.margin-y  { margin-block: var(--space); }
+
+/* Margin — king-space (fluid: clamp 3rem → 5rem) */
+.margin-king   { margin: var(--king-space); }
+.margin-t-king { margin-top: var(--king-space); }
+.margin-r-king { margin-right: var(--king-space); }
+.margin-b-king { margin-bottom: var(--king-space); }
+.margin-l-king { margin-left: var(--king-space); }
+.margin-x-king { margin-inline: var(--king-space); }
+.margin-y-king { margin-block: var(--king-space); }
+
+/* ── Border radius ───────────────────────────────────────────────────────── */
+
 .border-rs {
     border-radius: var(--radius-s);
 }

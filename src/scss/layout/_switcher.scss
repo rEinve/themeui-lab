@@ -1,0 +1,50 @@
+/* ──────────────────────────────────────────────────────────────────────────
+ * Switcher — Flexbox row that flips to a stacked column when its total
+ * width falls below --switcher-threshold. No media queries; purely
+ * intrinsic. Pair with .switcher--sm / --lg to set the breakpoint.
+ *
+ * Usage:
+ *   <div class="switcher">
+ *     <div>Item one</div>
+ *     <div>Item two</div>
+ *     <div>Item three</div>
+ *   </div>
+ *
+ * Override threshold inline:
+ *   <div class="switcher" style="--switcher-threshold: 56rem;">
+ * ────────────────────────────────────────────────────────────────────────── */
+
+.switcher {
+    --switcher-threshold: 48rem;
+    --switcher-gap:       var(--space-l);
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--switcher-gap);
+}
+
+/* Each child tries to grow; wraps to full-width when threshold is crossed */
+.switcher > * {
+    flex-grow: 1;
+    flex-basis: calc((var(--switcher-threshold) - 100%) * 999);
+}
+
+/* ── Per-row limits — add class to cap items before wrapping ──────────────── */
+/* nth-last-child doesn't accept CSS vars so we expose discrete modifiers.    */
+
+/* Max 2 per row */
+.switcher--max-2 > :nth-last-child(n + 3),
+.switcher--max-2 > :nth-last-child(n + 3) ~ * {
+    flex-basis: 100%;
+}
+
+/* Max 3 per row */
+.switcher--max-3 > :nth-last-child(n + 4),
+.switcher--max-3 > :nth-last-child(n + 4) ~ * {
+    flex-basis: 100%;
+}
+
+/* ── Threshold presets ─────────────────────────────────────────────────────── */
+
+.switcher--sm { --switcher-threshold: 28rem; }
+.switcher--lg { --switcher-threshold: 64rem; }

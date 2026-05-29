@@ -1,0 +1,94 @@
+/* ──────────────────────────────────────────────────────────────────────────
+ * Skeleton — Shimmer loading placeholders.
+ * Usage: <div class="skeleton skeleton--text"></div>
+ *        <div class="skeleton-group">
+ *          <div class="skeleton skeleton--text"></div>
+ *          <div class="skeleton skeleton--text"></div>
+ *        </div>
+ * ────────────────────────────────────────────────────────────────────────── */
+
+@keyframes skeleton-shimmer {
+    0%   { background-position: -200% center; }
+    100% { background-position:  200% center; }
+}
+
+.skeleton {
+    display: block;
+    border-radius: var(--radius-s);
+    background: linear-gradient(
+        90deg,
+        var(--color-surface-container)      25%,
+        var(--color-surface-container-high) 50%,
+        var(--color-surface-container)      75%
+    );
+    background-size: 200% 100%;
+    animation: skeleton-shimmer var(--motion-linger) var(--motion-ease-standard) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .skeleton {
+        animation: none;
+        background: var(--color-surface-container);
+    }
+}
+
+/* ── Preset shapes ─────────────────────────────────────────────────────────── */
+
+.skeleton--text {
+    height: 1em;
+    width: 100%;
+}
+
+.skeleton--text-sm {
+    height: 0.75em;
+    width: 80%;
+}
+
+.skeleton--heading {
+    height: 1.5em;
+    width: 55%;
+}
+
+.skeleton--avatar {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.skeleton--avatar-lg {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.skeleton--button {
+    height: 2.75rem;
+    width: 8rem;
+    border-radius: var(--radius-control-md);
+}
+
+.skeleton--card {
+    height: 12rem;
+    border-radius: var(--radius-container-md);
+}
+
+.skeleton--image {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: var(--radius-container-md);
+}
+
+/* ── Multi-line group ─────────────────────────────────────────────────────── */
+
+.skeleton-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+}
+
+/* Last line in a text group is shorter — mimics natural paragraph endings */
+.skeleton-group .skeleton--text:last-child {
+    width: 55%;
+}

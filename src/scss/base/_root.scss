@@ -24,8 +24,3 @@
     @include tools.export-css-vars(shadows.$shadow-legacy-aliases);
     @include tools.export-css-vars(motion.$motion-legacy-aliases);
 }
-
-[data-theme='dark'] {
-    color-scheme: dark;
-    @include tools.export-css-vars(colors.$color-dark-overrides, 'color');
-}

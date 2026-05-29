@@ -1,0 +1,96 @@
+/* ──────────────────────────────────────────────────────────────────────────
+ * Alert — Inline status message banners.
+ * Always pair with role="alert" (errors) or role="status" (info/success).
+ *
+ * Usage:
+ *   <div class="alert alert--danger" role="alert">
+ *     <span class="alert__icon material-icons">error</span>
+ *     <div class="alert__body">
+ *       <p class="alert__title">Payment failed</p>
+ *       <p class="alert__message">Check your card details and try again.</p>
+ *     </div>
+ *     <button class="alert__close" aria-label="Dismiss">✕</button>
+ *   </div>
+ * ────────────────────────────────────────────────────────────────────────── */
+
+.alert {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-s);
+    padding: var(--space-m) var(--space-l);
+    border: 1px solid var(--color-outline-variant);
+    border-radius: var(--radius-container-md);
+    background: var(--color-surface-container-low);
+    color: var(--color-text-primary);
+    font-size: var(--step-0);
+    line-height: var(--lh-body);
+}
+
+/* ── Semantic variants ─────────────────────────────────────────────────────── */
+
+.alert--success {
+    border-color: var(--color-success);
+    background: var(--color-success-soft);
+    color: var(--color-success-text);
+}
+
+.alert--danger {
+    border-color: var(--color-danger);
+    background: var(--color-danger-soft);
+    color: var(--color-danger-text);
+}
+
+.alert--warning {
+    border-color: var(--color-warning);
+    background: var(--color-warning-soft);
+    color: var(--color-warning-text);
+}
+
+/* ── Inner elements ────────────────────────────────────────────────────────── */
+
+.alert__icon {
+    flex-shrink: 0;
+    font-size: 1.25rem;
+    line-height: 1;
+    margin-block-start: 0.1em;
+}
+
+.alert__body {
+    flex: 1;
+    min-inline-size: 0;
+}
+
+.alert__title {
+    font-weight: var(--weight-semibold);
+    margin-block-end: var(--space-xxs);
+}
+
+.alert__message {
+    font-size: var(--text-sm);
+    opacity: 0.9;
+}
+
+.alert__close {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: 1.75rem;
+    block-size: 1.75rem;
+    border: none;
+    border-radius: var(--radius-control-sm);
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity var(--motion-fast) var(--motion-ease-standard);
+}
+
+.alert__close:hover {
+    opacity: 1;
+}
+
+.alert__close:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px currentColor;
+}

@@ -1,0 +1,14 @@
+@use '../abstracts/mixins' as tools;
+@use '../abstracts/colors';
+
+/* ──────────────────────────────────────────────────────────────────────────
+ * Dark theme — Activated via data-theme="dark" on <html> or any ancestor.
+ * Overrides only the semantic color aliases; the full palette in abstracts/
+ * _colors.scss remains available for components that need raw scale values.
+ * ────────────────────────────────────────────────────────────────────────── */
+
+[data-theme='dark'] {
+    color-scheme: dark;
+
+    @include tools.export-css-vars(colors.$color-dark-overrides, 'color');
+}

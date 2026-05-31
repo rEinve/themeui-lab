@@ -1,18 +1,53 @@
-.border-rs {
-    border-radius: var(--radius-s);
-}
+/* ── Spacing utilities ───────────────────────────────────────────────────── */
+/* All use --space (1rem) as the shared value. Pair with --king-space for     */
+/* large-section use: .padding-t-king, .padding-b-king, etc.                 */
 
-.border-rm {
-    border-radius: var(--radius-m);
-}
+/* Padding — all sides */
+.padding    { padding: var(--space); }
+.padding-t  { padding-top: var(--space); }
+.padding-r  { padding-right: var(--space); }
+.padding-b  { padding-bottom: var(--space); }
+.padding-l  { padding-left: var(--space); }
+.padding-x  { padding-inline: var(--space); }
+.padding-y  { padding-block: var(--space); }
 
-.border-rl {
-    border-radius: var(--radius-l);
-}
+/* Padding — king-space (fluid: clamp 3rem → 5rem) */
+.padding-king   { padding: var(--king-space); }
+.padding-t-king { padding-top: var(--king-space); }
+.padding-r-king { padding-right: var(--king-space); }
+.padding-b-king { padding-bottom: var(--king-space); }
+.padding-l-king { padding-left: var(--king-space); }
+.padding-x-king { padding-inline: var(--king-space); }
+.padding-y-king { padding-block: var(--king-space); }
 
-.border-rxl {
-    border-radius: var(--radius-xl);
-}
+/* Margin — all sides */
+.margin    { margin: var(--space); }
+.margin-t  { margin-top: var(--space); }
+.margin-r  { margin-right: var(--space); }
+.margin-b  { margin-bottom: var(--space); }
+.margin-l  { margin-left: var(--space); }
+.margin-x  { margin-inline: var(--space); }
+.margin-y  { margin-block: var(--space); }
+
+/* Margin — king-space (fluid: clamp 3rem → 5rem) */
+.margin-king   { margin: var(--king-space); }
+.margin-t-king { margin-top: var(--king-space); }
+.margin-r-king { margin-right: var(--king-space); }
+.margin-b-king { margin-bottom: var(--king-space); }
+.margin-l-king { margin-left: var(--king-space); }
+.margin-x-king { margin-inline: var(--king-space); }
+.margin-y-king { margin-block: var(--king-space); }
+
+/* ── Border radius ───────────────────────────────────────────────────────── */
+/* Scale utilities — map directly to the $radius-tokens base scale.           */
+/* Semantic groups (container, media, control) belong in component internals. */
+
+.border-rs   { border-radius: var(--radius-s);    }  /* 0.5 rem   */
+.border-rm   { border-radius: var(--radius-m);    }  /* 0.875 rem */
+.border-rl   { border-radius: var(--radius-l);    }  /* 1.5 rem   */
+.border-rxl  { border-radius: var(--radius-xl);   }  /* 2 rem     */
+.border-rfull { border-radius: var(--radius-full); } /* 9999px — fully circular */
+.border-rpill { border-radius: var(--radius-pill); } /* 999px  — pill / capsule */
 
 .aspect-standard {
     aspect-ratio: 3 / 2;
@@ -21,57 +56,31 @@
     object-fit: cover;
 }
 
-.margin-xxl {
-    margin: var(--space-xxl);
+/* ── Spacing scale — direction × size ────────────────────────────────────── */
+/* Pattern: .{padding|margin}-{direction}-{size}                              */
+/* Directions: t b l r x y  ·  Sizes: xxs xs s m l xl xxl                   */
+/* For fluid large-section gaps use the king family above (.padding-y-king).  */
+
+$_space-scale: xxs, xs, s, m, l, xl, xxl;
+
+@each $sz in $_space-scale {
+    /* padding */
+    .padding-t-#{$sz} { padding-top:    var(--space-#{$sz}); }
+    .padding-b-#{$sz} { padding-bottom: var(--space-#{$sz}); }
+    .padding-l-#{$sz} { padding-left:   var(--space-#{$sz}); }
+    .padding-r-#{$sz} { padding-right:  var(--space-#{$sz}); }
+    .padding-x-#{$sz} { padding-inline: var(--space-#{$sz}); }
+    .padding-y-#{$sz} { padding-block:  var(--space-#{$sz}); }
+    /* margin */
+    .margin-t-#{$sz}  { margin-top:    var(--space-#{$sz}); }
+    .margin-b-#{$sz}  { margin-bottom: var(--space-#{$sz}); }
+    .margin-l-#{$sz}  { margin-left:   var(--space-#{$sz}); }
+    .margin-r-#{$sz}  { margin-right:  var(--space-#{$sz}); }
+    .margin-x-#{$sz}  { margin-inline: var(--space-#{$sz}); }
+    .margin-y-#{$sz}  { margin-block:  var(--space-#{$sz}); }
 }
 
-.margin-xl {
-    margin: var(--space-xl);
-}
-
-.margin-tb-m {
-    margin: var(--space-m) 0;
-}
-
-.margin-b-m {
-    margin-bottom: var(--space-m);
-}
-
-.margin-t-m {
-    margin-top: var(--space-m);
-}
-
-.padding-xxl {
-    padding: var(--section-space) 0;
-}
-
-.padding-t-xxl {
-    padding-top: var(--section-space);
-}
-
-.padding-b-xxl {
-    padding-bottom: var(--section-space);
-}
-
-.padding-b-m {
-    padding-bottom: var(--space-m);
-}
-
-.padding-l {
-    padding: var(--space-l) 0;
-}
-
-.padding-b-l {
-    padding-bottom: var(--space-l);
-}
-
-.padding-xl {
-    padding: var(--space-xl) 0;
-}
-
-.margin-inline-auto {
-    margin-inline: auto;
-}
+.margin-inline-auto { margin-inline: auto; }
 
 .border-t {
     border-top: 1px solid var(--outline-variant);
@@ -162,3 +171,97 @@
 .uppercase {
     text-transform: uppercase;
 }
+
+/* ── Accessibility — screen-reader & visibility utilities ─────────────────── */
+
+/* Visually hidden but announced by screen readers */
+.sr-only,
+.visually-hidden {
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Undo .sr-only on focus — useful for skip links */
+.sr-only:focus,
+.visually-hidden:focus {
+    position: static;
+    inline-size: auto;
+    block-size: auto;
+    padding: revert;
+    margin: revert;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* ── Typography scale utilities ───────────────────────────────────────────── */
+
+.text-xs   { font-size: var(--text-xs); }
+.text-sm   { font-size: var(--text-sm); }
+.text-base { font-size: var(--step-0);  }
+.text-lg   { font-size: var(--step-1);  }
+.text-xl   { font-size: var(--step-2);  }
+.text-2xl  { font-size: var(--step-3);  }
+
+.font-normal   { font-weight: var(--weight-regular);  }
+.font-medium   { font-weight: var(--weight-medium);   }
+.font-semibold { font-weight: var(--weight-semibold); }
+.font-bold     { font-weight: var(--weight-strong);   }
+
+.text-balance  { text-wrap: balance;  }
+.text-pretty   { text-wrap: pretty;   }
+
+/* Single-line truncation with ellipsis */
+.truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Multi-line clamp (override --clamp-lines on the element) */
+.line-clamp {
+    --clamp-lines: 3;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: var(--clamp-lines);
+    overflow: hidden;
+}
+
+/* ── Semantic colour utilities ────────────────────────────────────────────── */
+
+.text-accent   { color: var(--color-accent);         }
+.text-danger   { color: var(--color-danger-text);    }
+.text-success  { color: var(--color-success-text);   }
+.text-warning  { color: var(--color-warning-text);   }
+.text-muted    { color: var(--color-text-tertiary);  }
+
+.bg-surface           { background: var(--color-surface);                }
+.bg-surface-container { background: var(--color-surface-container);      }
+.bg-danger-soft       { background: var(--color-danger-soft);            }
+.bg-success-soft      { background: var(--color-success-soft);           }
+.bg-warning-soft      { background: var(--color-warning-soft);           }
+
+/* ── Flex display shorthand ───────────────────────────────────────────────── */
+
+.flex     { display: flex; }
+.flex-col { display: flex; flex-direction: column; }
+
+/* Gap shortcuts aligned to the spacing scale */
+.gap-xxs { gap: var(--space-xxs); }
+.gap-xs  { gap: var(--space-xs);  }
+.gap-s   { gap: var(--space-s);   }
+.gap-m   { gap: var(--space-m);   }
+.gap-l   { gap: var(--space-l);   }
+.gap-xl  { gap: var(--space-xl);  }
+

@@ -1,0 +1,146 @@
+/* ──────────────────────────────────────────────────────────────────────────
+ * Toast — Ephemeral notification messages stacked in a fixed region.
+ * JS lifecycle: append .toast to .toast-region, add .toast--visible to
+ * trigger enter, swap to .toast--exiting before removal for exit motion.
+ *
+ * Usage:
+ *   <div class="toast-region" aria-live="polite" aria-atomic="false"></div>
+ *
+ *   <div class="toast toast--success toast--visible" role="status">
+ *     <span class="toast__icon material-icons">check_circle</span>
+ *     <div class="toast__body">
+ *       <p class="toast__title">Saved</p>
+ *       <p class="toast__message">Your changes have been saved.</p>
+ *     </div>
+ *     <button class="toast__close" aria-label="Dismiss">✕</button>
+ *   </div>
+ * ────────────────────────────────────────────────────────────────────────── */
+
+/* ── Region ────────────────────────────────────────────────────────────────── */
+
+.toast-region {
+    position: fixed;
+    inset-block-end: var(--space-l);
+    inset-inline-end: var(--space-l);
+    z-index: 400;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: var(--space-s);
+    pointer-events: none;
+}
+
+/* ── Toast base ────────────────────────────────────────────────────────────── */
+
+.toast {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-s);
+    min-inline-size: 18rem;
+    max-inline-size: min(28rem, calc(100vw - 2 * var(--space-l)));
+    padding: var(--space-m) var(--space-l);
+    border: 1px solid var(--color-outline-variant);
+    border-radius: var(--radius-container-md);
+    background: var(--color-surface-modal);
+    box-shadow: var(--shadow-elevation-3);
+    color: var(--color-text-primary);
+    font-size: var(--step-0);
+    line-height: var(--lh-body);
+    pointer-events: auto;
+
+    /* Enter state — starts invisible and slightly shifted */
+    opacity: 0;
+    transform: translateY(0.5rem) scale(0.97);
+    transition:
+        opacity   var(--motion-standard) var(--motion-ease-decelerate),
+        transform var(--motion-standard) var(--motion-ease-decelerate);
+}
+
+.toast--visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* Exit is faster and accelerates out */
+.toast--exiting {
+    opacity: 0;
+    transform: translateY(0.25rem) scale(0.98);
+    transition:
+        opacity   var(--motion-fast) var(--motion-ease-accelerate),
+        transform var(--motion-fast) var(--motion-ease-accelerate);
+}
+
+/* ── Semantic variants ─────────────────────────────────────────────────────── */
+
+.toast--success {
+    border-color: var(--color-success);
+    background: var(--color-success-soft);
+    color: var(--color-success-text);
+}
+
+.toast--danger {
+    border-color: var(--color-danger);
+    background: var(--color-danger-soft);
+    color: var(--color-danger-text);
+}
+
+.toast--warning {
+    border-color: var(--color-warning);
+    background: var(--color-warning-soft);
+    color: var(--color-warning-text);
+}
+
+/* ── Inner elements ────────────────────────────────────────────────────────── */
+
+.toast__icon {
+    flex-shrink: 0;
+    font-size: 1.25rem;
+    line-height: 1;
+    margin-block-start: 0.1em;
+}
+
+.toast__body {
+    flex: 1;
+    min-inline-size: 0;
+}
+
+.toast__title {
+    font-weight: var(--weight-semibold);
+    margin-block-end: var(--space-xxs);
+}
+
+.toast__message {
+    font-size: var(--text-sm);
+    opacity: 0.85;
+}
+
+.toast__close {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: 1.75rem;
+    block-size: 1.75rem;
+    border: none;
+    border-radius: var(--radius-control-sm);
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity var(--motion-fast) var(--motion-ease-standard);
+}
+
+.toast__close:hover {
+    opacity: 1;
+}
+
+.toast__close:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--color-accent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .toast {
+        transition: none;
+    }
+}

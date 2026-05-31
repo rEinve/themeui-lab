@@ -1,0 +1,27 @@
+/* ──────────────────────────────────────────────────────────────────────────
+ * High-contrast theme — Responds to the OS prefers-contrast: more media
+ * feature. Tightens borders, strengthens text, and sharpens outline tokens
+ * without altering any component structure.
+ * ────────────────────────────────────────────────────────────────────────── */
+
+@media (prefers-contrast: more) {
+    :root {
+        --color-outline:         var(--color-text-20);
+        --color-outline-variant: var(--color-text-30);
+        --color-text:            var(--color-text-10);
+        --color-text-primary:    var(--color-text-0);
+        --color-text-secondary:  var(--color-text-20);
+        --color-text-tertiary:   var(--color-text-30);
+    }
+}
+
+/* Combined dark + high-contrast */
+@media (prefers-contrast: more) {
+    [data-theme='dark'] {
+        --color-outline:         var(--color-text-70);
+        --color-outline-variant: var(--color-text-60);
+        --color-text-primary:    var(--color-text-100);
+        --color-text-secondary:  var(--color-text-90);
+        --color-text-tertiary:   var(--color-text-80);
+    }
+}

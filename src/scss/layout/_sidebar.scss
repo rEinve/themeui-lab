@@ -1,0 +1,46 @@
+/* ──────────────────────────────────────────────────────────────────────────
+ * Sidebar — Intrinsically responsive content + aside layout.
+ * The aside retains its natural width; the main content grows to fill the
+ * remaining space. Both wrap to a stacked column when the combined width
+ * drops below --sidebar-content-min — no media queries needed.
+ *
+ * Usage:
+ *   <div class="with-sidebar">
+ *     <aside class="sidebar__aside">…</aside>
+ *     <main class="sidebar__main">…</main>
+ *   </div>
+ *
+ * Customise via CSS custom properties on the element:
+ *   style="--sidebar-width: 20rem; --sidebar-gap: var(--space-xl);"
+ * ────────────────────────────────────────────────────────────────────────── */
+
+.with-sidebar {
+    --sidebar-width:       16rem;
+    --sidebar-gap:         var(--space-l);
+    --sidebar-content-min: 55%;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sidebar-gap);
+}
+
+.sidebar__aside {
+    flex-basis: var(--sidebar-width);
+    flex-grow: 1;
+}
+
+.sidebar__main {
+    flex-basis: 0;
+    flex-grow: 999;
+    min-inline-size: var(--sidebar-content-min);
+}
+
+/* ── Modifiers ─────────────────────────────────────────────────────────────── */
+
+/* Flips aside to the right */
+.with-sidebar--reverse {
+    flex-direction: row-reverse;
+}
+
+.with-sidebar--narrow { --sidebar-width: 10rem; }
+.with-sidebar--wide   { --sidebar-width: 22rem; }

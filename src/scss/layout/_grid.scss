@@ -1,4 +1,4 @@
-@use '../tools' as *;
+@use '../abstracts' as *;
 
 .grid-12,
 /* Legacy aliases: keep temporarily for compatibility. Prefer `.grid-12`. */
@@ -51,6 +51,21 @@
     }
 }
 
+/*
+ * Right-aligned spans inside a 12-col grid. Places the block flush to the
+ * trailing edge: e.g. `.md-col-4-end` starts at column 9 and spans 4.
+ * Works for any span 1–11. Use in place of md-col-N — the span is already
+ * baked in, so you only need this one class.
+ */
+@mixin end-spans($prefix) {
+    @for $span from 1 through 11 {
+        $start: 13 - $span;
+        .#{$prefix}-#{$span}-end {
+            grid-column: #{$start} / span #{$span};
+        }
+    }
+}
+
 @include breakpoint(medium) {
     .grid-12,
     .page-grid,
@@ -61,10 +76,12 @@
     @include span-range('md-col');
     @include start-range('md-col-start');
     @include center-spans('md-col');
+    @include end-spans('md-col');
 }
 
 @include breakpoint(large) {
     @include span-range('lg-col');
     @include start-range('lg-col-start');
     @include center-spans('lg-col');
+    @include end-spans('lg-col');
 }

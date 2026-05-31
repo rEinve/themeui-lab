@@ -33,6 +33,13 @@ const openActiveGroups = (root) => {
   });
 };
 
+const openDisclosureIfActive = (root) => {
+  const disclosure = root.querySelector(".docs-sidenav-disclosure");
+  if (!disclosure) return;
+  const hasCurrentPage = disclosure.querySelector('[aria-current="page"]');
+  if (hasCurrentPage) disclosure.open = true;
+};
+
 const markHeaderState = (root) => {
   const docsLink = root.querySelector('a[href="/docs/"]');
 
@@ -76,6 +83,7 @@ const mountDocsChrome = async () => {
       target.innerHTML = sidebarMarkup;
       markCurrentLink(target);
       openActiveGroups(target);
+      openDisclosureIfActive(target);
     });
   } catch (error) {
     console.error(error);

@@ -1,10 +1,10 @@
-@use '../tools' as tools;
-@use './colors';
-@use './spacing';
-@use './typography';
-@use './radius';
-@use './shadows';
-@use './motion';
+@use '../abstracts/mixins' as tools;
+@use '../abstracts/colors';
+@use '../abstracts/spacing';
+@use '../abstracts/typography';
+@use '../abstracts/radius';
+@use '../abstracts/shadows';
+@use '../abstracts/motion';
 
 :root {
     color-scheme: light;
@@ -23,9 +23,4 @@
     @include tools.export-css-vars(spacing.$space-legacy-aliases);
     @include tools.export-css-vars(shadows.$shadow-legacy-aliases);
     @include tools.export-css-vars(motion.$motion-legacy-aliases);
-}
-
-[data-theme='dark'] {
-    color-scheme: dark;
-    @include tools.export-css-vars(colors.$color-dark-overrides, 'color');
 }

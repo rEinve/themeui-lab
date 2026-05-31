@@ -1,0 +1,77 @@
+/* ──────────────────────────────────────────────────────────────────────────
+ * Empty State — Zero-data / no-results / error view pattern.
+ * Centred by default; use .empty-state--compact for inline sections.
+ *
+ * Usage:
+ *   <div class="empty-state">
+ *     <div class="empty-state__icon">
+ *       <span class="material-icons">inbox</span>
+ *     </div>
+ *     <h2 class="empty-state__title">No results</h2>
+ *     <p class="empty-state__body">Try adjusting your search or filters.</p>
+ *     <div class="empty-state__actions">
+ *       <button class="button">Clear filters</button>
+ *     </div>
+ *   </div>
+ * ────────────────────────────────────────────────────────────────────────── */
+
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: var(--space-m);
+    padding: var(--space-xxl) var(--space-l);
+    min-block-size: 20rem;
+}
+
+.empty-state__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: 4rem;
+    block-size: 4rem;
+    border-radius: 50%;
+    background: var(--color-surface-container);
+    color: var(--color-text-tertiary);
+    font-size: 1.75rem;
+    flex-shrink: 0;
+}
+
+.empty-state__title {
+    font-size: var(--step-1);
+    font-weight: var(--weight-semibold);
+    line-height: var(--lh-title);
+    color: var(--color-text-primary);
+}
+
+.empty-state__body {
+    max-inline-size: 36ch;
+    color: var(--color-text-secondary);
+    line-height: var(--lh-body);
+    font-size: var(--step-0);
+}
+
+.empty-state__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-s);
+    margin-block-start: var(--space-xs);
+}
+
+/* ── Compact — for inline empty sections ──────────────────────────────────── */
+
+.empty-state--compact {
+    min-block-size: 10rem;
+    padding: var(--space-xl) var(--space-l);
+    gap: var(--space-s);
+}
+
+.empty-state--compact .empty-state__icon {
+    inline-size: 3rem;
+    block-size: 3rem;
+    font-size: 1.25rem;
+}

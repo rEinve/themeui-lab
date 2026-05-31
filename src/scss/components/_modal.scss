@@ -1,0 +1,165 @@
+/* ──────────────────────────────────────────────────────────────────────────
+ * Modal — Overlay dialog pattern.
+ * JS lifecycle: add .modal--open to .modal-backdrop and .modal to trigger
+ * enter animation; remove to exit. Always trap focus inside the panel.
+ *
+ * Usage:
+ *   <div class="modal-backdrop" aria-hidden="true"></div>
+ *   <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+ *     <div class="modal__panel">
+ *       <header class="modal__header">
+ *         <h2 class="modal__title" id="modal-title">Title</h2>
+ *         <button class="modal__close" aria-label="Close dialog">✕</button>
+ *       </header>
+ *       <div class="modal__body">…</div>
+ *       <footer class="modal__footer">
+ *         <button class="button">Cancel</button>
+ *         <button class="button button--primary">Confirm</button>
+ *       </footer>
+ *     </div>
+ *   </div>
+ * ────────────────────────────────────────────────────────────────────────── */
+
+/* ── Backdrop ──────────────────────────────────────────────────────────────── */
+
+.modal-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    background: oklch(from var(--color-surface-0) l c h / 0.52);
+    backdrop-filter: blur(4px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--motion-standard) var(--motion-ease-standard);
+}
+
+.modal-backdrop.modal--open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* ── Shell ─────────────────────────────────────────────────────────────────── */
+
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 300;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-l);
+    pointer-events: none;
+}
+
+/* ── Panel ─────────────────────────────────────────────────────────────────── */
+
+.modal__panel {
+    display: flex;
+    flex-direction: column;
+    inline-size: 100%;
+    max-inline-size: 36rem;
+    max-block-size: calc(100dvh - 2 * var(--space-l));
+    border: 1px solid var(--color-outline-variant);
+    border-radius: var(--radius-container-lg);
+    background: var(--color-surface-modal);
+    box-shadow: var(--shadow-elevation-4);
+    overflow: hidden;
+    pointer-events: auto;
+    opacity: 0;
+    transform: translateY(1rem) scale(0.97);
+    transition:
+        opacity   var(--motion-modal-enter) var(--motion-ease-decelerate),
+        transform var(--motion-modal-enter) var(--motion-ease-decelerate);
+}
+
+.modal--open .modal__panel {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* ── Panel size modifiers ──────────────────────────────────────────────────── */
+
+.modal__panel--sm  { max-inline-size: 24rem; }
+.modal__panel--lg  { max-inline-size: 52rem; }
+.modal__panel--xl  { max-inline-size: 72rem; }
+
+.modal__panel--full {
+    max-inline-size: calc(100vw - 2 * var(--space-l));
+    max-block-size:  calc(100dvh - 2 * var(--space-l));
+}
+
+/* ── Header ────────────────────────────────────────────────────────────────── */
+
+.modal__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-m);
+    padding: var(--space-l);
+    border-block-end: 1px solid var(--color-outline-variant);
+    flex-shrink: 0;
+}
+
+.modal__title {
+    font-size: var(--step-1);
+    font-weight: var(--weight-semibold);
+    line-height: var(--lh-title);
+    color: var(--color-text-primary);
+}
+
+.modal__close {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: 2rem;
+    block-size: 2rem;
+    border: none;
+    border-radius: var(--radius-control-sm);
+    background: transparent;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    transition:
+        background-color var(--motion-fast) var(--motion-ease-standard),
+        color            var(--motion-fast) var(--motion-ease-standard);
+}
+
+.modal__close:hover {
+    background: var(--color-surface-container);
+    color: var(--color-text-primary);
+}
+
+.modal__close:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--color-accent);
+}
+
+/* ── Body ──────────────────────────────────────────────────────────────────── */
+
+.modal__body {
+    flex: 1;
+    overflow-y: auto;
+    padding: var(--space-l);
+    color: var(--color-text-secondary);
+    line-height: var(--lh-body);
+}
+
+/* ── Footer ────────────────────────────────────────────────────────────────── */
+
+.modal__footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: var(--space-s);
+    padding: var(--space-m) var(--space-l);
+    border-block-start: 1px solid var(--color-outline-variant);
+    flex-shrink: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .modal__panel,
+    .modal-backdrop {
+        transition: none;
+    }
+}

@@ -377,15 +377,114 @@ border-color: var(--color-outline-variant);`,
       },
       spacing: {
         name: 'Spacing Utilities',
-        summary: 'Adds small spacing adjustments after the main primitive is already in place.',
-        accomplishes: 'Spacing utilities help with one-off margin and padding refinements without creating page-specific selectors.',
+        summary: 'One-off margin and padding adjustments with full direction × size control.',
+        accomplishes: 'Spacing utilities cover the gap between primitive rhythm and the small, contextual corrections that arise inside real content — any direction, any token size — without reaching for a new component or a one-off selector.',
         howToUse: [
-          'Use spacing utilities only after the main rhythm is already handled by a primitive.',
-          'Prefer shared primitives and tokens before applying one-off spacing helpers.',
+          'Always let a primitive (`.stack`, `.row`, `.cluster`, `.grid-12`) handle the main rhythm first. Use spacing utilities only for the residual adjustment.',
+          'The full scale class pattern is `.padding-{direction}-{size}` and `.margin-{direction}-{size}`. Example: `.padding-t-xl` adds `padding-top: var(--space-xl)` (2 rem).',
+          'Directions: `-t` top · `-b` bottom · `-l` left · `-r` right · `-x` inline (horizontal) · `-y` block (vertical).',
+          'Sizes: `-xxs` 0.25 rem · `-xs` 0.5 rem · `-s` 0.75 rem · `-m` 1 rem · `-l` 1.5 rem · `-xl` 2 rem · `-xxl` 3 rem.',
+          'The bare forms `.padding`, `.padding-t`, etc. use the base `--space` (1 rem). The `-king` family uses a fluid `clamp(3 rem → 5 rem)` — appropriate for hero and section gaps.',
+          'Use `.gap-*` utilities to override the gap on a flex or grid container when the primitive default is too tight or too loose for a specific context.',
         ],
-        keyItems: ['.margin-xxl', '.margin-xl', '.margin-tb-m', '.padding-xxl', '.padding-xl', '.padding-b-m'],
-        preview: `<article class="card padding-xl">Utility spacing can refine a surface after the main layout is already established.</article>`,
-        code: `<article class="card padding-xl">...</article>`,
+        keyItems: [
+          '.padding  /  .padding-{t|b|l|r|x|y}  (base 1 rem)',
+          '.padding-{t|b|l|r|x|y}-{xxs|xs|s|m|l|xl|xxl}  (scale)',
+          '.padding-king  /  .padding-{t|b|l|r|x|y}-king  (fluid)',
+          '.margin  /  .margin-{t|b|l|r|x|y}  (base 1 rem)',
+          '.margin-{t|b|l|r|x|y}-{xxs|xs|s|m|l|xl|xxl}  (scale)',
+          '.margin-king  /  .margin-{t|b|l|r|x|y}-king  (fluid)',
+          '.margin-inline-auto  /  .gap-{xxs|xs|s|m|l|xl}',
+        ],
+        preview: `
+          <div class="stack stack--lg">
+            <div class="stack stack--xs">
+              <p class="card__text" style="font-weight:var(--weight-medium)">Direction × size — padding-top scale</p>
+              <div class="stack stack--xs">
+                <div style="background:var(--color-surface-95);padding-top:var(--space-xs);border:1px solid var(--color-outline-variant);border-radius:var(--radius-s);padding-left:var(--space-s);font-size:var(--text-sm);">.padding-t-xs &nbsp;<em style="opacity:.6">0.5 rem</em></div>
+                <div style="background:var(--color-surface-95);padding-top:var(--space-m);border:1px solid var(--color-outline-variant);border-radius:var(--radius-s);padding-left:var(--space-s);font-size:var(--text-sm);">.padding-t-m &nbsp;<em style="opacity:.6">1 rem</em></div>
+                <div style="background:var(--color-surface-95);padding-top:var(--space-xl);border:1px solid var(--color-outline-variant);border-radius:var(--radius-s);padding-left:var(--space-s);font-size:var(--text-sm);">.padding-t-xl &nbsp;<em style="opacity:.6">2 rem</em></div>
+                <div style="background:var(--color-surface-95);padding-top:var(--space-xxl);border:1px solid var(--color-outline-variant);border-radius:var(--radius-s);padding-left:var(--space-s);font-size:var(--text-sm);">.padding-t-xxl &nbsp;<em style="opacity:.6">3 rem</em></div>
+              </div>
+            </div>
+            <div class="stack stack--xs">
+              <p class="card__text" style="font-weight:var(--weight-medium)">King — fluid large-section gap</p>
+              <div class="padding-y-king" style="background:var(--color-surface-95);border:1px solid var(--color-outline-variant);border-radius:var(--radius-s);padding-left:var(--space-s);font-size:var(--text-sm);">.padding-y-king &nbsp;<em style="opacity:.6">clamp(3 rem → 5 rem)</em></div>
+            </div>
+            <div class="stack stack--xs">
+              <p class="card__text" style="font-weight:var(--weight-medium)">Gap scale</p>
+              <div class="flex gap-xs" style="align-items:center;">
+                <span class="tag">.gap-xs</span>
+                <span class="tag">.gap-s</span>
+                <span class="tag">.gap-m</span>
+                <span class="tag">.gap-l</span>
+                <span class="tag">.gap-xl</span>
+              </div>
+            </div>
+          </div>
+        `,
+        code: `<!-- Direction + size: .padding-{dir}-{size} -->
+<article class="card padding-y-xl">...</article>
+<header class="padding-x-m padding-t-l">...</header>
+
+<!-- Margin scale -->
+<section class="margin-b-xl">...</section>
+<div class="margin-t-s">...</div>
+
+<!-- King — fluid large-section spacing -->
+<section class="padding-y-king">...</section>
+
+<!-- Centering -->
+<div class="margin-inline-auto" style="max-width: 40rem;">...</div>
+
+<!-- Gap override on a flex/grid container -->
+<div class="cluster gap-xs">...</div>
+<div class="row gap-l">...</div>`,
+      },
+      radius: {
+        name: 'Radius Utilities',
+        summary: 'Applies border-radius tokens to any element without creating a component variant.',
+        accomplishes: 'Radius utilities give every element in the system access to the shared radius scale — from subtle card rounding to fully circular badges — without writing one-off CSS.',
+        howToUse: [
+          'Use `.border-rs` through `.border-rxl` for the standard surface scale (cards, panels, inputs, images).',
+          'Use `.border-rfull` for avatars, icon badges, or anything that should be a perfect circle — pair it with equal width and height.',
+          'Use `.border-rpill` for pill-shaped buttons, tags, and status chips where the ends should be fully rounded but the element is wider than it is tall.',
+          'Do not apply radius utilities inside a component that already owns its own border-radius — override the component token instead.',
+          'Semantic token groups (container-*, media-*, control-*) are used inside component internals and are not general-purpose utilities.',
+        ],
+        keyItems: [
+          '.border-rs   — radius-s  (0.5 rem)',
+          '.border-rm   — radius-m  (0.875 rem)',
+          '.border-rl   — radius-l  (1.5 rem)',
+          '.border-rxl  — radius-xl (2 rem)',
+          '.border-rfull — radius-full (9999px)',
+          '.border-rpill — radius-pill (999px)',
+        ],
+        preview: `
+          <div class="stack stack--sm">
+            <div class="row gap-m" style="flex-wrap:wrap;">
+              <div style="background:var(--color-surface-95);border:1px solid var(--color-outline-variant);padding:var(--space-m) var(--space-l);border-radius:var(--radius-s);font-size:var(--text-sm);">.border-rs</div>
+              <div style="background:var(--color-surface-95);border:1px solid var(--color-outline-variant);padding:var(--space-m) var(--space-l);border-radius:var(--radius-m);font-size:var(--text-sm);">.border-rm</div>
+              <div style="background:var(--color-surface-95);border:1px solid var(--color-outline-variant);padding:var(--space-m) var(--space-l);border-radius:var(--radius-l);font-size:var(--text-sm);">.border-rl</div>
+              <div style="background:var(--color-surface-95);border:1px solid var(--color-outline-variant);padding:var(--space-m) var(--space-l);border-radius:var(--radius-xl);font-size:var(--text-sm);">.border-rxl</div>
+            </div>
+            <div class="row gap-m" style="flex-wrap:wrap;align-items:center;">
+              <div style="background:var(--color-accent);width:3rem;height:3rem;border-radius:var(--radius-full);display:flex;align-items:center;justify-content:center;color:var(--color-surface-100);font-size:var(--text-sm);">full</div>
+              <div style="background:var(--color-surface-95);border:1px solid var(--color-outline-variant);padding:var(--space-xs) var(--space-l);border-radius:var(--radius-pill);font-size:var(--text-sm);">.border-rpill</div>
+            </div>
+          </div>
+        `,
+        code: `<!-- Standard surface rounding -->
+<article class="card border-rm">...</article>
+<img class="border-rl" src="..." alt="..." />
+
+<!-- Fully circular avatar -->
+<div class="border-rfull" style="width: 3rem; height: 3rem;">
+  <img src="avatar.jpg" alt="..." />
+</div>
+
+<!-- Pill-shaped tag or badge -->
+<span class="tag border-rpill">New</span>`,
       },
       surface: {
         name: 'Surface Utilities',

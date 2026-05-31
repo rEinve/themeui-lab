@@ -1,0 +1,37 @@
+/* ──────────────────────────────────────────────────────────────────────────
+ * Cover — Vertically centred full-height layout.
+ * .cover__centered is truly centred regardless of header/footer height.
+ * Perfect for login pages, 404 screens, empty states, and hero sections.
+ *
+ * Usage:
+ *   <div class="cover">
+ *     <header class="cover__header">…</header>
+ *     <main class="cover__centered">…</main>
+ *     <footer class="cover__footer">…</footer>
+ *   </div>
+ *
+ * Header and footer are optional — the centred element works alone too.
+ * ────────────────────────────────────────────────────────────────────────── */
+
+.cover {
+    --cover-min-height: 100dvh;
+    --cover-padding:    var(--space-l);
+
+    display: flex;
+    flex-direction: column;
+    min-block-size: var(--cover-min-height);
+    padding: var(--cover-padding);
+    gap: var(--space-l);
+}
+
+.cover__centered {
+    margin-block: auto;
+}
+
+/* ── Modifiers ─────────────────────────────────────────────────────────────── */
+
+/* For section-level use rather than full pages */
+.cover--half  { --cover-min-height: 50dvh; }
+
+/* No outer padding — useful when the cover fills a pre-padded container */
+.cover--flush { --cover-padding: 0; }

@@ -1,0 +1,53 @@
+@use 'sass:math';
+@use 'sass:map';
+
+//==========================================================================
+// REM CONVERSION
+// Convert a unitless px value to rem.
+// Usage: width: rem(320);  →  width: 20rem;
+//==========================================================================
+
+@function rem($px) {
+    @return math.div($px, 16) * 1rem;
+}
+
+//==========================================================================
+// FLUID CLAMP
+// Generates a viewport-interpolated clamp() between $min-rem and $max-rem
+// across $from-px → $to-px viewport widths.
+// Usage: font-size: fluid(1, 1.5, 400, 1200);
+//==========================================================================
+
+@function fluid($min, $max, $from: 400, $to: 1200) {
+    $slope:         math.div($max - $min, $to - $from);
+    $intercept:     $min - $slope * $from;
+    $slope-vw:      $slope * 100;
+    $intercept-rem: math.div($intercept, 16);
+
+    @return clamp(#{$min}rem, #{$slope-vw}vw + #{$intercept-rem}rem, #{$max}rem);
+}
+
+//==========================================================================
+// Z-INDEX SCALE
+// Named layers prevent magic numbers across the codebase.
+// Usage: z-index: z(modal);
+//==========================================================================
+
+$z-layers: (
+    base:    0,
+    raised:  10,
+    sticky:  100,
+    overlay: 200,
+    modal:   300,
+    toast:   400,
+    tooltip: 500,
+);
+
+@function z($layer) {
+    @if map.has-key($z-layers, $layer) {
+        @return map.get($z-layers, $layer);
+    }
+
+    @warn 'z-index layer `#{$layer}` not found. Available: #{map.keys($z-layers)}';
+    @return null;
+}

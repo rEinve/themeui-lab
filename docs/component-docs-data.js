@@ -561,6 +561,50 @@ export const componentDocs = {
   <span class="tag">Internal</span>
 </div>`,
   },
+  faq: {
+    name: 'FAQ',
+    summary: 'Presents a collapsible question-and-answer list using native disclosure elements.',
+    accomplishes:
+      'FAQ uses native details and summary elements for zero-JavaScript accordion behaviour, keeping each item independently openable and fully accessible by default.',
+    howToUse: [
+      'Use `.faq` as the section wrapper, `.faq__list` to group items, and `.faq__item` on each `<details>` element.',
+      'Put the question text in `.faq__question` on `<summary>` and the answer in `.faq__answer` inside a `<div>`.',
+      'Place `.faq` inside a layout primitive such as `.with-sidebar` or `.stack` — the component does not own page width.',
+    ],
+    keyClasses: ['.faq', '.faq__title', '.faq__list', '.faq__item', '.faq__question', '.faq__answer'],
+    preview: `
+      <section class="faq">
+        <h2 class="faq__title">Frequently Asked Questions</h2>
+        <div class="faq__list">
+          <details class="faq__item" open>
+            <summary class="faq__question">What is themeui-lab?</summary>
+            <div class="faq__answer"><p>A calm, token-driven design system focused on composable primitives and reusable core components.</p></div>
+          </details>
+          <details class="faq__item">
+            <summary class="faq__question">Do I need JavaScript to use the FAQ component?</summary>
+            <div class="faq__answer"><p>No. The component uses native <code>&lt;details&gt;</code> and <code>&lt;summary&gt;</code> elements so it works without any JavaScript.</p></div>
+          </details>
+          <details class="faq__item">
+            <summary class="faq__question">Can multiple items be open at once?</summary>
+            <div class="faq__answer"><p>Yes. Each item is an independent disclosure element, so any number can be open at the same time.</p></div>
+          </details>
+        </div>
+      </section>
+    `,
+    code: `<section class="faq">
+  <h2 class="faq__title">Frequently Asked Questions</h2>
+  <div class="faq__list">
+    <details class="faq__item">
+      <summary class="faq__question">Question one?</summary>
+      <div class="faq__answer"><p>Answer one.</p></div>
+    </details>
+    <details class="faq__item">
+      <summary class="faq__question">Question two?</summary>
+      <div class="faq__answer"><p>Answer two.</p></div>
+    </details>
+  </div>
+</section>`,
+  },
   textarea: {
     name: 'Textarea',
     summary: 'Handles longer freeform text entry inside the system field language.',

@@ -39,22 +39,15 @@
 .margin-y-king { margin-block: var(--king-space); }
 
 /* ── Border radius ───────────────────────────────────────────────────────── */
+/* Scale utilities — map directly to the $radius-tokens base scale.           */
+/* Semantic groups (container, media, control) belong in component internals. */
 
-.border-rs {
-    border-radius: var(--radius-s);
-}
-
-.border-rm {
-    border-radius: var(--radius-m);
-}
-
-.border-rl {
-    border-radius: var(--radius-l);
-}
-
-.border-rxl {
-    border-radius: var(--radius-xl);
-}
+.border-rs   { border-radius: var(--radius-s);    }  /* 0.5 rem   */
+.border-rm   { border-radius: var(--radius-m);    }  /* 0.875 rem */
+.border-rl   { border-radius: var(--radius-l);    }  /* 1.5 rem   */
+.border-rxl  { border-radius: var(--radius-xl);   }  /* 2 rem     */
+.border-rfull { border-radius: var(--radius-full); } /* 9999px — fully circular */
+.border-rpill { border-radius: var(--radius-pill); } /* 999px  — pill / capsule */
 
 .aspect-standard {
     aspect-ratio: 3 / 2;
@@ -63,57 +56,31 @@
     object-fit: cover;
 }
 
-.margin-xxl {
-    margin: var(--space-xxl);
+/* ── Spacing scale — direction × size ────────────────────────────────────── */
+/* Pattern: .{padding|margin}-{direction}-{size}                              */
+/* Directions: t b l r x y  ·  Sizes: xxs xs s m l xl xxl                   */
+/* For fluid large-section gaps use the king family above (.padding-y-king).  */
+
+$_space-scale: xxs, xs, s, m, l, xl, xxl;
+
+@each $sz in $_space-scale {
+    /* padding */
+    .padding-t-#{$sz} { padding-top:    var(--space-#{$sz}); }
+    .padding-b-#{$sz} { padding-bottom: var(--space-#{$sz}); }
+    .padding-l-#{$sz} { padding-left:   var(--space-#{$sz}); }
+    .padding-r-#{$sz} { padding-right:  var(--space-#{$sz}); }
+    .padding-x-#{$sz} { padding-inline: var(--space-#{$sz}); }
+    .padding-y-#{$sz} { padding-block:  var(--space-#{$sz}); }
+    /* margin */
+    .margin-t-#{$sz}  { margin-top:    var(--space-#{$sz}); }
+    .margin-b-#{$sz}  { margin-bottom: var(--space-#{$sz}); }
+    .margin-l-#{$sz}  { margin-left:   var(--space-#{$sz}); }
+    .margin-r-#{$sz}  { margin-right:  var(--space-#{$sz}); }
+    .margin-x-#{$sz}  { margin-inline: var(--space-#{$sz}); }
+    .margin-y-#{$sz}  { margin-block:  var(--space-#{$sz}); }
 }
 
-.margin-xl {
-    margin: var(--space-xl);
-}
-
-.margin-tb-m {
-    margin: var(--space-m) 0;
-}
-
-.margin-b-m {
-    margin-bottom: var(--space-m);
-}
-
-.margin-t-m {
-    margin-top: var(--space-m);
-}
-
-.padding-xxl {
-    padding: var(--section-space) 0;
-}
-
-.padding-t-xxl {
-    padding-top: var(--section-space);
-}
-
-.padding-b-xxl {
-    padding-bottom: var(--section-space);
-}
-
-.padding-b-m {
-    padding-bottom: var(--space-m);
-}
-
-.padding-l {
-    padding: var(--space-l) 0;
-}
-
-.padding-b-l {
-    padding-bottom: var(--space-l);
-}
-
-.padding-xl {
-    padding: var(--space-xl) 0;
-}
-
-.margin-inline-auto {
-    margin-inline: auto;
-}
+.margin-inline-auto { margin-inline: auto; }
 
 .border-t {
     border-top: 1px solid var(--outline-variant);

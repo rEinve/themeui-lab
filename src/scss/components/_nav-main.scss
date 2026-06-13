@@ -1,0 +1,413 @@
+@use '../abstracts/mixins' as *;
+
+/* ──────────────────────────────────────────────────────────────────────────
+ * Main Navigation — primary site header with logo, nav links, optional
+ * dropdown menus, action buttons, and a mobile hamburger toggle.
+ *
+ * Usage:
+ *   <header class="nav-main" role="banner">
+ *     <div class="nav-main__inner">
+ *       <a class="nav-main__brand" href="/">
+ *         <img class="nav-main__logo" src="logo.svg" alt="Brand" />
+ *       </a>
+ *
+ *       <button class="nav-main__toggle" aria-expanded="false"
+ *               aria-controls="primary-nav" aria-label="Open menu">
+ *         <span class="nav-main__toggle-icon"></span>
+ *       </button>
+ *
+ *       <nav id="primary-nav" class="nav-main__nav" aria-label="Primary">
+ *         <ul class="nav-main__list">
+ *           <li class="nav-main__item">
+ *             <a class="nav-main__link" href="/about">About</a>
+ *           </li>
+ *           <li class="nav-main__item nav-main__item--has-dropdown">
+ *             <button class="nav-main__link nav-main__link--dropdown"
+ *                     aria-expanded="false">Products</button>
+ *             <ul class="nav-main__dropdown">
+ *               <li><a class="nav-main__dropdown-link" href="/products/a">Item A</a></li>
+ *               <li><a class="nav-main__dropdown-link" href="/products/b">Item B</a></li>
+ *             </ul>
+ *           </li>
+ *         </ul>
+ *       </nav>
+ *
+ *       <div class="nav-main__actions">
+ *         <a class="button" href="/login">Sign in</a>
+ *         <a class="button button--primary" href="/signup">Get started</a>
+ *       </div>
+ *     </div>
+ *   </header>
+ * ────────────────────────────────────────────────────────────────────────── */
+
+/* ── Shell ─────────────────────────────────────────────────────────────────── */
+
+.nav-main {
+    --nav-height: 4rem;
+
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--color-surface-container-low);
+    border-bottom: 1px solid var(--color-outline-variant);
+    transition: box-shadow var(--motion-fast) var(--motion-ease-standard);
+}
+
+.nav-main--scrolled {
+    box-shadow: 0 1px 12px oklch(from var(--color-text-0) l c h / 0.08);
+}
+
+.nav-main__inner {
+    display: flex;
+    align-items: center;
+    gap: var(--space-l);
+    max-inline-size: var(--frame-max);
+    margin-inline: auto;
+    padding-inline: var(--frame-gutter);
+    height: var(--nav-height);
+}
+
+/* ── Brand / Logo ──────────────────────────────────────────────────────────── */
+
+.nav-main__brand {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    flex-shrink: 0;
+    text-decoration: none;
+    color: var(--color-text-primary);
+    font-family: var(--font-display);
+    font-size: var(--step-1);
+    font-weight: var(--weight-bold);
+    letter-spacing: var(--ls-headline);
+    line-height: 1;
+}
+
+.nav-main__brand:focus-visible {
+    outline: none;
+    border-radius: var(--radius-control-sm);
+    box-shadow: 0 0 0 3px var(--color-accent-95);
+}
+
+.nav-main__logo {
+    display: block;
+    height: 2rem;
+    width: auto;
+}
+
+/* ── Nav list ──────────────────────────────────────────────────────────────── */
+
+.nav-main__nav {
+    display: none;
+    flex: 1;
+
+    @include breakpoint(expanded) {
+        display: flex;
+        align-items: center;
+    }
+}
+
+.nav-main__list {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xxs);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-main__item {
+    position: relative;
+}
+
+.nav-main__link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xxs);
+    padding: var(--space-xs) var(--space-s);
+    border-radius: var(--radius-control-md);
+    background: transparent;
+    border: none;
+    color: var(--color-text-secondary);
+    font: inherit;
+    font-size: var(--text-sm);
+    font-weight: var(--weight-medium);
+    line-height: var(--lh-label);
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+    transition:
+        background-color var(--motion-fast) var(--motion-ease-standard),
+        color var(--motion-fast) var(--motion-ease-standard);
+}
+
+.nav-main__link:hover {
+    background: var(--color-surface-container);
+    color: var(--color-text-primary);
+}
+
+.nav-main__link:focus-visible {
+    outline: none;
+    color: var(--color-text-primary);
+    box-shadow: 0 0 0 3px var(--color-accent-95);
+}
+
+.nav-main__link--active,
+.nav-main__link[aria-current='page'] {
+    color: var(--color-text-primary);
+    background: var(--color-surface-container);
+    font-weight: var(--weight-semibold);
+}
+
+/* Caret for dropdown triggers */
+.nav-main__link--dropdown::after {
+    content: '';
+    display: inline-block;
+    width: 0.875em;
+    height: 0.875em;
+    background: currentColor;
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 6l4 4 4-4' stroke='currentColor' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    transition: transform var(--motion-fast) var(--motion-ease-standard);
+    flex-shrink: 0;
+}
+
+.nav-main__link--dropdown[aria-expanded='true']::after {
+    transform: rotate(180deg);
+}
+
+/* ── Dropdown ──────────────────────────────────────────────────────────────── */
+
+.nav-main__dropdown {
+    position: absolute;
+    top: calc(100% + var(--space-xs));
+    left: 50%;
+    translate: -50% 0;
+    z-index: 200;
+    min-width: 12rem;
+    list-style: none;
+    margin: 0;
+    padding: var(--space-xs);
+    background: var(--color-surface-modal);
+    border: 1px solid var(--color-outline-variant);
+    border-radius: var(--radius-container-sm);
+    box-shadow: 0 8px 24px oklch(from var(--color-text-0) l c h / 0.1);
+
+    /* Hidden by default; toggled via aria-expanded + JS */
+    display: none;
+    opacity: 0;
+    transform: translateY(-6px);
+    transition:
+        opacity var(--motion-fast) var(--motion-ease-standard),
+        transform var(--motion-fast) var(--motion-ease-standard);
+}
+
+.nav-main__item--has-dropdown:is(:hover, :focus-within) .nav-main__dropdown,
+.nav-main__item--has-dropdown .nav-main__dropdown[data-open] {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.nav-main__dropdown-link {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    padding: var(--space-xs) var(--space-s);
+    border-radius: var(--radius-control-sm);
+    color: var(--color-text-secondary);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-medium);
+    text-decoration: none;
+    white-space: nowrap;
+    transition:
+        background-color var(--motion-fast) var(--motion-ease-standard),
+        color var(--motion-fast) var(--motion-ease-standard);
+}
+
+.nav-main__dropdown-link:hover {
+    background: var(--color-surface-container);
+    color: var(--color-text-primary);
+}
+
+.nav-main__dropdown-link:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--color-accent-95);
+}
+
+/* ── Actions slot (CTAs, avatar, etc.) ──────────────────────────────────────── */
+
+.nav-main__actions {
+    display: none;
+    align-items: center;
+    gap: var(--space-xs);
+    margin-inline-start: auto;
+
+    @include breakpoint(expanded) {
+        display: flex;
+    }
+}
+
+/* ── Mobile toggle button ──────────────────────────────────────────────────── */
+
+.nav-main__toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0;
+    margin-inline-start: auto;
+    background: transparent;
+    border: 1px solid var(--color-outline-variant);
+    border-radius: var(--radius-control-md);
+    cursor: pointer;
+    color: var(--color-text-primary);
+    transition:
+        background-color var(--motion-fast) var(--motion-ease-standard),
+        border-color var(--motion-fast) var(--motion-ease-standard);
+
+    @include breakpoint(expanded) {
+        display: none;
+    }
+}
+
+.nav-main__toggle:hover {
+    background: var(--color-surface-container);
+}
+
+.nav-main__toggle:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--color-accent-95);
+}
+
+/* Animated three-bar icon */
+.nav-main__toggle-icon,
+.nav-main__toggle-icon::before,
+.nav-main__toggle-icon::after {
+    display: block;
+    width: 1.125rem;
+    height: 1.5px;
+    background: currentColor;
+    border-radius: var(--radius-full);
+    transition:
+        transform var(--motion-medium) var(--motion-ease-standard),
+        opacity var(--motion-fast) var(--motion-ease-standard);
+}
+
+.nav-main__toggle-icon {
+    position: relative;
+}
+
+.nav-main__toggle-icon::before,
+.nav-main__toggle-icon::after {
+    content: '';
+    position: absolute;
+    left: 0;
+}
+
+.nav-main__toggle-icon::before { top: -5px; }
+.nav-main__toggle-icon::after  { top:  5px; }
+
+/* ×  shape when open */
+.nav-main__toggle[aria-expanded='true'] .nav-main__toggle-icon {
+    background: transparent;
+}
+
+.nav-main__toggle[aria-expanded='true'] .nav-main__toggle-icon::before {
+    top: 0;
+    transform: rotate(45deg);
+}
+
+.nav-main__toggle[aria-expanded='true'] .nav-main__toggle-icon::after {
+    top: 0;
+    transform: rotate(-45deg);
+}
+
+/* ── Mobile drawer ─────────────────────────────────────────────────────────── */
+
+.nav-main__drawer {
+    position: fixed;
+    inset: 0;
+    z-index: 99;
+    display: flex;
+    flex-direction: column;
+    background: var(--color-surface-modal);
+    padding: var(--space-l) var(--frame-gutter);
+    padding-top: calc(var(--nav-height) + var(--space-m));
+    transform: translateX(-100%);
+    transition: transform var(--motion-medium) var(--motion-ease-standard);
+    overflow-y: auto;
+
+    @include breakpoint(expanded) {
+        display: none;
+    }
+}
+
+.nav-main__drawer[data-open] {
+    transform: translateX(0);
+}
+
+.nav-main__drawer-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xxs);
+}
+
+.nav-main__drawer-link {
+    display: flex;
+    align-items: center;
+    padding: var(--space-s) var(--space-m);
+    border-radius: var(--radius-control-md);
+    color: var(--color-text-secondary);
+    font-size: var(--step-0);
+    font-weight: var(--weight-medium);
+    text-decoration: none;
+    transition:
+        background-color var(--motion-fast) var(--motion-ease-standard),
+        color var(--motion-fast) var(--motion-ease-standard);
+}
+
+.nav-main__drawer-link:hover,
+.nav-main__drawer-link[aria-current='page'] {
+    background: var(--color-surface-container);
+    color: var(--color-text-primary);
+}
+
+.nav-main__drawer-link:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--color-accent-95);
+}
+
+.nav-main__drawer-actions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    margin-top: var(--space-l);
+    padding-top: var(--space-l);
+    border-top: 1px solid var(--color-outline-variant);
+}
+
+/* ── Variants ──────────────────────────────────────────────────────────────── */
+
+/* Glass effect — float over hero images */
+.nav-main--glass {
+    background: oklch(from var(--color-surface-100) l c h / 0.76);
+    backdrop-filter: blur(20px) saturate(1.18);
+    border-bottom-color: oklch(from var(--color-outline-variant) l c h / 0.5);
+}
+
+/* Transparent until scrolled */
+.nav-main--transparent {
+    background: transparent;
+    border-bottom-color: transparent;
+}
+
+.nav-main--transparent.nav-main--scrolled {
+    background: var(--color-surface-container-low);
+    border-bottom-color: var(--color-outline-variant);
+}

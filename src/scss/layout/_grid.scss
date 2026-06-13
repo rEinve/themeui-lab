@@ -79,6 +79,13 @@
     @include end-spans('md-col');
 }
 
+@include breakpoint(expanded) {
+    @include span-range('exp-col');
+    @include start-range('exp-col-start');
+    @include center-spans('exp-col');
+    @include end-spans('exp-col');
+}
+
 @include breakpoint(large) {
     @include span-range('lg-col');
     @include start-range('lg-col-start');

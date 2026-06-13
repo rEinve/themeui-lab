@@ -109,7 +109,7 @@ h1,
     font-weight: var(--weight-strong);
     line-height: var(--lh-display);
     letter-spacing: var(--ls-display);
-    max-inline-size: 10ch;
+    max-inline-size: 25ch;
 }
 
 h2,
@@ -119,7 +119,7 @@ h2,
     font-weight: var(--weight-semibold);
     line-height: var(--lh-display);
     letter-spacing: var(--ls-display);
-    max-inline-size: 11ch;
+    max-inline-size: 30ch;
 }
 
 h3,
@@ -130,7 +130,7 @@ h3,
     font-weight: var(--weight-semibold);
     line-height: var(--lh-headline);
     letter-spacing: var(--ls-headline);
-    max-inline-size: 14ch;
+    max-inline-size: 35ch;
 }
 
 h4,
@@ -174,16 +174,19 @@ h6,
 .body-l {
     font-size: var(--step-0);
     line-height: var(--lh-body);
+    max-inline-size: 68ch;
 }
 
 .body-m {
     font-size: var(--text-sm);
     line-height: 1.55;
+    max-inline-size: 68ch;
 }
 
 .body-s {
     font-size: var(--text-xs);
     line-height: 1.5;
+    max-inline-size: 68ch;
 }
 
 .lead {
@@ -267,32 +270,34 @@ hr {
 }
 
 /* ── Lists ──────────────────────────────────────────────────────────────── */
+/* Prose defaults only — a class on the list/item opts it out (layout lists,
+   nav, card grids), so components don't need to reset these. */
 
-ul,
-ol {
+ul:not([class]),
+ol:not([class]) {
     list-style-type: disc;
     padding-left: var(--space-xl);
 }
 
-ol {
+ol:not([class]) {
     list-style-type: decimal;
 }
 
-li {
+li:not([class]) {
     line-height: var(--lh-body);
 }
 
-li + li {
+li:not([class]) + li:not([class]) {
     margin-block-start: var(--space-xs);
 }
 
-li::marker {
+li:not([class])::marker {
     color: var(--color-text-tertiary);
 }
 
 /* Nested lists: tighter indent, a little top breathing room */
-li > ul,
-li > ol {
+li > ul:not([class]),
+li > ol:not([class]) {
     margin-block-start: var(--space-xs);
     padding-inline-start: var(--space-xl);
 }

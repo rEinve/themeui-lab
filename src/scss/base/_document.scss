@@ -30,7 +30,7 @@ body {
 }
 
 p {
-    max-inline-size: 68ch;
+    max-inline-size: 65ch;
 }
 figure {
     margin: 0;
@@ -39,8 +39,9 @@ figure {
 
 img {
     display: block;
-    max-inline-size: 100%;
-    block-size: auto;
+    inline-size: 100%;   // always fill the container — no silent gaps
+    block-size: auto;    // maintain natural aspect ratio — no cropping
+    vertical-align: middle;
 }
 
 svg,

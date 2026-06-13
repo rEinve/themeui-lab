@@ -1,3 +1,5 @@
+@use '../abstracts' as *;
+
 /* ── Spacing utilities ───────────────────────────────────────────────────── */
 /* All use --space (1rem) as the shared value. Pair with --king-space for     */
 /* large-section use: .padding-t-king, .padding-b-king, etc.                 */
@@ -81,6 +83,16 @@ $_space-scale: xxs, xs, s, m, l, xl, xxl;
 }
 
 .margin-inline-auto { margin-inline: auto; }
+
+/* Edge-to-edge reset: zeroes margin + padding on large screens (1200px+) so   */
+/* full-bleed backgrounds can reach the viewport edge. The breakpoint is baked  */
+/* in — drop the class on the element, no per-use media queries needed.         */
+.margin-padding-0 {
+    @include breakpoint(large) {
+        margin: 0;
+        padding: 0;
+    }
+}
 
 .border-t {
     border-top: 1px solid var(--outline-variant);

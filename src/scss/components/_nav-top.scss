@@ -1,0 +1,128 @@
+@use '../abstracts/mixins' as *;
+
+/* ──────────────────────────────────────────────────────────────────────────
+ * Top Navigation — slim utility bar that sits above the main nav.
+ * Typically used for announcements, locale/currency switchers, or
+ * secondary quick-links (e.g. login, help, status).
+ *
+ * Usage:
+ *   <div class="nav-top">
+ *     <div class="nav-top__inner">
+ *       <p class="nav-top__message">Free shipping on orders over $50</p>
+ *       <nav class="nav-top__actions" aria-label="Utility navigation">
+ *         <a class="nav-top__link" href="/login">Sign in</a>
+ *         <a class="nav-top__link" href="/help">Help</a>
+ *       </nav>
+ *     </div>
+ *   </div>
+ * ────────────────────────────────────────────────────────────────────────── */
+
+.nav-top {
+    background: var(--color-surface-container);
+    border-bottom: 1px solid var(--color-outline-variant);
+}
+
+.nav-top__inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-l);
+    max-inline-size: var(--frame-max);
+    margin-inline: auto;
+    padding-inline: var(--frame-gutter);
+    padding-block: var(--space-xs);
+    min-height: 2.5rem;
+
+    @include breakpoint(expanded) {
+        justify-content: space-between;
+    }
+}
+
+.nav-top__message {
+    font-size: var(--text-xs);
+    font-weight: var(--weight-medium);
+    line-height: var(--lh-label);
+    color: var(--color-text-secondary);
+    text-align: center;
+    flex: 1;
+}
+
+.nav-top__message a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.nav-top__message a:hover {
+    color: var(--color-accent-strong);
+}
+
+.nav-top__actions {
+    display: none;
+    align-items: center;
+    gap: var(--space-m);
+    flex-shrink: 0;
+
+    @include breakpoint(expanded) {
+        display: flex;
+    }
+}
+
+.nav-top__link {
+    font-size: var(--text-xs);
+    font-weight: var(--weight-medium);
+    line-height: var(--lh-label);
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color var(--motion-fast) var(--motion-ease-standard);
+}
+
+.nav-top__link:hover {
+    color: var(--color-text-primary);
+}
+
+.nav-top__link:focus-visible {
+    outline: none;
+    color: var(--color-text-primary);
+    border-radius: var(--radius-control-sm);
+    box-shadow: 0 0 0 3px var(--color-accent-95);
+}
+
+/* ── Variants ──────────────────────────────────────────────────────────────── */
+
+/* Solid accent background — use for important announcements */
+.nav-top--accent {
+    background: var(--color-accent-50);
+    border-bottom-color: var(--color-accent-60);
+
+    .nav-top__message,
+    .nav-top__link {
+        color: oklch(1 0 0);
+    }
+
+    .nav-top__message a {
+        color: oklch(1 0 0);
+        font-weight: var(--weight-semibold);
+    }
+
+    .nav-top__link:hover,
+    .nav-top__message a:hover {
+        opacity: 0.85;
+    }
+}
+
+/* Dark surface */
+.nav-top--dark {
+    background: var(--color-surface-0);
+    border-bottom-color: var(--color-surface-10);
+
+    .nav-top__message,
+    .nav-top__link {
+        color: var(--color-text-80);
+    }
+
+    .nav-top__link:hover {
+        color: var(--color-text-99);
+    }
+}

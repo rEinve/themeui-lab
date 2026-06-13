@@ -1,15 +1,13 @@
-.button,
-/* Legacy alias: keep temporarily for compatibility. Prefer `.button`. */
-.btn {
+.button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: var(--space-xs);
     min-height: 2.75rem;
-    padding: 0.75rem 1rem;
+    padding: var(--space-s) var(--space-m);
     border: 1px solid var(--color-outline-variant);
     border-radius: var(--radius-control-md);
-    background: var(--color-surface-100);
+    background-color: var(--color-surface-100);
     color: var(--color-text-primary);
     font: inherit;
     font-size: var(--step-0);
@@ -24,20 +22,125 @@
         box-shadow var(--motion-fast) var(--motion-ease-standard);
 }
 
-.button:hover,
-.btn:hover {
-    background: var(--color-surface-container-low);
+.button:hover {
+    background-color: var(--color-surface-container-low);
 }
 
-.button:focus-visible,
-.btn:focus-visible {
+.button:focus-visible {
     outline: none;
     border-color: var(--color-accent);
-    box-shadow: 0 0 0 3px var(--color-accent-95);
+    box-shadow: 0 0 0 0.1875rem var(--color-accent-95);
 }
 
-.button:disabled,
-.btn:disabled {
+.button:active {
+    background-color: var(--color-surface-container-high);
+    border-color: var(--color-outline);
+    transform: translateY(0.0625rem);
+}
+
+.button:disabled {
     opacity: 0.6;
     cursor: not-allowed;
+}
+
+/* ── Variants ───────────────────────────────────────────────────────────── */
+
+.button.button--primary {
+    background-color: var(--color-accent);
+    border-color: transparent;
+    color: var(--color-surface-100);
+}
+
+.button.button--primary:hover {
+    background-color: var(--color-accent-strong);
+}
+
+.button.button--primary:focus-visible {
+    border-color: transparent;
+    box-shadow: 0 0 0 0.1875rem var(--color-accent-95);
+}
+
+.button.button--primary:active {
+    background-color: var(--color-accent-40);
+    border-color: transparent;
+}
+
+.button.button--danger {
+    background-color: var(--color-danger);
+    border-color: transparent;
+    color: var(--color-surface-100);
+}
+
+.button.button--danger:hover {
+    background-color: var(--color-danger-text);
+}
+
+.button.button--danger:focus-visible {
+    border-color: transparent;
+    box-shadow: 0 0 0 0.1875rem var(--color-danger-soft);
+}
+
+.button.button--danger:active {
+    background-color: var(--color-danger-text);
+    border-color: transparent;
+}
+
+.button.button--ghost {
+    background-color: transparent;
+    border-color: var(--color-outline);
+}
+
+.button.button--ghost:hover {
+    background-color: var(--color-surface-container-low);
+}
+
+.button.button--ghost:active {
+    background-color: var(--color-surface-container-high);
+    border-color: var(--color-outline);
+}
+
+.button.button--link {
+    background-color: transparent;
+    border-color: transparent;
+    color: var(--color-accent);
+    padding-inline: var(--space-xxs);
+}
+
+.button.button--link:hover {
+    background-color: transparent;
+    color: var(--color-accent-strong);
+    text-decoration: underline;
+}
+
+.button.button--link:focus-visible {
+    border-color: transparent;
+    box-shadow: 0 0 0 0.1875rem var(--color-accent-95);
+}
+
+.button.button--link:active {
+    background-color: transparent;
+    border-color: transparent;
+    color: var(--color-accent-40);
+}
+
+/* ── Size modifiers ─────────────────────────────────────────────────────── */
+
+.button--m {
+    padding-inline: var(--space-m);
+    border-radius: var(--radius-control-md);
+}
+
+.button--l {
+    padding-inline: var(--space-l);
+    border-radius: var(--radius-control-md);
+}
+
+.button--xl {
+    padding-inline: var(--space-xl);
+    border-radius: var(--radius-control-lg);
+}
+
+.button--xxl {
+    padding-inline: var(--space-xxl);
+    border-radius: var(--radius-control-lg);
 }

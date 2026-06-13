@@ -6,20 +6,40 @@ export const componentDocs = {
       'Buttons provide the primary command surface for forms, toolbars, dialogs, and section-level actions.',
     howToUse: [
       'Use `.button` on a native `<button>` or action link when the UI needs an obvious command target.',
-      'Keep the label short and action-oriented so the intent is clear at a glance.',
+      'Add a variant modifier to communicate intent: `.button--primary` for the strongest call to action, `.button--danger` for destructive actions, `.button--ghost` for secondary actions, `.button--link` for the lowest visual weight.',
+      'Add a size modifier (`.button--m`, `.button--l`, `.button--xl`, `.button--xxl`) to control horizontal padding. All sizes share the same height.',
       'Use primitives such as `.row` or `.cluster` to position buttons. Do not bake page spacing into button variants.',
     ],
-    keyClasses: ['.button', '.btn (legacy alias)'],
+    keyClasses: [
+      '.button',
+      '.btn (legacy alias)',
+      '.button--primary',
+      '.button--danger',
+      '.button--ghost',
+      '.button--link',
+      '.button--m',
+      '.button--l',
+      '.button--xl',
+      '.button--xxl',
+    ],
     preview: `
-      <div class="cluster">
-        <button class="button" type="button">Save Changes</button>
-        <button class="button" type="button">Preview</button>
+      <div class="cluster" style="align-items:center">
+        <button class="button" type="button">Default</button>
+        <button class="button button--primary" type="button">Primary</button>
+        <button class="button button--danger" type="button">Danger</button>
+        <button class="button button--ghost" type="button">Ghost</button>
+        <button class="button button--link" type="button">Link</button>
       </div>
     `,
-    code: `<div class="cluster">
-  <button class="button" type="button">Save Changes</button>
-  <button class="button" type="button">Preview</button>
-</div>`,
+    code: `<!-- Variants -->
+<button class="button" type="button">Default</button>
+<button class="button button--primary" type="button">Primary</button>
+<button class="button button--danger" type="button">Danger</button>
+<button class="button button--ghost" type="button">Ghost</button>
+<button class="button button--link" type="button">Link</button>
+
+<!-- Combine variant + size -->
+<button class="button button--primary button--xl" type="button">Get Started</button>`,
   },
   breadcrumbs: {
     name: 'Breadcrumbs',

@@ -39,6 +39,11 @@
     color: var(--color-text-primary);
 }
 
+.tabs__tab:active {
+    background: var(--color-surface-container-low);
+    color: var(--color-text-primary);
+}
+
 .tabs__tab:focus-visible {
     outline: none;
     box-shadow: inset 0 0 0 2px var(--color-accent-90);

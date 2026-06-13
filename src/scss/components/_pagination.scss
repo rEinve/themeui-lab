@@ -36,6 +36,11 @@
     background: var(--color-surface-container-low);
 }
 
+.pagination__link:active {
+    background: var(--color-surface-container-high);
+    border-color: var(--color-outline);
+}
+
 .pagination__link:focus-visible {
     outline: none;
     border-color: var(--color-accent);

@@ -9,7 +9,7 @@
 .padding-t  { padding-top: var(--space); }
 .padding-r  { padding-right: var(--space); }
 .padding-b  { padding-bottom: var(--space); }
-.padding-l  { padding-left: var(--space); }
+.padding-left { padding-left: var(--space); }
 .padding-x  { padding-inline: var(--space); }
 .padding-y  { padding-block: var(--space); }
 
@@ -27,7 +27,7 @@
 .margin-t  { margin-top: var(--space); }
 .margin-r  { margin-right: var(--space); }
 .margin-b  { margin-bottom: var(--space); }
-.margin-l  { margin-left: var(--space); }
+.margin-left { margin-left: var(--space); }
 .margin-x  { margin-inline: var(--space); }
 .margin-y  { margin-block: var(--space); }
 
@@ -58,8 +58,8 @@
     object-fit: cover;
 }
 
-/* ── Spacing scale — direction × size ────────────────────────────────────── */
-/* Pattern: .{padding|margin}-{direction}-{size}                              */
+/* ── Spacing scale — all sides or direction × size ───────────────────────── */
+/* Patterns: .{padding|margin}-{size} and .{padding|margin}-{direction}-{size} */
 /* Directions: t b l r x y  ·  Sizes: xxs xs s m l xl xxl                   */
 /* For fluid large-section gaps use the king family above (.padding-y-king).  */
 
@@ -67,6 +67,7 @@ $_space-scale: xxs, xs, s, m, l, xl, xxl;
 
 @each $sz in $_space-scale {
     /* padding */
+    .padding-#{$sz}   { padding:        var(--space-#{$sz}); }
     .padding-t-#{$sz} { padding-top:    var(--space-#{$sz}); }
     .padding-b-#{$sz} { padding-bottom: var(--space-#{$sz}); }
     .padding-l-#{$sz} { padding-left:   var(--space-#{$sz}); }
@@ -74,6 +75,7 @@ $_space-scale: xxs, xs, s, m, l, xl, xxl;
     .padding-x-#{$sz} { padding-inline: var(--space-#{$sz}); }
     .padding-y-#{$sz} { padding-block:  var(--space-#{$sz}); }
     /* margin */
+    .margin-#{$sz}    { margin:        var(--space-#{$sz}); }
     .margin-t-#{$sz}  { margin-top:    var(--space-#{$sz}); }
     .margin-b-#{$sz}  { margin-bottom: var(--space-#{$sz}); }
     .margin-l-#{$sz}  { margin-left:   var(--space-#{$sz}); }
@@ -276,4 +278,3 @@ $_space-scale: xxs, xs, s, m, l, xl, xxl;
 .gap-m   { gap: var(--space-m);   }
 .gap-l   { gap: var(--space-l);   }
 .gap-xl  { gap: var(--space-xl);  }
-

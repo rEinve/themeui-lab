@@ -54,7 +54,7 @@ export const recoveredComponentDocs = {
     summary: 'Explains a deliberately empty region and gives the next useful action.',
     accomplishes: 'Empty State helps someone understand what is absent, why it matters, and how to move forward.',
     howToUse: ['State what is empty in plain language.', 'Use one clear action when a useful next step exists.', 'Let the parent primitive determine the page width and placement.'],
-    keyClasses: ['.empty-state', '.empty-state__icon', '.empty-state__title', '.empty-state__message', '.empty-state__action', '.empty-state--compact'],
+    keyClasses: ['.empty-state', '.empty-state__icon', '.empty-state__title', '.empty-state__message', '.empty-state__body', '.empty-state__action', '.empty-state__actions', '.empty-state--compact'],
     preview: `<section class="empty-state"><span class="empty-state__icon" aria-hidden="true">+</span><h3 class="empty-state__title">No saved views yet</h3><p class="empty-state__message">Save a useful filter to find it quickly next time.</p><button class="button empty-state__action" type="button">Create a view</button></section>`,
     code: `<section class="empty-state">
   <h2 class="empty-state__title">No saved views yet</h2>

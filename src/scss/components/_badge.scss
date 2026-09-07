@@ -1,0 +1,71 @@
+/* Badge and status indicator — compact, non-interactive state labels. */
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    min-block-size: 1.5rem;
+    padding-inline: var(--space-xs);
+    border: 1px solid var(--color-outline-variant);
+    border-radius: var(--radius-pill);
+    background: var(--color-surface-container-low);
+    color: var(--color-text-secondary);
+    font-size: var(--text-xs);
+    font-weight: var(--weight-semibold);
+    line-height: var(--lh-label);
+    white-space: nowrap;
+}
+
+.badge--info,
+.status-indicator--info .status-indicator__dot {
+    --feedback-color: var(--color-info);
+    --feedback-soft: var(--color-info-soft);
+    --feedback-text: var(--color-info-text);
+}
+
+.badge--success,
+.status-indicator--success .status-indicator__dot {
+    --feedback-color: var(--color-success);
+    --feedback-soft: var(--color-success-soft);
+    --feedback-text: var(--color-success-text);
+}
+
+.badge--warning,
+.status-indicator--warning .status-indicator__dot {
+    --feedback-color: var(--color-warning);
+    --feedback-soft: var(--color-warning-soft);
+    --feedback-text: var(--color-warning-text);
+}
+
+.badge--danger,
+.status-indicator--danger .status-indicator__dot {
+    --feedback-color: var(--color-danger);
+    --feedback-soft: var(--color-danger-soft);
+    --feedback-text: var(--color-danger-text);
+}
+
+.badge--info,
+.badge--success,
+.badge--warning,
+.badge--danger {
+    border-color: var(--feedback-color);
+    background: var(--feedback-soft);
+    color: var(--feedback-text);
+}
+
+.status-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    color: var(--color-text-secondary);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-medium);
+    line-height: var(--lh-label);
+}
+
+.status-indicator__dot {
+    inline-size: 0.625rem;
+    block-size: 0.625rem;
+    flex: 0 0 auto;
+    border-radius: 50%;
+    background: var(--feedback-color, var(--color-outline));
+}

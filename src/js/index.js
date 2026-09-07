@@ -1,1 +1,1 @@
-export { initCarousels, initTabs } from './components/index.js';
+export { initActionMenus, initCarousels, initDialogs, initMainNavigation, initTabs } from './components/index.js';

@@ -1,0 +1,53 @@
+/* Tooltip — short supplementary description for a labelled control.
+ * Keep content brief and non-interactive. The description remains available
+ * through aria-describedby while CSS reveals it for hover and keyboard focus. */
+
+.tooltip {
+    position: relative;
+    display: inline-flex;
+}
+
+.tooltip__content {
+    position: absolute;
+    inset-block-end: calc(100% + var(--space-xs));
+    inset-inline-start: 50%;
+    z-index: 10;
+    inline-size: max-content;
+    max-inline-size: min(20rem, 80vw);
+    padding: var(--space-xs) var(--space-s);
+    border-radius: var(--radius-control-sm);
+    background: var(--color-surface-0);
+    color: var(--color-text-99);
+    font-size: var(--text-xs);
+    line-height: var(--lh-body);
+    opacity: 0;
+    pointer-events: none;
+    text-align: start;
+    transform: translate(-50%, 0.25rem);
+    transition:
+        opacity var(--motion-fast) var(--motion-ease-standard),
+        transform var(--motion-fast) var(--motion-ease-standard);
+}
+
+.tooltip:hover .tooltip__content,
+.tooltip:focus-within .tooltip__content {
+    opacity: 1;
+    transform: translate(-50%, 0);
+}
+
+.tooltip--bottom .tooltip__content {
+    inset-block-start: calc(100% + var(--space-xs));
+    inset-block-end: auto;
+    transform: translate(-50%, -0.25rem);
+}
+
+.tooltip--bottom:hover .tooltip__content,
+.tooltip--bottom:focus-within .tooltip__content {
+    transform: translate(-50%, 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .tooltip__content {
+        transition: none;
+    }
+}

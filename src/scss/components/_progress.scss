@@ -1,0 +1,58 @@
+/* Progress — native progress element with a labelled value and semantic states. */
+
+.progress {
+    display: grid;
+    gap: var(--space-xs);
+    color: var(--color-text-primary);
+}
+
+.progress__header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-m);
+}
+
+.progress__label,
+.progress__value {
+    font-size: var(--text-sm);
+    line-height: var(--lh-label);
+}
+
+.progress__label {
+    font-weight: var(--weight-medium);
+}
+
+.progress__value {
+    color: var(--color-text-secondary);
+}
+
+.progress__bar {
+    inline-size: 100%;
+    block-size: 0.75rem;
+    overflow: hidden;
+    border: 0;
+    border-radius: var(--radius-pill);
+    background: var(--color-surface-container-high);
+    color: var(--progress-color, var(--color-accent));
+    accent-color: var(--progress-color, var(--color-accent));
+}
+
+.progress__bar::-webkit-progress-bar {
+    background: var(--color-surface-container-high);
+}
+
+.progress__bar::-webkit-progress-value {
+    background: var(--progress-color, var(--color-accent));
+    border-radius: inherit;
+}
+
+.progress__bar::-moz-progress-bar {
+    background: var(--progress-color, var(--color-accent));
+    border-radius: inherit;
+}
+
+.progress--info { --progress-color: var(--color-info); }
+.progress--success { --progress-color: var(--color-success); }
+.progress--warning { --progress-color: var(--color-warning); }
+.progress--danger { --progress-color: var(--color-danger); }

@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>themeui-lab</title>
+    <meta name="description" content="ThemeUI Lab is a small, token-driven design system for composing durable interfaces." />
+    <title>themeui-lab — A small system for durable interfaces</title>
     <script type="module">
       import "/src/scss/themeui-lab.scss";
     </script>
@@ -14,36 +15,161 @@
     <div data-docs-header></div>
     <div data-docs-sidebar hidden></div>
 
-    <main class="section docs-main">
-      <section class="section">
-        <div class="container stack stack--lg">
-          <div class="stack stack--xs">
-            <h1>themeui-lab</h1>
-            <p>
-              themeui-lab is a calm, token-driven in-house design system focused on composable primitives,
-              reusable core components, and predictable page composition.
+    <main class="section docs-main lab-home">
+      <section class="lab-home-hero">
+        <div class="container lab-home-hero__inner">
+          <div class="stack stack--m">
+            <p class="docs-eyebrow">themeui-lab</p>
+            <h1>A small system for durable interfaces.</h1>
+            <p class="docs-lead lab-home-hero__lead">
+              ThemeUI Lab gives a product team a shared way to make interface decisions: tokens for values,
+              primitives for layout, components for UI, and clear boundaries for putting them together.
             </p>
+            <div class="lab-home-actions">
+              <a class="button button--primary" href="/docs/getting-started.html">Get started</a>
+              <a class="button" href="/docs/components/">Explore components</a>
+            </div>
           </div>
 
-          <div class="grid-12">
-            <article class="card md-col-12 lg-col-4 stack stack--sm">
-              <h2 class="card__title">Docs Directory</h2>
-              <p class="card__text">Browse the full documentation map with section-level intro and examples pages.</p>
-              <a href="/docs/" class="docs-link">Open Docs</a>
+          <aside class="lab-home-hero__map" aria-label="ThemeUI Lab system layers">
+            <p class="docs-card-kicker">The system, in order</p>
+            <ol class="lab-home-layer-list">
+              <li><span>01</span> Foundations</li>
+              <li><span>02</span> Primitives</li>
+              <li><span>03</span> Components</li>
+              <li><span>04</span> Patterns</li>
+              <li><span>05</span> Utilities</li>
+            </ol>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container lab-home-intro">
+          <div class="stack stack--sm">
+            <p class="docs-eyebrow">What it is</p>
+            <h2>A practical design system, not a bag of styles.</h2>
+          </div>
+          <div class="stack stack--sm">
+            <p>
+              The system keeps repeated decisions in one owned place, so a page can be composed without every feature
+              inventing its own spacing, controls, or layout rules.
+            </p>
+            <p>
+              It stays intentionally small: use the existing primitive or component when it owns the job; create a new one only when a repeatable need is clear.
+            </p>
+            <a class="docs-link" href="/docs/rules/">Read the system boundaries</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section lab-home-showcase-section" aria-labelledby="inside-heading">
+        <div class="container stack stack--l">
+          <div class="stack stack--xs">
+            <p class="docs-eyebrow">Inside the system</p>
+            <h2 id="inside-heading">See the building blocks before you browse.</h2>
+            <p class="docs-lead">These are real ThemeUI Lab elements, shown in the roles they are meant to own.</p>
+          </div>
+
+          <div class="lab-home-showcase-grid">
+            <article class="lab-home-showcase">
+              <div class="lab-home-showcase__header">
+                <p class="docs-card-kicker">Foundations</p>
+                <span class="tag">tokens</span>
+              </div>
+              <h3>Shared visual values</h3>
+              <p>Colours, spacing, type, radius, shadows, and motion are defined once and reused everywhere.</p>
+              <div class="lab-home-token-row" aria-label="Example design tokens">
+                <span class="lab-home-token lab-home-token--accent">Accent</span>
+                <span class="lab-home-token lab-home-token--surface">Surface</span>
+                <span class="lab-home-token lab-home-token--space">Space</span>
+              </div>
+              <a class="docs-link" href="/docs/foundations/">Explore foundations</a>
             </article>
 
-            <article class="card md-col-12 lg-col-4 stack stack--sm">
-              <h2 class="card__title">Layout and UI</h2>
-              <p class="card__text">Jump directly to utilities, primitives, components, or patterns through their dedicated intro and examples pages.</p>
-              <a href="/docs/primitives/" class="docs-link">Open Structure Docs</a>
+            <article class="lab-home-showcase">
+              <div class="lab-home-showcase__header">
+                <p class="docs-card-kicker">Primitives</p>
+                <span class="tag">layout</span>
+              </div>
+              <h3>Structure before styling</h3>
+              <p>Containers, sections, stacks, rows, clusters, and grids organise the page before any component is chosen.</p>
+              <div class="lab-home-primitive-demo stack stack--xs" aria-label="Stack primitive example">
+                <span class="lab-home-demo-line lab-home-demo-line--title"></span>
+                <span class="lab-home-demo-line"></span>
+                <span class="lab-home-demo-line lab-home-demo-line--short"></span>
+              </div>
+              <a class="docs-link" href="/docs/primitives/">Explore primitives</a>
             </article>
 
-            <article class="card md-col-12 lg-col-4 stack stack--sm">
-              <h2 class="card__title">Resources</h2>
-              <p class="card__text">Read architecture notes and primitive usage guidance for contributors.</p>
-              <a href="/docs/rules/" class="docs-link">Open System Rules</a>
+            <article class="lab-home-showcase">
+              <div class="lab-home-showcase__header">
+                <p class="docs-card-kicker">Components</p>
+                <span class="tag">UI</span>
+              </div>
+              <h3>Owned interface jobs</h3>
+              <p>Components handle familiar UI jobs and their internal states, without taking responsibility for page layout.</p>
+              <div class="lab-home-component-demo">
+                <span class="tag">Saved</span>
+                <a class="button button--primary" href="/docs/components/button.html">View button</a>
+              </div>
+              <a class="docs-link" href="/docs/components/">Explore components</a>
             </article>
           </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="start-heading">
+        <div class="container stack stack--l">
+          <div class="stack stack--xs">
+            <p class="docs-eyebrow">Start where you are</p>
+            <h2 id="start-heading">Choose a useful first step.</h2>
+          </div>
+          <div class="lab-home-paths">
+            <a class="lab-home-path" href="/docs/getting-started.html">
+              <span class="docs-card-kicker">New to the system</span>
+              <strong>Get it running</strong>
+              <span>Link the package, import the stylesheet, and build the first page structure.</span>
+            </a>
+            <a class="lab-home-path" href="/docs/components/forms.html">
+              <span class="docs-card-kicker">Building a form</span>
+              <strong>Use the Form Guide</strong>
+              <span>Work through labels, controls, messaging, and layout boundaries in one place.</span>
+            </a>
+            <a class="lab-home-path" href="/docs/components/examples.html">
+              <span class="docs-card-kicker">Looking for UI</span>
+              <strong>Browse live examples</strong>
+              <span>See the component set, usage guidance, and source markup before you implement.</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section lab-home-under-hood" aria-labelledby="under-hood-heading">
+        <div class="container lab-home-under-hood__inner">
+          <div class="stack stack--sm">
+            <p class="docs-eyebrow">Under the hood</p>
+            <h2 id="under-hood-heading">One stylesheet entry. Clear layer order.</h2>
+            <p class="docs-lead">The source stays legible because it loads in the same order the system is explained.</p>
+          </div>
+          <pre class="lab-home-code"><code>themeui-lab.scss
+├── tools
+├── foundations
+├── base
+├── primitives
+├── components
+├── patterns
+└── utilities</code></pre>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container lab-home-next">
+          <div class="stack stack--xs">
+            <p class="docs-eyebrow">Next step</p>
+            <h2>Start with the system, not a workaround.</h2>
+          </div>
+          <a class="button button--primary" href="/docs/getting-started.html">Open Getting Started</a>
         </div>
       </section>
     </main>

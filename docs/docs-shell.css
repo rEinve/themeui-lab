@@ -701,3 +701,312 @@ body {
 .utility-grid-span {
   grid-column: span 4 / span 4;
 }
+
+/* ── Public home ───────────────────────────────────────────────────────── */
+
+.lab-home {
+  gap: 0;
+}
+
+.lab-home > .section {
+  padding-block: var(--section-space);
+}
+
+.lab-home-hero {
+  border-bottom: 1px solid var(--color-outline-variant);
+  background: var(--color-surface-95);
+}
+
+.lab-home-hero__inner {
+  display: grid;
+  gap: var(--space-xl);
+  align-items: center;
+  padding-block: clamp(3rem, 9vw, 7rem);
+}
+
+@media (min-width: 64rem) {
+  .lab-home-hero__inner {
+    grid-template-columns: minmax(0, 1.2fr) minmax(18rem, 0.8fr);
+  }
+}
+
+.lab-home-hero h1 {
+  max-width: 13ch;
+  margin: 0;
+}
+
+.lab-home-hero__lead {
+  max-width: 42rem;
+  font-size: var(--step-1);
+}
+
+.lab-home-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-s);
+}
+
+.lab-home-hero__map {
+  padding: var(--space-l);
+  border: 1px solid var(--color-outline-variant);
+  border-radius: var(--radius-container-md);
+  background: var(--color-surface-100);
+  box-shadow: var(--shadow-elevation-1);
+}
+
+.lab-home-layer-list {
+  display: grid;
+  gap: var(--space-s);
+  margin: var(--space-m) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.lab-home-layer-list li {
+  display: flex;
+  gap: var(--space-s);
+  align-items: baseline;
+  padding-bottom: var(--space-s);
+  border-bottom: 1px solid var(--color-outline-variant);
+  color: var(--color-text-primary);
+  font-weight: var(--weight-semibold);
+}
+
+.lab-home-layer-list li:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.lab-home-layer-list span {
+  color: var(--color-text-secondary);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-regular);
+}
+
+.lab-home-intro {
+  display: grid;
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+@media (min-width: 56rem) {
+  .lab-home-intro {
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  }
+}
+
+.lab-home-intro h2,
+.lab-home-intro p {
+  margin: 0;
+}
+
+.lab-home-intro p {
+  color: var(--color-text-secondary);
+}
+
+.lab-home-showcase-section {
+  border-block: 1px solid var(--color-outline-variant);
+  background: var(--color-surface-95);
+}
+
+.lab-home-showcase-grid {
+  display: grid;
+  gap: var(--space-s);
+}
+
+@media (min-width: 56rem) {
+  .lab-home-showcase-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.lab-home-showcase {
+  display: grid;
+  gap: var(--space-s);
+  align-content: start;
+  min-width: 0;
+  padding: var(--space-l);
+  border: 1px solid var(--color-outline-variant);
+  border-radius: var(--radius-container-md);
+  background: var(--color-surface-100);
+}
+
+.lab-home-showcase h3,
+.lab-home-showcase p {
+  margin: 0;
+}
+
+.lab-home-showcase p:not(.docs-card-kicker) {
+  color: var(--color-text-secondary);
+}
+
+.lab-home-showcase__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-s);
+}
+
+.lab-home-token-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  margin-top: var(--space-xs);
+}
+
+.lab-home-token {
+  display: inline-flex;
+  min-height: 2.5rem;
+  align-items: center;
+  padding-inline: var(--space-s);
+  border: 1px solid var(--color-outline-variant);
+  border-radius: var(--radius-control-sm);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+}
+
+.lab-home-token--accent {
+  border-color: transparent;
+  background: var(--color-accent);
+  color: var(--color-surface-100);
+}
+
+.lab-home-token--surface {
+  background: var(--color-surface-95);
+  color: var(--color-text-primary);
+}
+
+.lab-home-token--space {
+  border-style: dashed;
+  color: var(--color-text-secondary);
+}
+
+.lab-home-primitive-demo {
+  min-height: 7rem;
+  padding: var(--space-m);
+  border: 1px dashed var(--color-outline-variant);
+  border-radius: var(--radius-control-md);
+  background: var(--color-surface-95);
+}
+
+.lab-home-demo-line {
+  display: block;
+  width: 100%;
+  height: 0.625rem;
+  border-radius: var(--radius-control-sm);
+  background: var(--color-outline-variant);
+}
+
+.lab-home-demo-line--title {
+  width: 52%;
+  background: var(--color-text-primary);
+}
+
+.lab-home-demo-line--short {
+  width: 68%;
+}
+
+.lab-home-component-demo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-s);
+  min-height: 7rem;
+  padding: var(--space-m);
+  border: 1px dashed var(--color-outline-variant);
+  border-radius: var(--radius-control-md);
+  background: var(--color-surface-95);
+}
+
+.lab-home-component-demo .button {
+  margin-left: auto;
+}
+
+.lab-home-paths {
+  display: grid;
+  gap: var(--space-s);
+}
+
+@media (min-width: 56rem) {
+  .lab-home-paths {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.lab-home-path {
+  display: grid;
+  gap: var(--space-xs);
+  min-height: 11rem;
+  padding: var(--space-l);
+  border: 1px solid var(--color-outline-variant);
+  border-radius: var(--radius-container-md);
+  background: var(--color-surface-100);
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  transition:
+    box-shadow var(--motion-fast) var(--motion-ease-standard),
+    border-color var(--motion-fast) var(--motion-ease-standard);
+}
+
+.lab-home-path strong {
+  color: var(--color-text-primary);
+  font-size: var(--step-1);
+}
+
+.lab-home-path:hover {
+  border-color: var(--color-outline);
+  box-shadow: var(--shadow-elevation-2);
+}
+
+.lab-home-path:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+.lab-home-under-hood {
+  border-block: 1px solid var(--color-outline-variant);
+  background: var(--color-surface-95);
+}
+
+.lab-home-under-hood__inner {
+  display: grid;
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+@media (min-width: 56rem) {
+  .lab-home-under-hood__inner {
+    grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.8fr);
+  }
+}
+
+.lab-home-code {
+  margin: 0;
+  overflow-x: auto;
+  padding: var(--space-l);
+  border: 1px solid var(--color-outline-variant);
+  border-radius: var(--radius-container-md);
+  background: var(--color-surface-100);
+  color: var(--color-text-primary);
+  font-size: var(--text-sm);
+  line-height: 1.7;
+}
+
+.lab-home-next {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  justify-content: space-between;
+  gap: var(--space-m);
+}
+
+.lab-home-next h2 {
+  margin: 0;
+}
+
+@media (forced-colors: active) {
+  .lab-home-path:focus-visible {
+    outline-color: Highlight;
+  }
+}

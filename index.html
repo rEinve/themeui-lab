@@ -8,19 +8,11 @@
       import "/src/scss/themeui-lab.scss";
     </script>
     <link rel="stylesheet" href="/docs/docs-shell.css" />
+    <script type="module" src="/docs/docs-sidebar.js"></script>
   </head>
   <body>
-    <header class="section docs-topbar">
-      <div class="container docs-topbar-inner">
-        <div class="docs-nav">
-          <a href="/" class="docs-link">themeui-lab</a>
-          <a href="/docs/" class="docs-link">Docs</a>
-        </div>
-        <div class="docs-nav">
-          <a href="https://github.com/rEinve/themeui-lab.git" class="docs-link" target="_blank" rel="noreferrer">Resource</a>
-        </div>
-      </div>
-    </header>
+    <div data-docs-header></div>
+    <div data-docs-sidebar hidden></div>
 
     <main class="section docs-main">
       <section class="section">

@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="ThemeUI Lab documentation for tokens, layout primitives, reusable components, and composition rules." />
     <title>themeui-lab Docs — Build with a clear system</title>
     <script type="module">
       import "/src/scss/themeui-lab.scss";
@@ -14,286 +15,117 @@
     <div data-docs-header></div>
 
     <main class="section docs-main">
-      <section class="section">
-        <div class="container docs-home">
-          <aside class="docs-home__sidebar">
-            <div data-docs-sidebar></div>
-          </aside>
+      <div class="container docs-home">
+        <aside class="docs-home__sidebar">
+          <div data-docs-sidebar></div>
+        </aside>
 
-          <div class="docs-home__content stack stack--xl">
-            <section class="stack stack--sm">
-              <p class="docs-eyebrow">themeui-lab documentation</p>
-              <h1>Build with a clear system.</h1>
-              <p class="docs-lead">
-                themeui-lab gives teams and agents a shared vocabulary for building interfaces. Start with the job you are doing,
-                then move through the system layers instead of collecting one-off fixes.
-              </p>
-            </section>
+        <div class="docs-home__content stack stack--xl">
+          <section class="docs-home-hero stack stack--sm">
+            <p class="docs-eyebrow">themeui-lab documentation</p>
+            <h1>Build clear, durable interfaces.</h1>
+            <p class="docs-lead">
+              ThemeUI Lab is a small design system for building predictable interfaces. Start with the work in front of you,
+              then use the right layer instead of adding a local fix.
+            </p>
+            <div class="docs-page-nav" aria-label="Popular documentation">
+              <a href="/docs/components/forms.html" class="docs-link">Form guide</a>
+              <a href="/docs/components/examples.html" class="docs-link">Component examples</a>
+              <a href="/docs/utilities/spacing.html" class="docs-link">Spacing utilities</a>
+            </div>
+          </section>
 
-            <section class="stack stack--sm" aria-labelledby="docs-start-heading">
-              <div class="stack stack--xs">
-                <p class="docs-eyebrow">Start here</p>
-                <h2 id="docs-start-heading">Choose the shortest useful path</h2>
-              </div>
-              <div class="docs-card-grid">
-                <article class="docs-start-card">
-                  <h2>Building a page</h2>
-                  <p>Start with layout primitives before choosing components or local spacing.</p>
-                  <a href="/docs/primitives/" class="docs-link">Open Primitives</a>
-                </article>
-                <article class="docs-start-card">
-                  <h2>Adding UI</h2>
-                  <p>Use a documented component when the interface job already has an owned solution.</p>
-                  <a href="/docs/components/" class="docs-link">Open Components</a>
-                </article>
-                <article class="docs-start-card">
-                  <h2>Changing the visual language</h2>
-                  <p>Find the token and foundation contract before changing a value in one place.</p>
-                  <a href="/docs/foundations/" class="docs-link">Open Foundations</a>
-                </article>
-                <article class="docs-start-card">
-                  <h2>Working with an agent</h2>
-                  <p>Give the agent the decision path and system boundary before asking it to write markup.</p>
-                  <a href="/docs/for-agents.html" class="docs-link">Read the agent guide</a>
-                </article>
-              </div>
-            </section>
+          <section class="stack stack--sm" aria-labelledby="start-heading">
+            <div class="stack stack--xs">
+              <p class="docs-eyebrow">Start by task</p>
+              <h2 id="start-heading">What are you doing?</h2>
+            </div>
+            <div class="docs-card-grid docs-card-grid--start">
+              <article class="docs-start-card">
+                <p class="docs-card-kicker">01</p>
+                <h3>Building a page</h3>
+                <p>Use the layout primitives to organise sections, width, flow, and responsive structure.</p>
+                <a href="/docs/primitives/" class="docs-link">Start with Primitives</a>
+              </article>
+              <article class="docs-start-card">
+                <p class="docs-card-kicker">02</p>
+                <h3>Adding interface UI</h3>
+                <p>Choose an existing component for a familiar interaction before creating something new.</p>
+                <a href="/docs/components/" class="docs-link">Browse Components</a>
+              </article>
+              <article class="docs-start-card">
+                <p class="docs-card-kicker">03</p>
+                <h3>Changing the language</h3>
+                <p>Find the relevant token or foundation before changing colour, type, radius, motion, or spacing.</p>
+                <a href="/docs/foundations/" class="docs-link">Open Foundations</a>
+              </article>
+            </div>
+          </section>
 
-            <section class="docs-topic stack stack--sm">
-              <div class="stack stack--xs">
-                <p class="docs-eyebrow">System map</p>
-                <h2>Browse the system by layer</h2>
-                <p class="docs-lead">The directory below runs bottom-up: foundations, icons, primitives, components, patterns, utilities, composition, and rules.</p>
-              </div>
-            </section>
+          <section class="docs-home-callout" aria-labelledby="forms-heading">
+            <div class="stack stack--xs">
+              <p class="docs-eyebrow">A common path</p>
+              <h2 id="forms-heading">Building a form?</h2>
+              <p>Start with labels, messaging, control choice, and layout boundaries in one practical guide.</p>
+            </div>
+            <a href="/docs/components/forms.html" class="docs-link">Open the Form Guide</a>
+          </section>
 
-            <section class="docs-topic stack stack--sm">
-              <div class="stack stack--xs">
-                <h2>Popular starting point: Forms</h2>
-                <p class="card__text">If you are building a form, start with the dedicated guide instead of hunting through individual component pages.</p>
-              </div>
-              <div class="docs-topic-row">
-                <div class="stack stack--xs">
-                  <p class="docs-section-label">Form Guide</p>
-                  <p class="card__text">Open the quick path for labels, validation messages, control selection, accessibility, and layout boundaries.</p>
+          <section class="stack stack--sm" aria-labelledby="system-map-heading">
+            <div class="stack stack--xs">
+              <p class="docs-eyebrow">System map</p>
+              <h2 id="system-map-heading">Browse by responsibility</h2>
+              <p class="docs-lead">Every part of the system has an owner. That keeps changes understandable as the library grows.</p>
+            </div>
+            <div class="docs-layer-grid">
+              <article class="docs-layer-card">
+                <p class="docs-card-kicker">Foundation</p>
+                <h3>Foundations &amp; icons</h3>
+                <p>Tokens and shared visual language: colour, spacing, typography, radius, shadows, motion, and icons.</p>
+                <div class="docs-layer-card__links">
+                  <a href="/docs/foundations/">Foundations</a>
+                  <a href="/docs/icons/">Icons</a>
                 </div>
-                <div class="docs-topic-actions stack stack--xs">
-                  <a href="/docs/components/forms.html" class="docs-link">Open Form Guide</a>
+              </article>
+              <article class="docs-layer-card">
+                <p class="docs-card-kicker">Layout</p>
+                <h3>Primitives</h3>
+                <p>Reusable layout building blocks for containers, sections, grids, stacks, rows, and clusters.</p>
+                <div class="docs-layer-card__links">
+                  <a href="/docs/primitives/">Explore primitives</a>
                 </div>
-              </div>
-            </section>
-
-            <section class="docs-topic stack stack--sm">
-              <div class="stack stack--xs">
-                <h2>Foundations</h2>
-                <p class="card__text">Base token families and root contracts that every later layer depends on.</p>
-              </div>
-              <div class="docs-topic-row">
-                <div class="stack stack--xs">
-                  <p class="docs-section-label">Intro</p>
-                  <p class="card__text">Read when you need the token contract, semantic usage guidance, and the base visual rules of the system.</p>
+              </article>
+              <article class="docs-layer-card">
+                <p class="docs-card-kicker">UI</p>
+                <h3>Components</h3>
+                <p>Owned interface elements for actions, inputs, navigation, content surfaces, and feedback.</p>
+                <div class="docs-layer-card__links">
+                  <a href="/docs/components/">Explore components</a>
+                  <a href="/docs/components/examples.html">See examples</a>
                 </div>
-                <div class="docs-topic-actions stack stack--xs">
-                  <a href="/docs/foundations/" class="docs-link">Open Foundations Intro</a>
+              </article>
+              <article class="docs-layer-card">
+                <p class="docs-card-kicker">Assembly</p>
+                <h3>Patterns &amp; composition</h3>
+                <p>Page-level assemblies and the rules for combining layers without moving responsibilities into the wrong place.</p>
+                <div class="docs-layer-card__links">
+                  <a href="/docs/patterns/">Patterns</a>
+                  <a href="/docs/composition/">Composition</a>
                 </div>
-              </div>
-              <div class="docs-topic-row">
-                <div class="stack stack--xs">
-                  <p class="docs-section-label">Examples</p>
-                  <p class="card__text">Open token previews and base examples when you need a fast reference for system values.</p>
+              </article>
+              <article class="docs-layer-card">
+                <p class="docs-card-kicker">Adjustment</p>
+                <h3>Utilities &amp; rules</h3>
+                <p>Small late-stage helpers and the architecture boundaries that keep the system from drifting.</p>
+                <div class="docs-layer-card__links">
+                  <a href="/docs/utilities/">Utilities</a>
+                  <a href="/docs/rules/">System rules</a>
                 </div>
-                <div class="docs-topic-actions stack stack--xs">
-                  <a href="/docs/foundations/examples.html" class="docs-link">Open Foundations Examples</a>
-                </div>
-              </div>
-            </section>
-
-            <section class="docs-topic stack stack--sm">
-              <div class="stack stack--xs">
-                <h2>Icons</h2>
-                <p class="card__text">The shared icon layer that sits alongside the base system language and supports common UI actions.</p>
-              </div>
-              <div class="docs-topic-row">
-                <div class="stack stack--xs">
-                  <p class="docs-section-label">Intro</p>
-                  <p class="card__text">Read when you need the default icon style, variant guidance, and the role of icons in the base system.</p>
-                </div>
-                <div class="docs-topic-actions stack stack--xs">
-                  <a href="/docs/icons/" class="docs-link">Open Icons Intro</a>
-                </div>
-              </div>
-              <div class="docs-topic-row">
-                <div class="stack stack--xs">
-                  <p class="docs-section-label">Examples</p>
-                  <p class="card__text">Open icon examples when you need a quick visual check of the available icon styles.</p>
-                </div>
-                <div class="docs-topic-actions stack stack--xs">
-                  <a href="/docs/icons/examples.html" class="docs-link">Open Icons Examples</a>
-                </div>
-              </div>
-            </section>
-
-            <section class="docs-topic stack stack--sm">
-              <div class="stack stack--xs">
-                <h2>Primitives</h2>
-                <p class="card__text">Structural layout building blocks for regions, width, columns, and flow.</p>
-              </div>
-              <div class="docs-topic-row">
-                <div class="stack stack--xs">
-                  <p class="docs-section-label">Intro</p>
-                  <p class="card__text">Read when you are placing containers, sections, grids, rows, or stacks in a page shell.</p>
-                </div>
-                <div class="docs-topic-actions stack stack--xs">
-                  <a href="/docs/primitives/" class="docs-link">Open Primitives Intro</a>
-                </div>
-              </div>
-              <div class="docs-topic-row">
-                <div class="stack stack--xs">
-                  <p class="docs-section-label">Examples</p>
-                  <p class="card__text">Open working primitive examples for grid, stack, row, and layout composition.</p>
-                </div>
-                <div class="docs-topic-actions stack stack--xs">
-                  <a href="/docs/primitives/examples.html" class="docs-link">Open Primitives Examples</a>
-                </div>
-              </div>
-            </section>
-
-            <section class="docs-topic stack stack--sm">
-              <div class="stack stack--xs">
-                <h2>Components</h2>
-                <p class="card__text">Reusable UI pieces such as buttons, fields, tabs, tables, lists, and cards.</p>
-              </div>
-              <div class="docs-topic-row">
-                <div class="stack stack--xs">
-                  <p class="docs-section-label">Intro</p>
-                  <p class="card__text">Read when you need the boundary and intent of the component layer before adding or changing UI elements.</p>
-                </div>
-                <div class="docs-topic-actions stack stack--xs">
-                  <a href="/docs/components/" class="docs-link">Open Components Intro</a>
-                </div>
-              </div>
-              <div class="docs-topic-row">
-                <div class="stack stack--xs">
-                  <p class="docs-section-label">Examples</p>
-                  <p class="card__text">Open the component reference for action, form, navigation, and content-surface examples.</p>
-                </div>
-                <div class="docs-topic-actions stack stack--xs">
-                  <a href="/docs/components/examples.html" class="docs-link">Open Components Examples</a>
-                </div>
-              </div>
-              <div class="docs-topic-row">
-                <div class="stack stack--xs">
-                  <p class="docs-section-label">Form Guide</p>
-                  <p class="card__text">Jump straight to the form docs bundle for field messaging, inputs, selection controls, and the canonical example.</p>
-                </div>
-                <div class="docs-topic-actions stack stack--xs">
-                  <a href="/docs/components/forms.html" class="docs-link">Open Form Guide</a>
-                </div>
-              </div>
-            </section>
-
-            <section class="docs-topic stack stack--sm">
-              <div class="stack stack--xs">
-                <h2>Patterns</h2>
-                <p class="card__text">Page-level assemblies that coordinate multiple regions, behaviors, and reusable pieces.</p>
-              </div>
-              <div class="docs-topic-row">
-                <div class="stack stack--xs">
-                  <p class="docs-section-label">Intro</p>
-                  <p class="card__text">Read when you need to understand what belongs in a pattern instead of a component or primitive.</p>
-                </div>
-                <div class="docs-topic-actions stack stack--xs">
-                  <a href="/docs/patterns/" class="docs-link">Open Patterns Intro</a>
-                </div>
-              </div>
-              <div class="docs-topic-row">
-                <div class="stack stack--xs">
-                  <p class="docs-section-label">Examples</p>
-                  <p class="card__text">Open hero, related-posts, and app-shell examples when composing larger page sections.</p>
-                </div>
-                <div class="docs-topic-actions stack stack--xs">
-                  <a href="/docs/patterns/examples.html" class="docs-link">Open Patterns Examples</a>
-                </div>
-              </div>
-            </section>
-
-            <section class="docs-topic stack stack--sm">
-              <div class="stack stack--xs">
-                <h2>Utilities</h2>
-                <p class="card__text">Late-stage helpers for alignment, centering, spacing, surface, and text refinements after structure is already in place.</p>
-              </div>
-              <div class="docs-topic-row">
-                <div class="stack stack--xs">
-                  <p class="docs-section-label">Intro</p>
-                  <p class="card__text">Read when you need to understand where utilities belong and how to use them without replacing layout structure.</p>
-                </div>
-                <div class="docs-topic-actions stack stack--xs">
-                  <a href="/docs/utilities/" class="docs-link">Open Utilities Intro</a>
-                </div>
-              </div>
-              <div class="docs-topic-row">
-                <div class="stack stack--xs">
-                  <p class="docs-section-label">Examples</p>
-                  <p class="card__text">Open centering and alignment examples when you need a concrete class combination quickly.</p>
-                </div>
-                <div class="docs-topic-actions stack stack--xs">
-                  <a href="/docs/utilities/examples.html" class="docs-link">Open Utilities Examples</a>
-                </div>
-              </div>
-            </section>
-
-            <section class="docs-topic stack stack--sm">
-              <div class="stack stack--xs">
-                <h2>Composition</h2>
-                <p class="card__text">The layer map that explains how the system parts fit together in a predictable page structure.</p>
-              </div>
-              <div class="docs-topic-row">
-                <div class="stack stack--xs">
-                  <p class="docs-section-label">Intro</p>
-                  <p class="card__text">Read when you need help deciding where a new layout or UI decision belongs in the system.</p>
-                </div>
-                <div class="docs-topic-actions stack stack--xs">
-                  <a href="/docs/composition/" class="docs-link">Open Composition Intro</a>
-                </div>
-              </div>
-              <div class="docs-topic-row">
-                <div class="stack stack--xs">
-                  <p class="docs-section-label">Examples</p>
-                  <p class="card__text">Open composition examples for page-shell, flow, and reusable UI assembly.</p>
-                </div>
-                <div class="docs-topic-actions stack stack--xs">
-                  <a href="/docs/composition/examples.html" class="docs-link">Open Composition Examples</a>
-                </div>
-              </div>
-            </section>
-
-            <section class="docs-topic stack stack--sm">
-              <div class="stack stack--xs">
-                <h2>Rules</h2>
-                <p class="card__text">Architecture guardrails that prevent layer drift and keep the system small and maintainable.</p>
-              </div>
-              <div class="docs-topic-row">
-                <div class="stack stack--xs">
-                  <p class="docs-section-label">Intro</p>
-                  <p class="card__text">Read when you want the shortest path to the system rules and boundary decisions.</p>
-                </div>
-                <div class="docs-topic-actions stack stack--xs">
-                  <a href="/docs/rules/" class="docs-link">Open Rules Intro</a>
-                </div>
-              </div>
-              <div class="docs-topic-row">
-                <div class="stack stack--xs">
-                  <p class="docs-section-label">Examples</p>
-                  <p class="card__text">Open applied rule examples when you need practical guidance for checking scope and placement.</p>
-                </div>
-                <div class="docs-topic-actions stack stack--xs">
-                  <a href="/docs/rules/examples.html" class="docs-link">Open Rules Examples</a>
-                </div>
-              </div>
-            </section>
-          </div>
+              </article>
+            </div>
+          </section>
         </div>
-      </section>
+      </div>
     </main>
   </body>
 </html>

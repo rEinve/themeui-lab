@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Start using ThemeUI Lab in a consuming project and find the right layer for your first interface." />
+    <title>Getting started — themeui-lab Docs</title>
+    <script type="module">
+      import "/src/scss/themeui-lab.scss";
+    </script>
+    <link rel="stylesheet" href="/docs/docs-shell.css" />
+    <script type="module" src="/docs/docs-sidebar.js"></script>
+  </head>
+  <body>
+    <div data-docs-header></div>
+
+    <main class="section docs-main">
+      <section class="section">
+        <div class="container docs-shell">
+          <aside class="docs-shell__sidebar">
+            <div data-docs-sidebar></div>
+          </aside>
+
+          <div class="docs-shell__content stack stack--xl">
+            <section class="docs-home-hero stack stack--sm">
+              <p class="docs-eyebrow">Getting started</p>
+              <h1>Start small. Use the system in order.</h1>
+              <p class="docs-lead">
+                Bring in the shared stylesheet, start the page with layout primitives, then choose the smallest component that owns the interface job.
+              </p>
+            </section>
+
+            <section class="stack stack--sm" aria-labelledby="link-heading">
+              <div class="stack stack--xs">
+                <p class="docs-eyebrow">1. Link a local package</p>
+                <h2 id="link-heading">Use it in a consuming project</h2>
+                <p class="docs-lead">ThemeUI Lab is currently linked locally while the package evolves. Build the stylesheet before linking it into another project.</p>
+              </div>
+              <div class="example-code-shell">
+                <pre class="example-code"><code># In this repository
+npm run build:package
+npm link
+
+# In the consuming project
+npm link themeui-lab</code></pre>
+              </div>
+              <div class="example-code-shell">
+                <pre class="example-code"><code>// In the consuming app entry point
+import "themeui-lab/styles.css";
+import { initTabs, initCarousels } from "themeui-lab";</code></pre>
+              </div>
+            </section>
+
+            <section class="stack stack--sm" aria-labelledby="first-interface-heading">
+              <div class="stack stack--xs">
+                <p class="docs-eyebrow">2. Build the page before the detail</p>
+                <h2 id="first-interface-heading">Start with layout primitives</h2>
+                <p class="docs-lead">Primitives own the page structure. Components can then focus on their internal UI without inheriting page-level layout work.</p>
+              </div>
+              <div class="example-code-shell">
+                <pre class="example-code"><code>&lt;main&gt;
+  &lt;section class="section"&gt;
+    &lt;div class="container"&gt;
+      &lt;div class="stack stack--l"&gt;
+        &lt;h1&gt;Page title&lt;/h1&gt;
+        &lt;p&gt;Page introduction.&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+&lt;/main&gt;</code></pre>
+              </div>
+            </section>
+
+            <section class="stack stack--sm" aria-labelledby="next-heading">
+              <div class="stack stack--xs">
+                <p class="docs-eyebrow">3. Find the next right document</p>
+                <h2 id="next-heading">Continue by the work you need to do</h2>
+              </div>
+              <div class="docs-card-grid">
+                <article class="docs-start-card">
+                  <h3>Need a component?</h3>
+                  <p>Find the owned UI element and its markup, states, and example code.</p>
+                  <a class="docs-link" href="/docs/components/">Browse components</a>
+                </article>
+                <article class="docs-start-card">
+                  <h3>Need a visual value?</h3>
+                  <p>Use tokens for colour, spacing, typography, radius, shadow, and motion.</p>
+                  <a class="docs-link" href="/docs/foundations/">Open foundations</a>
+                </article>
+                <article class="docs-start-card">
+                  <h3>Unsure where it belongs?</h3>
+                  <p>Check the boundaries before creating new classes or changing component scope.</p>
+                  <a class="docs-link" href="/docs/rules/">Read system rules</a>
+                </article>
+              </div>
+            </section>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

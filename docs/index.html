@@ -3,12 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>themeui-lab Docs</title>
+    <title>themeui-lab Docs — Build with a clear system</title>
     <script type="module">
       import "/src/scss/themeui-lab.scss";
     </script>
     <link rel="stylesheet" href="/docs/docs-shell.css" />
-    <script src="/docs/docs-sidebar.js" defer></script>
+    <script type="module" src="/docs/docs-sidebar.js"></script>
   </head>
   <body>
     <div data-docs-header></div>
@@ -23,12 +23,48 @@
           <div class="docs-home__content stack stack--xl">
             <section class="stack stack--sm">
               <p class="docs-eyebrow">themeui-lab documentation</p>
-              <h1>Docs directory</h1>
+              <h1>Build with a clear system.</h1>
               <p class="docs-lead">
-                All active documentation now lives inside the <code class="docs-inline-code">docs/</code> folder.
-                The docs are arranged bottom-up by system layer: foundations first, then icons, primitives, components, patterns, utilities,
-                and finally composition and rules. Each section keeps intro and examples separate, and the sidebar links to the actual item pages.
+                themeui-lab gives teams and agents a shared vocabulary for building interfaces. Start with the job you are doing,
+                then move through the system layers instead of collecting one-off fixes.
               </p>
+            </section>
+
+            <section class="stack stack--sm" aria-labelledby="docs-start-heading">
+              <div class="stack stack--xs">
+                <p class="docs-eyebrow">Start here</p>
+                <h2 id="docs-start-heading">Choose the shortest useful path</h2>
+              </div>
+              <div class="docs-card-grid">
+                <article class="docs-start-card">
+                  <h2>Building a page</h2>
+                  <p>Start with layout primitives before choosing components or local spacing.</p>
+                  <a href="/docs/primitives/" class="docs-link">Open Primitives</a>
+                </article>
+                <article class="docs-start-card">
+                  <h2>Adding UI</h2>
+                  <p>Use a documented component when the interface job already has an owned solution.</p>
+                  <a href="/docs/components/" class="docs-link">Open Components</a>
+                </article>
+                <article class="docs-start-card">
+                  <h2>Changing the visual language</h2>
+                  <p>Find the token and foundation contract before changing a value in one place.</p>
+                  <a href="/docs/foundations/" class="docs-link">Open Foundations</a>
+                </article>
+                <article class="docs-start-card">
+                  <h2>Working with an agent</h2>
+                  <p>Give the agent the decision path and system boundary before asking it to write markup.</p>
+                  <a href="/docs/for-agents.html" class="docs-link">Read the agent guide</a>
+                </article>
+              </div>
+            </section>
+
+            <section class="docs-topic stack stack--sm">
+              <div class="stack stack--xs">
+                <p class="docs-eyebrow">System map</p>
+                <h2>Browse the system by layer</h2>
+                <p class="docs-lead">The directory below runs bottom-up: foundations, icons, primitives, components, patterns, utilities, composition, and rules.</p>
+              </div>
             </section>
 
             <section class="docs-topic stack stack--sm">

@@ -1,7 +1,7 @@
 {
   "name": "themeui-lab",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "module",
   "types": "./src/js/index.d.ts",
   "exports": {
@@ -27,6 +27,9 @@
     "**/*.css",
     "**/*.scss"
   ],
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+  },
   "scripts": {
     "dev": "vite",
     "build:styles": "sass src/scss/themeui-lab.scss dist/themeui-lab.css --no-source-map --style=expanded",

@@ -19,4 +19,4 @@ npm run build
 
 $ssh_command "$server" "sudo install -d -o ubuntu -g www-data -m 0755 '$release_root'"
 rsync -az --delete --chmod=Du=rwx,Dgo=rx,Fu=rw,Fgo=r -e "$ssh_command" "$build_root/" "$server:$release_root/"
-$ssh_command "$server" "ln -s 'releases/$release_version' '$site_root/current.next' && mv -Tf '$site_root/current.next' '$site_root/current'"
+$ssh_command "$server" "sudo ln -s 'releases/$release_version' '$site_root/current.next' && sudo mv -Tf '$site_root/current.next' '$site_root/current'"
